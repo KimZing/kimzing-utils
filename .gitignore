@@ -1,0 +1,20 @@
+#gralde build
+build
+gradle
+.gradle
+classes
+gradlew*
+
+#idea
+.idea
+*.iml
+out
+
+#java
+*.class
+*.jar
+*.war
+*.ear
+
+#log
+phoenix_log/
