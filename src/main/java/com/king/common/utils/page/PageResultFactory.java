@@ -20,7 +20,8 @@ public class PageResultFactory {
 
     public  <E> PageResult<E> convert(PageResult pageResult, Class<E> dtoClass) {
         List<E> dtoList = MapperUtils.mapperList(pageResult.getList(), dtoClass);
-        return new PageResult<E>(pageResult.getPage(), pageResult.getCount(), dtoList);
+        //+1是因为hibernate分页从0开始
+        return new PageResult<E>(pageResult.getPage() + 1, pageResult.getCount(), dtoList);
     }
 
     public <T, E> PageResult<E> convert(PageResult<T> pageResult, Function<T, E> function) {

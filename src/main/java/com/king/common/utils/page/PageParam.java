@@ -19,7 +19,7 @@ public class PageParam {
     }
 
     //当前页
-    private Integer p = 1;
+    private Integer p = 0;
 
     //每页容量
     private Integer c;
@@ -33,8 +33,9 @@ public class PageParam {
     }
 
     public void setP(Integer p) {
-        if (p != null) {
-            this.p = p;
+        if (p != null && p > 0) {
+            //hibernate分页从第0页开始
+            this.p = p - 1;
         }
     }
 
