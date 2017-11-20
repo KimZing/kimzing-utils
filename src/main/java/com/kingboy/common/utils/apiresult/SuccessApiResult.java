@@ -1,4 +1,4 @@
-package com.king.common.utils.apiresult;
+package com.kingboy.common.utils.apiresult;
 
 import lombok.Data;
 

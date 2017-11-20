@@ -1,13 +1,27 @@
-group 'com.king'
-version '1.0-SNAPSHOT'
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
 
 apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 
+group = 'com.kingboy'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
+
 
 ext {
     orikaVersion = '1.5.2'
@@ -16,8 +30,8 @@ ext {
 }
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-autoconfigure")
     compile("ma.glasnost.orika:orika-core:$orikaVersion")
     compile("org.projectlombok:lombok:$lombokVersion")
     compile("com.alibaba:fastjson:$fastJsonVersion")
-    testCompile group: 'junit', name: 'junit', version: '4.11'
 }
