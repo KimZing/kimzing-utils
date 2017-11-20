@@ -1,4 +1,4 @@
-package com.kingboy.common.utils;
+package com.kingboy.common.config.page;
 
 import com.kingboy.common.utils.page.PageResultFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -14,11 +14,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass({ PageResultFactory.class })
-public class CommonAutoConfiguration {
+public class PageConfig {
 
     @Bean
     @ConditionalOnMissingBean(PageResultFactory.class)
-    @ConditionalOnProperty(name = "page.enabled", matchIfMissing = true)
+    @ConditionalOnProperty(name = "king.page.enabled", matchIfMissing = true)
     public PageResultFactory authorResolver() {
         PageResultFactory pageResultFactory = new PageResultFactory();
         return pageResultFactory;
