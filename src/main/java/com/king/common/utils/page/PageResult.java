@@ -1,7 +1,6 @@
 package com.king.common.utils.page;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
