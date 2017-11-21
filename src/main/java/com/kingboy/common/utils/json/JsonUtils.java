@@ -29,6 +29,15 @@ public final class JsonUtils {
     }
 
     /**
+     * 对象转换为json
+     * @param object
+     * @return
+     */
+    public static String beanToJson(Object object) {
+            return JSON.toJSONString(object);
+    }
+
+    /**
      * 对象转换为json,可以带上date的格式化
      * @param object
      * @return
