@@ -28,6 +28,9 @@ ext {
     fastJsonVersion = '1.2.41'
     lombokVersion = '1.16.18'
     swaggerVersion='2.7.0'
+    langVersion='3.7'
+    collectsVersion='3.2.2'
+    beanUtilsVersion='1.9.3'
 }
 
 dependencies {
@@ -37,4 +40,9 @@ dependencies {
     compile("ma.glasnost.orika:orika-core:$orikaVersion")
     compile("org.projectlombok:lombok:$lombokVersion")
     compile("com.alibaba:fastjson:$fastJsonVersion")
+    compile("org.apache.commons:commons-lang3:$langVersion")
+    compile("commons-collections:commons-collections:$collectsVersion")
+    compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
+    //springboot jacson支持jsr310 data/time
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 }
