@@ -47,4 +47,6 @@ dependencies {
     compile("commons-io:commons-io:$ioVersion")
     //springboot jacson支持jsr310 data/time
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    //解决Hibernate不支持LocalDate/Time/DateTime问题
+    compile("org.hibernate:hibernate-java8")
 }
