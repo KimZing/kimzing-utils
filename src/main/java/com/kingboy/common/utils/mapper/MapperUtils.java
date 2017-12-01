@@ -1,4 +1,4 @@
-package com.kingboy.common.tools.mapper;
+package com.kingboy.common.utils.mapper;
 
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;

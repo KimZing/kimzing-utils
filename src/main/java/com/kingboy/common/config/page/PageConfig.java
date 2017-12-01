@@ -1,6 +1,6 @@
 package com.kingboy.common.config.page;
 
-import com.kingboy.common.tools.page.PageResultFactory;
+import com.kingboy.common.utils.page.PageResultFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

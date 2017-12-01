@@ -1,4 +1,4 @@
-package com.kingboy.common.tools.random;
+package com.kingboy.common.utils.random;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.kingboy.common.tools.page;
+package com.kingboy.common.utils.page;
 
 /**
  * @author kingboy--KingBoyWorld@163.com
