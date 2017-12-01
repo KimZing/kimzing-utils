@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.md5;
+package com.kingboy.common.tools.md5;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

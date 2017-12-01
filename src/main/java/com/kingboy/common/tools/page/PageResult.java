@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.page;
+package com.kingboy.common.tools.page;
 
 
 import lombok.Getter;

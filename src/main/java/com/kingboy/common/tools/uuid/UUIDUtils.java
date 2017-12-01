@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.uuid;
+package com.kingboy.common.tools.uuid;
 
 import java.util.ArrayList;
 import java.util.UUID;
