@@ -15,8 +15,6 @@ import java.util.Objects;
  */
 public final class JsonUtils {
 
-    private JsonUtils() { }
-
     /**
      * json串转换为对象
      * @param json

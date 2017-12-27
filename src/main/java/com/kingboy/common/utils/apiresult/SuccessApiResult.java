@@ -8,7 +8,7 @@ import lombok.Data;
  * @desc    正确返回体
  */
 @Data
-public class SuccessApiResult extends AbstractApiResult {
+public class SuccessApiResult extends ApiResult {
 
     private Object data;
 

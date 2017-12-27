@@ -1,4 +1,4 @@
-package com.kingboy.common.config.swagger;
+package com.kingboy.common.config;
 
 import lombok.Data;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -26,7 +26,7 @@ import springfox.documentation.swagger2.web.Swagger2Controller;
 @ConfigurationProperties(prefix = "king.swagger")
 @ConditionalOnProperty(name = "king.swagger.enabled", havingValue = "true")
 @ConditionalOnClass(value = Swagger2Controller.class)
-public class SwaggerConfig {
+public class SwaggerConfiguration {
 
     private String basePackage = "com.kingboy.controller";
 

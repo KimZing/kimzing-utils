@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.kingboy.common.config.page.PageConfig,com.kingboy.common.config.swagger.SwaggerConfig
+com.kingboy.common.config.PageResultFactoryConfiguration,com.kingboy.common.config.SwaggerConfiguration

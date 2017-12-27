@@ -8,7 +8,7 @@ import lombok.Data;
  * @desc  返回体.
  */
 @Data
-public abstract class AbstractApiResult {
+public abstract class ApiResult {
 
     protected String code;
 
@@ -17,7 +17,7 @@ public abstract class AbstractApiResult {
      * @param data 数据
      * @return 正常返回体
      */
-    public static AbstractApiResult success(Object data) {
+    public static ApiResult success(Object data) {
         return new SuccessApiResult(data);
     }
 
@@ -27,7 +27,7 @@ public abstract class AbstractApiResult {
      * @param errorMessage 错误信息
      * @return 错误返回体
      */
-    public static AbstractApiResult error(String errorCode, String errorMessage) {
+    public static ApiResult error(String errorCode, String errorMessage) {
         return new ErrorApiResult(errorCode, errorMessage);
     }
 

@@ -1,5 +1,6 @@
 package com.kingboy.common.utils.mapper;
 
+import lombok.NoArgsConstructor;
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import ma.glasnost.orika.metadata.ClassMapBuilder;
@@ -14,8 +15,6 @@ import java.util.Map;
  * @desc  属性映射工具.
  */
 public final class MapperUtils {
-
-    private MapperUtils() { }
 
     /**
      * 构建一个Mapper工厂

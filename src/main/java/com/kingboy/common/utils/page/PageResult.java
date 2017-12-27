@@ -1,7 +1,9 @@
 package com.kingboy.common.utils.page;
 
 
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -12,20 +14,20 @@ import java.util.List;
  * @param <T> 实体类型
  * @desc  分页容器.
  */
-@Getter @Setter
+@Data
+@NoArgsConstructor
 public class PageResult<T> {
 
-    private PageResult() { }
     //当前页
     private Integer page;
     //总数量
-    private long count;
+    private long size;
     //分页数据
     private List<T> list;
 
-    public PageResult(int page, long count, List<T> list) {
+    public PageResult(int page, long size, List<T> list) {
         this.page = page;
-        this.count = count;
+        this.size = size;
         this.list = list;
     }
 

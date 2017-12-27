@@ -32,6 +32,7 @@ ext {
     collectsVersion='3.2.2'
     beanUtilsVersion='1.9.3'
     ioVersion='2.6'
+    poiVersion='3.16'
 }
 
 dependencies {
@@ -45,8 +46,8 @@ dependencies {
     compile("commons-collections:commons-collections:$collectsVersion")
     compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
     compile("commons-io:commons-io:$ioVersion")
-    //springboot jacson支持jsr310 data/time
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
-    //解决Hibernate不支持LocalDate/Time/DateTime问题
     compile("org.hibernate:hibernate-java8")
+    compile ("org.apache.poi:poi:$poiVersion")
+    compile ("org.apache.poi:poi-ooxml:$poiVersion")
 }

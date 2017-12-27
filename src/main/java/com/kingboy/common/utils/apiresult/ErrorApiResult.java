@@ -8,7 +8,7 @@ import lombok.Data;
  * @desc  错误返回.
  */
 @Data
-public class ErrorApiResult extends AbstractApiResult {
+public class ErrorApiResult extends ApiResult {
 
     private String msg;
 

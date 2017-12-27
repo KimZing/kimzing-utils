@@ -21,11 +21,11 @@ public class PageResultFactory {
     public  <E> PageResult<E> convert(PageResult pageResult, Class<E> dtoClass) {
         List<E> dtoList = MapperUtils.mapperList(pageResult.getList(), dtoClass);
         //+1是因为hibernate分页从0开始
-        return new PageResult<E>(pageResult.getPage() + 1, pageResult.getCount(), dtoList);
+        return new PageResult<E>(pageResult.getPage() + 1, pageResult.getSize(), dtoList);
     }
 
     public <T, E> PageResult<E> convert(PageResult<T> pageResult, Function<T, E> function) {
-        return new PageResult<E>(pageResult.getPage(), pageResult.getCount(),
+        return new PageResult<E>(pageResult.getPage(), pageResult.getSize(),
                 pageResult.getList().stream().map(function).collect(Collectors.toList()));
     }
 

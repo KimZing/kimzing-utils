@@ -1,4 +1,4 @@
-package com.kingboy.common.config.page;
+package com.kingboy.common.config;
 
 import com.kingboy.common.utils.page.PageResultFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass({ PageResultFactory.class })
-public class PageConfig {
+public class PageResultFactoryConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(PageResultFactory.class)
