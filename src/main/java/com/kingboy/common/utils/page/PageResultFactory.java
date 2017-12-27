@@ -14,19 +14,10 @@ import java.util.stream.Collectors;
  */
 public class PageResultFactory {
 
-    public  <T> PageResult createPageResult(int page, int count, List<T> data) {
-        return new PageResult<T>(page, count, data);
-    }
-
-    public  <E> PageResult<E> convert(PageResult pageResult, Class<E> dtoClass) {
-        List<E> dtoList = MapperUtils.mapperList(pageResult.getList(), dtoClass);
-        //+1是因为hibernate分页从0开始
-        return new PageResult<E>(pageResult.getPage() + 1, pageResult.getSize(), dtoList);
-    }
-
-    public <T, E> PageResult<E> convert(PageResult<T> pageResult, Function<T, E> function) {
-        return new PageResult<E>(pageResult.getPage(), pageResult.getSize(),
-                pageResult.getList().stream().map(function).collect(Collectors.toList()));
+    public  <T, E> PageResult createAndConvert(long page, long count, List<T> data, Class<E> dtoClass) {
+        List<E> dtoList = MapperUtils.mapperList(data, dtoClass);
+        PageResult<E> pageResult = new PageResult<>(page, count, dtoList);
+        return pageResult;
     }
 
 }

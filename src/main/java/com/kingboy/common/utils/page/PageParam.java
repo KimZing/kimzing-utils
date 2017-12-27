@@ -22,6 +22,14 @@ public class PageParam {
     //每页容量
     private Integer size = 10;
 
+    public Integer getHibernatePage() {
+        return page - 1;
+    }
+
+    public Integer getMybatisPage() {
+        return page;
+    }
+
     public void setPage(Integer page) {
         if (Objects.nonNull(page)) {
             this.page = page;

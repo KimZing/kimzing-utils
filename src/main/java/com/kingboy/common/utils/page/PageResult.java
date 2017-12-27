@@ -19,13 +19,13 @@ import java.util.List;
 public class PageResult<T> {
 
     //当前页
-    private Integer page;
+    private long page;
     //总数量
     private long size;
     //分页数据
     private List<T> list;
 
-    public PageResult(int page, long size, List<T> list) {
+    public PageResult(long page, long size, List<T> list) {
         this.page = page;
         this.size = size;
         this.list = list;
