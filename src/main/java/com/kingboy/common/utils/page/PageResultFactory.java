@@ -4,8 +4,6 @@ package com.kingboy.common.utils.page;
 import com.kingboy.common.utils.mapper.MapperUtils;
 
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * @author kingboy--KingBoyWorld@163.com
