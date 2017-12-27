@@ -21,13 +21,17 @@ ext {
 }
 
 dependencies {
-    compile("ma.glasnost.orika:orika-core:$orikaVersion")
-    compile("org.projectlombok:lombok:$lombokVersion")
-    compile("com.alibaba:fastjson:$fastJsonVersion")
-    compile("org.apache.commons:commons-lang3:$langVersion")
-    compile("commons-collections:commons-collections:$collectsVersion")
-    compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
-    compile("commons-io:commons-io:$ioVersion")
+
+    compile (
+        "ma.glasnost.orika:orika-core:$orikaVersion",
+        "org.projectlombok:lombok:$lombokVersion",
+        "com.alibaba:fastjson:$fastJsonVersion",
+        "org.apache.commons:commons-lang3:$langVersion",
+        "commons-collections:commons-collections:$collectsVersion",
+        "commons-beanutils:commons-beanutils:$beanUtilsVersion",
+        "commons-io:commons-io:$ioVersion"
+    )
+
 }
 
 //打包源码
