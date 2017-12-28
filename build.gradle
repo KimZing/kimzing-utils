@@ -42,12 +42,11 @@ task sourceJar(type: Jar) {
 publishing {
     publications {
         maven(MavenPublication) {
-            //指定group/artifact/version信息
+            //指定group/artifact/version信息，可以不填。默认使用项目group/name/version作为groupId/artifactId/version
             groupId project.group
             artifactId project.name
             version project.version
-            //war: components.web
-            //jar: components.java
+            //如果是war包填写components.web，如果是jar包填写components.java
             from components.java
 
             //配置上传源码
