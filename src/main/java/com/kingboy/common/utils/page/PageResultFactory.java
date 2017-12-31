@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class PageResultFactory {
 
-    public  <T, E> PageResult createAndConvert(long page, long count, List<T> data, Class<E> dtoClass) {
+    public  <T, E> PageResult<E> createAndConvert(long page, long count, List<T> data, Class<E> dtoClass) {
         List<E> dtoList = MapperUtils.mapperList(data, dtoClass);
         PageResult<E> pageResult = new PageResult<>(page, count, dtoList);
         return pageResult;
