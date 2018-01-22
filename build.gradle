@@ -59,11 +59,11 @@ publishing {
     repositories {
         maven {
             //指定要上传的maven私服仓库
-            url = "http://jenkins.maxrocky.com:8080/maven/content/repositories/thirdparty/"
+            url = "http://jenkins.maxrocky.com:8081/repository/maxrocky/"
             //认证用户和密码
             credentials {
                 username 'admin'
-                password 'maxrocky5721'
+                password 'admin123'
             }
         }
     }
