@@ -16,4 +16,7 @@ out
 *.war
 *.ear
 
+#os
+.DS*
+
 #log

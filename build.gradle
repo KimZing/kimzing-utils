@@ -18,19 +18,21 @@ ext {
     collectsVersion='3.2.2'
     beanUtilsVersion='1.9.3'
     ioVersion='2.6'
+    poiVersion='3.16'
 }
 
 dependencies {
-
-    compile (
-        "ma.glasnost.orika:orika-core:$orikaVersion",
-        "org.projectlombok:lombok:$lombokVersion",
-        "com.alibaba:fastjson:$fastJsonVersion",
-        "org.apache.commons:commons-lang3:$langVersion",
-        "commons-collections:commons-collections:$collectsVersion",
-        "commons-beanutils:commons-beanutils:$beanUtilsVersion",
-        "commons-io:commons-io:$ioVersion"
-    )
+        compile("ma.glasnost.orika:orika-core:$orikaVersion")
+        compile("org.projectlombok:lombok:$lombokVersion")
+        compile("com.alibaba:fastjson:$fastJsonVersion")
+        //POI
+        compile("org.apache.poi:poi:$poiVersion")
+        compile("org.apache.poi:poi-ooxml:$poiVersion")
+        //commons-util
+        compile("org.apache.commons:commons-lang3:$langVersion")
+        compile("commons-collections:commons-collections:$collectsVersion")
+        compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
+        compile("commons-io:commons-io:$ioVersion")
 
 }
 
@@ -59,7 +61,7 @@ publishing {
     repositories {
         maven {
             //指定要上传的maven私服仓库
-            url = "http://jenkins.maxrocky.com:8081/repository/maxrocky/"
+            url = "http://replaceWithYourUrl.com/repository/maxrocky/"
             //认证用户和密码
             credentials {
                 username 'admin'

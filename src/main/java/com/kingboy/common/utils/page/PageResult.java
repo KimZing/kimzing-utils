@@ -1,9 +1,6 @@
 package com.kingboy.common.utils.page;
 
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 /**
@@ -12,8 +9,6 @@ import java.util.List;
  * @param <T> 实体类型
  * @desc  分页容器.
  */
-@Data
-@NoArgsConstructor
 public class PageResult<T> {
 
     //当前页
@@ -23,10 +18,35 @@ public class PageResult<T> {
     //分页数据
     private List<T> list;
 
+    public PageResult() {}
+
     public PageResult(long page, long size, List<T> list) {
         this.page = page;
         this.size = size;
         this.list = list;
     }
 
+    public long getPage() {
+        return page;
+    }
+
+    public void setPage(long page) {
+        this.page = page;
+    }
+
+    public long getSize() {
+        return size;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
+    }
+
+    public List<T> getList() {
+        return list;
+    }
+
+    public void setList(List<T> list) {
+        this.list = list;
+    }
 }

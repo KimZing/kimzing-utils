@@ -1,13 +1,10 @@
 package com.kingboy.common.utils.result;
 
-import lombok.Data;
-
 /**
  * @author kingboy--KingBoyWorld@163.com
  * @date 2017/7/23 下午7:19
  * @desc  返回体.
  */
-@Data
 public abstract class ApiResult {
 
     protected String code;
@@ -31,5 +28,11 @@ public abstract class ApiResult {
         return new ErrorApiResult(errorCode, errorMessage);
     }
 
+    public String getCode() {
+        return code;
+    }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
 }
