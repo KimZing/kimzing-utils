@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.excel;
+package com.kingboy.utils.excel;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;

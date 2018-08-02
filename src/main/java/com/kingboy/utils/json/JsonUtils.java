@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.json;
+package com.kingboy.utils.json;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

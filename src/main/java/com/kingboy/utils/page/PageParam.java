@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.page;
+package com.kingboy.utils.page;
 
 import java.util.Objects;
 

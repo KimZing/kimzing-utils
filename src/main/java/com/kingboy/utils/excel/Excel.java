@@ -1,4 +1,4 @@
-package com.kingboy.common.utils.excel;
+package com.kingboy.utils.excel;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,7 +1,7 @@
-package com.kingboy.common.utils.page;
+package com.kingboy.utils.page;
 
 
-import com.kingboy.common.utils.mapper.MapperUtils;
+import com.kingboy.utils.mapper.MapperUtils;
 
 import java.util.List;
 
