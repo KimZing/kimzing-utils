@@ -1,4 +1,4 @@
-package com.kingboy.utils.regex;
+package com.kingboy.common.utils.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package com.kingboy.utils.excel;
+package com.kingboy.common.utils.excel;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

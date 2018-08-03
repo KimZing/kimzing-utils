@@ -1,4 +1,4 @@
-package com.kingboy.utils.result;
+package com.kingboy.common.utils.result;
 
 /**
  * @author kingboy--KingBoyWorld@163.com

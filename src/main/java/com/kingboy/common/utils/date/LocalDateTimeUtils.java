@@ -1,4 +1,4 @@
-package com.kingboy.utils.date;
+package com.kingboy.common.utils.date;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
