@@ -19,6 +19,14 @@ public class PageResultFactory {
         return pageResult;
     }
 
+    /**
+     * 为PageHelper提供
+     * @param page
+     * @param dtoClass
+     * @param <T>
+     * @param <E>
+     * @return
+     */
     public static <T, E> PageResult<E> createAndConvert(Page<T> page, Class<E> dtoClass) {
         List<E> dtoList = MapperUtils.mapperList(page.getResult(), dtoClass);
         PageResult<E> pageResult = new PageResult<>(page.getPageNum(), page.getPageSize(), page.getTotal(), dtoList);
