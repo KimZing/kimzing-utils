@@ -1,6 +1,7 @@
 package com.kingboy.common.utils.page;
 
 
+import com.github.pagehelper.Page;
 import com.kingboy.common.utils.mapper.MapperUtils;
 
 import java.util.List;
@@ -12,9 +13,15 @@ import java.util.List;
  */
 public class PageResultFactory {
 
-    public  <T, E> PageResult<E> createAndConvert(long page, long count, List<T> data, Class<E> dtoClass) {
+    public static <T, E> PageResult<E> createAndConvert(Integer pageNum, Integer pageSize, Long total, List<T> data, Class<E> dtoClass) {
         List<E> dtoList = MapperUtils.mapperList(data, dtoClass);
-        PageResult<E> pageResult = new PageResult<>(page, count, dtoList);
+        PageResult<E> pageResult = new PageResult<>(pageNum, pageSize, total, dtoList);
+        return pageResult;
+    }
+
+    public static <T, E> PageResult<E> createAndConvert(Page<T> page, Class<E> dtoClass) {
+        List<E> dtoList = MapperUtils.mapperList(page.getResult(), dtoClass);
+        PageResult<E> pageResult = new PageResult<>(page.getPageNum(), page.getPageSize(), page.getTotal(), dtoList);
         return pageResult;
     }
 

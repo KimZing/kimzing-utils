@@ -7,18 +7,18 @@ package com.kingboy.common.utils.result;
  */
 public class ErrorApiResult extends ApiResult {
 
-    private String msg;
+    private String message;
 
-    ErrorApiResult(String code, String msg) {
+    ErrorApiResult(String code, String message) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

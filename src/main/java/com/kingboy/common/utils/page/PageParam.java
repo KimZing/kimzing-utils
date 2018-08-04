@@ -10,43 +10,43 @@ import java.util.Objects;
 public class PageParam {
 
     //当前页
-    private Integer page = 1;
+    private Integer pageNum = 1;
 
     //每页容量
-    private Integer size = 10;
+    private Integer pageSize = 10;
 
     public PageParam() {}
 
-    public PageParam(Integer page, Integer size) {
-        this.page = page;
-        this.size = size;
+    public PageParam(Integer pageNum, Integer pageSize) {
+        this.pageNum = pageNum;
+        this.pageSize = pageSize;
     }
 
-    public Integer getHibernatePage() {
-        return page - 1;
+    public Integer getHibernatePageNum() {
+        return pageNum - 1;
     }
 
-    public Integer getMybatisPage() {
-        return page;
+    public Integer getMybatisPageNum() {
+        return pageNum;
     }
 
-    public void setPage(Integer page) {
-        if (Objects.nonNull(page)) {
-            this.page = page;
+    public void setPageNum(Integer pageNum) {
+        if (Objects.nonNull(pageNum)) {
+            this.pageNum = pageNum;
         }
     }
 
-    public void setSize(Integer size) {
-        if (Objects.nonNull(size)) {
-            this.size = size;
+    public void setPageSize(Integer pageSize) {
+        if (Objects.nonNull(pageSize)) {
+            this.pageSize = pageSize;
         }
     }
 
-    public Integer getPage() {
-        return page;
+    public Integer getPageSize() {
+        return pageSize;
     }
 
-    public Integer getSize() {
-        return size;
+    public Integer getPageNum() {
+        return pageNum;
     }
 }

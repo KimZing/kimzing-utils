@@ -12,41 +12,55 @@ import java.util.List;
 public class PageResult<T> {
 
     //当前页
-    private long page;
-    //总数量
-    private long size;
+    private Integer pageNum;
+
+    //每页容量
+    private Integer pageSize;
+
+    //总条数
+    private Long total;
+
     //分页数据
-    private List<T> list;
+    private List<T> data;
 
     public PageResult() {}
 
-    public PageResult(long page, long size, List<T> list) {
-        this.page = page;
-        this.size = size;
-        this.list = list;
+    public PageResult(Integer pageNum, Integer pageSize, Long total, List<T> data) {
+        this.pageNum = pageNum;
+        this.pageSize = pageSize;
+        this.total = total;
+        this.data = data;
     }
 
-    public long getPage() {
-        return page;
+    public Integer getPageNum() {
+        return pageNum;
     }
 
-    public void setPage(long page) {
-        this.page = page;
+    public void setPageNum(Integer pageNum) {
+        this.pageNum = pageNum;
     }
 
-    public long getSize() {
-        return size;
+    public Integer getPageSize() {
+        return pageSize;
     }
 
-    public void setSize(long size) {
-        this.size = size;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public List<T> getList() {
-        return list;
+    public Long getTotal() {
+        return total;
     }
 
-    public void setList(List<T> list) {
-        this.list = list;
+    public void setTotal(Long total) {
+        this.total = total;
+    }
+
+    public List<T> getData() {
+        return data;
+    }
+
+    public void setData(List<T> data) {
+        this.data = data;
     }
 }

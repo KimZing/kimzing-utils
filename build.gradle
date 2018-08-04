@@ -13,7 +13,6 @@ repositories {
 ext {
     orikaVersion = '1.5.2'
     fastJsonVersion = '1.2.41'
-    lombokVersion = '1.16.18'
     langVersion='3.7'
     collectsVersion='3.2.2'
     beanUtilsVersion='1.9.3'
@@ -22,17 +21,20 @@ ext {
 }
 
 dependencies {
-        compile("ma.glasnost.orika:orika-core:$orikaVersion")
-        compile("org.projectlombok:lombok:$lombokVersion")
-        compile("com.alibaba:fastjson:$fastJsonVersion")
-        //POI
-        compile("org.apache.poi:poi:$poiVersion")
-        compile("org.apache.poi:poi-ooxml:$poiVersion")
-        //commons-util
-        compile("org.apache.commons:commons-lang3:$langVersion")
-        compile("commons-collections:commons-collections:$collectsVersion")
-        compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
-        compile("commons-io:commons-io:$ioVersion")
+    //Mapper
+    compile("ma.glasnost.orika:orika-core:$orikaVersion")
+    //Json
+    compile("com.alibaba:fastjson:$fastJsonVersion")
+    //PageHelper
+    compile('com.github.pagehelper:pagehelper:4.2.0')
+    //POI
+    compile("org.apache.poi:poi:$poiVersion")
+    compile("org.apache.poi:poi-ooxml:$poiVersion")
+    //commons-util
+    compile("org.apache.commons:commons-lang3:$langVersion")
+    compile("commons-collections:commons-collections:$collectsVersion")
+    compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
+    compile("commons-io:commons-io:$ioVersion")
 
 }
 
