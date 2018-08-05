@@ -18,7 +18,6 @@ ext {
     beanUtilsVersion='1.9.3'
     ioVersion='2.6'
     poiVersion='3.16'
-    pagehelperVersion='5.1.4'
 }
 
 dependencies {
@@ -26,8 +25,6 @@ dependencies {
     compile("ma.glasnost.orika:orika-core:$orikaVersion")
     //Json
     compile("com.alibaba:fastjson:$fastJsonVersion")
-    //PageHelper
-    compile("com.github.pagehelper:pagehelper:${pagehelperVersion}")
     //POI
     compile("org.apache.poi:poi:$poiVersion")
     compile("org.apache.poi:poi-ooxml:$poiVersion")
