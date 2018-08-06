@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
- * @date 2017/7/23 下午7:53
- * @desc  分页容器.
+ * 分页容器.
+ * @author KingBoy - KingBoyWorld@163.com
+ * @since 2018-08-07
  */
 public class Page {
 
@@ -33,7 +33,10 @@ public class Page {
     }
 
     /**
+     * .
      * @param <T> 实体类型
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:21
      */
     public <T> Page(Integer current, Integer size, Long total, List<T> data) {
         this.current = current;
@@ -43,7 +46,10 @@ public class Page {
     }
 
     /**
+     * .
      * @param clazz 要转换的类型
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:21
      */
     public <E> void convert(Class<E> clazz) {
         this.data = MapperUtils.mapperList(data, clazz);

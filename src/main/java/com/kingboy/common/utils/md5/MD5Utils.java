@@ -5,16 +5,20 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 /**
- * @author kingboy
- * @date 2017/7/22 下午1:00
- * @desc MD5工具类, 全部接收UTF编码的String
+ * MD5工具类, 全部接收UTF编码的String.
+ * @author KingBoy - KingBoyWorld@163.com
+ * @since 2018-08-07
  */
 public final class MD5Utils {
 
-    private MD5Utils() { }
-
+    /**
+     * 算法
+     */
     private static final String ALGORITHM_MD5 = "MD5";
 
+    /**
+     * 编码
+     */
     private static final String UTF_8 = "UTF-8";
 
     /**
@@ -22,7 +26,9 @@ public final class MD5Utils {
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * */
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:21
+     */
     public static String md5Bit16Lower(String readyEncryptStr) throws Exception {
         if (Objects.nonNull(readyEncryptStr)) {
             return MD5Utils.md5Bit32Lower(readyEncryptStr).substring(8, 24);
@@ -36,7 +42,9 @@ public final class MD5Utils {
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * */
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:21
+     */
     public static String md5Bit16Upper(String readyEncryptStr) throws Exception {
         return md5Bit16Lower(readyEncryptStr).toUpperCase();
     }
@@ -46,7 +54,9 @@ public final class MD5Utils {
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * */
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:21
+     */
     public static String md5Bit32Lower(String readyEncryptStr) throws Exception {
         if (Objects.nonNull(readyEncryptStr)) {
             MessageDigest md = MessageDigest.getInstance(ALGORITHM_MD5);
@@ -71,7 +81,9 @@ public final class MD5Utils {
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * */
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:21
+     */
     public static String md5Bit32Upper(String readyEncryptStr) throws Exception {
         return md5Bit32Lower(readyEncryptStr).toUpperCase();
     }

@@ -9,36 +9,42 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
- * @date 2017/7/26 下午12:07
- * @desc Json工具.
+ * Json工具.
+ * @author KingBoy - KingBoyWorld@163.com
+ * @since 2018-08-07
  */
 public final class JsonUtils {
 
     /**
-     * json串转换为对象
+     * json串转换为对象.
      * @param json
      * @param clazz
-     * @param <T>
-     * @return
+     * @return T
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:18
      */
     public static <T> T jsonToBean(String json, Class<T> clazz) {
         return JSON.parseObject(json, clazz);
     }
 
     /**
-     * 对象转换为json
+     * 对象转换为json.
      * @param object
-     * @return
+     * @return java.lang.String
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:20
      */
     public static String beanToJson(Object object) {
             return JSON.toJSONString(object);
     }
 
     /**
-     * 对象转换为json,可以带上date的格式化
+     * 对象转换为json,可以带上date的格式化.
      * @param object
-     * @return
+     * @param dateFormat
+     * @return java.lang.String
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:20
      */
     public static String beanToJson(Object object, String dateFormat) {
         if (Objects.isNull(dateFormat) || "".equals(dateFormat)) {
@@ -49,11 +55,13 @@ public final class JsonUtils {
     }
 
     /**
-     * json返回List
+     * json返回List.
      * @param arrayJson
      * @param clazz
-     * @param <T>
-     * @return
+     * @param dateFormat
+     * @return java.util.List<T>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:19
      */
     public static <T> List<T> jsonToList(String arrayJson, Class<T> clazz, String dateFormat) {
         String temp = JSONObject.DEFFAULT_DATE_FORMAT;
@@ -66,11 +74,13 @@ public final class JsonUtils {
     }
 
     /**
-     * 反序列化Map
+     * 反序列化Map.
      * @param mapJson
-     * @param <K>
-     * @param <V>
-     * @return
+     * @param keyType
+     * @param valueType
+     * @return java.util.Map
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:19
      */
     public static <K, V> Map jsonMap(String mapJson, Class<K> keyType, Class<V> valueType) {
         return JSON.parseObject(mapJson, new TypeReference<Map<K, V>>() { });

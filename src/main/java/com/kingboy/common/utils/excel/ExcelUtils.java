@@ -18,23 +18,31 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * @author kingboy--KingBoyWorld@163.com
- * @date 2017/7/26 下午1:25
- * @desc Excel工具类. 只针对单个类内的属性进行转换。
- * 额外说明:本工具类支持设置数据行的格式，但由于这个功能占用执行时间过多(大约十倍)，所以在205行注释掉了，有需要可以打开
- * 使用说明-博客:http://blog.csdn.net/kingboyworld/article/details/76253785
+ * Excel工具类. 只针对单个类内的属性进行转换.
+ * <p>
+ *     额外说明:本工具类支持设置数据行的格式，但由于这个功能占用执行时间过多(大约十倍)，所以在205行注释掉了，有需要可以打开<br>
+ *     使用说明-博客:http://blog.csdn.net/kingboyworld/article/details/76253785
+ * </p>
+ * @author KingBoy - KingBoyWorld@163.com
+ * @since 2018-08-07
  */
 public final class ExcelUtils {
 
-    private ExcelUtils() { }
+    /**
+     * 每次转换多少行
+     */
+    private static Integer size = 1_000;
 
     /**
-     * 将List转换成Excel
+     * 将List转换成Excel.
      * @param list 数据集合
      * @param filePath java7中的文件操作  创建方式:Paths.get("文件地址");
-     * @param <T> bean类型
-     * @return
-     * @throws Exception
+     * @param fieldMapper
+     * @param headStyle
+     * @param contentStyle
+     * @return void
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:08
      */
     public static <T> void listToExcel(List<T> list, Path filePath, Map<String, Map<String, String>> fieldMapper,
                                        ExcelStyle headStyle, ExcelStyle contentStyle) throws Exception {
@@ -56,16 +64,17 @@ public final class ExcelUtils {
         workbook.write(Files.newOutputStream(filePath));
     }
 
-    //每次转换多少行
-    private static Integer size = 1_000;
-
     /**
-     * excel转换为List,基本思路是拼接成Json,然后用Json工具转换为List
-     * 必需保证类里面的带有Excel注解属性的顺序和Excel文件中标题的顺序相对应
-     * @param filePath 文件路径    创建方式:Paths.get("文件地址");
+     * excel转换为List,基本思路是拼接成Json,然后用Json工具转换为List.
+     * <p>
+     *     必需保证类里面的带有Excel注解属性的顺序和Excel文件中标题的顺序相对应
+     * </p>
+     * @param filePath 文件路径,创建方式:Paths.get("文件地址");
      * @param clazz 类
-     * @param <T>
-     * @return
+     * @param fieldMapper
+     * @return java.util.List<T>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:10
      */
     public static<T> List<T> excelToList(Path filePath, Class<T> clazz, Map<String, Map<String, String>> fieldMapper)
             throws Exception {
@@ -90,6 +99,16 @@ public final class ExcelUtils {
      * @param <T>
      * @return
      */
+    /**
+     * .
+     * @param sheet 工作表
+     * @param clazz
+     * @param fieldList 获取类中有映射关系的属性名
+     * @param fieldMapper
+     * @return java.util.ArrayList<T>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:12
+     */
     private static <T> ArrayList<T> getClazzArrayList(Sheet sheet, Class<T> clazz, ArrayList<String> fieldList,
                                                       Map<String, Map<String, String>> fieldMapper) {
         //数据行数
@@ -111,12 +130,13 @@ public final class ExcelUtils {
     }
 
     /**
-     * 解析Json字符串
+     * 解析Json字符串.
      * @param mapList Excel表中的数据
      * @param clazz
      * @param fieldMapper 属性转换容器
-     * @param <T>
-     * @return
+     * @return java.util.List<T>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:13
      */
     private static <T> List<T> getArrayListFromMap(List<Map<String, String>> mapList, Class<T> clazz,
                                                    Map<String, Map<String, String>> fieldMapper) {
@@ -151,12 +171,14 @@ public final class ExcelUtils {
     }
 
     /**
-     * 读取指定数量的数据，每行都拼接成一个Map<String, String>的集合
+     * 读取指定数量的数据，每行都拼接成一个Map<String, String>的集合.
      * @param start 开始行
      * @param size 长度
      * @param sheet
      * @param fieldList 获取类中有映射关系的属性名
-     * @return
+     * @return java.util.ArrayList<java.util.Map<java.lang.String,java.lang.String>>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:14
      */
     private static <T> ArrayList<Map<String, String>> readExcel(int start, int size, Sheet sheet, ArrayList<String> fieldList) {
         ArrayList<Map<String, String>> listMap = new ArrayList<>();
@@ -171,11 +193,11 @@ public final class ExcelUtils {
     }
 
     /**
-     * 获取属性名
+     * 获取属性名.
      * @param clazz
-     * @param <T>
-     * @return
-     * @throws Exception
+     * @return java.util.ArrayList<java.lang.String>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:14
      */
     private static <T> ArrayList<String> getFieldNameByExcelAnno(Class<T> clazz) throws Exception {
         return getFieldWithExcel(clazz)
@@ -186,11 +208,14 @@ public final class ExcelUtils {
     /*------------------------------ListToExcel的调用方法------------------------------------*/
 
     /**
-     * 写入内容
+     * 写入内容.
      * @param list 数据内容
      * @param sheet
      * @param fieldMapper 属性转换
-     * @param <T>
+     * @param contentStyle
+     * @return void
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:15
      */
     private static <T> void setContent(List<T> list, Sheet sheet, Map<String, Map<String, String>> fieldMapper, ExcelStyle contentStyle) {
         Stream.iterate(0, item -> item + 1).limit(list.size())
@@ -211,9 +236,13 @@ public final class ExcelUtils {
     }
 
     /**
-     * 写入标题
+     * 写入标题.
      * @param excelList 标题
      * @param sheet
+     * @param headStyle
+     * @return void
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:15
      */
     private static void setHead(List<Excel> excelList, Sheet sheet, ExcelStyle headStyle) {
         Row row = sheet.createRow(0);
@@ -229,9 +258,12 @@ public final class ExcelUtils {
     }
 
     /**
-     * 设置头样式
+     * 设置头样式.
      * @param workbook
-     * @return
+     * @param headStyle
+     * @return org.apache.poi.ss.usermodel.CellStyle
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:16
      */
     private static CellStyle getTitleStyle(Workbook workbook, ExcelStyle headStyle) {
         CellStyle cellStyle = workbook.createCellStyle();
@@ -269,9 +301,12 @@ public final class ExcelUtils {
     }
 
     /**
-     * 设置内容样式，占用过大，并没有开启这个功能
+     * 设置内容样式，占用过大，并没有开启这个功能.
      * @param workbook
-     * @return
+     * @param contentStyle
+     * @return org.apache.poi.ss.usermodel.CellStyle
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:17
      */
     private static CellStyle getContentStyle(Workbook workbook, ExcelStyle contentStyle) {
         contentStyle = contentStyle == null ? new ExcelStyle() : contentStyle;
@@ -309,11 +344,11 @@ public final class ExcelUtils {
     }
 
     /**
-     * 拿到一个类中属性上的Excel注解
+     * 拿到一个类中属性上的Excel注解.
      * @param clazz
-     * @param <T>
-     * @return
-     * @throws Exception
+     * @return java.util.List<com.kingboy.common.utils.excel.Excel>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:17
      */
     private static <T> List<Excel> getExcelAnnoList(Class<T> clazz) throws Exception {
         return  getFieldWithExcel(clazz)
@@ -322,10 +357,11 @@ public final class ExcelUtils {
     }
 
     /**
-     * 获取带有Excel注解的属性
+     * 获取带有Excel注解的属性.
      * @param clazz
-     * @param <T>
-     * @return
+     * @return java.util.stream.Stream<java.lang.reflect.Field>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:18
      */
     private static <T> Stream<Field> getFieldWithExcel(Class<T> clazz) {
         Field[] fields = clazz.getDeclaredFields();
@@ -337,10 +373,12 @@ public final class ExcelUtils {
     }
 
     /**
-     * 获取一个类包含Excel注解的属性的值
+     * 获取一个类包含Excel注解的属性的值.
      * @param t
-     * @param <T>
-     * @return
+     * @param fieldMapper
+     * @return java.util.List<java.lang.String>
+     * @author KingBoy - KingBoyWorld@163.com
+     * @since 2018/8/7 02:18
      */
     private static  <T> List<String> getFiledValueIfIsExcel(T t, Map<String, Map<String, String>> fieldMapper) {
         return getFieldWithExcel(t.getClass()).map(field -> {

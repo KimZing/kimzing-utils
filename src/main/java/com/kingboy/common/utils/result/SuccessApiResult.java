@@ -1,12 +1,15 @@
 package com.kingboy.common.utils.result;
 
 /**
- * @author    kingboy--KingBoyWorld@163.com
- * @date    2017/7/21 上午11:28
- * @desc    正确返回体
+ * 正确返回体.
+ * @author KingBoy - KingBoyWorld@163.com
+ * @since 2018-08-07
  */
 public class SuccessApiResult extends ApiResult {
 
+    /**
+     * 响应数据
+     */
     private Object data;
 
     SuccessApiResult(Object data) {
