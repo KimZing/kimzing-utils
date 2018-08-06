@@ -3,7 +3,7 @@ package com.kingboy.common.utils.result;
 /**
  * 正确返回体.
  * @author KingBoy - KingBoyWorld@163.com
- * @since 2018-08-07
+ * @since 2018-08-07 02:02
  */
 public class SuccessApiResult extends ApiResult {
 

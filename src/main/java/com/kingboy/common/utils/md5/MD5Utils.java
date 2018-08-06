@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * MD5工具类, 全部接收UTF编码的String.
  * @author KingBoy - KingBoyWorld@163.com
- * @since 2018-08-07
+ * @since 2018-08-07 02:02
  */
 public final class MD5Utils {
 

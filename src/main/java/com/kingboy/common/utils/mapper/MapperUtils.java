@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * 属性映射工具.
  * @author KingBoy - KingBoyWorld@163.com
- * @since 2018-08-07
+ * @since 2018-08-07 02:02
  */
 public final class MapperUtils {
 
