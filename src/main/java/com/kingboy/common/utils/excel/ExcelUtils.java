@@ -23,6 +23,7 @@ import java.util.stream.Stream;
  *     额外说明:本工具类支持设置数据行的格式，但由于这个功能占用执行时间过多(大约十倍)，所以在205行注释掉了，有需要可以打开<br>
  *     使用说明-博客:http://blog.csdn.net/kingboyworld/article/details/76253785
  * </p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -35,6 +36,7 @@ public final class ExcelUtils {
 
     /**
      * 将List转换成Excel.
+     * <p></p>
      * @param list 数据集合
      * @param filePath java7中的文件操作  创建方式:Paths.get("文件地址");
      * @param fieldMapper
@@ -93,14 +95,8 @@ public final class ExcelUtils {
     /*------------------------------ExcelToList的调用方法------------------------------------*/
 
     /**
-     *
-     * @param sheet 工作表
-     * @param fieldList 获取类中有映射关系的属性名
-     * @param <T>
-     * @return
-     */
-    /**
-     * .
+     * 获取list中的class类型.
+     * <p></p>
      * @param sheet 工作表
      * @param clazz
      * @param fieldList 获取类中有映射关系的属性名
@@ -131,6 +127,7 @@ public final class ExcelUtils {
 
     /**
      * 解析Json字符串.
+     * <p></p>
      * @param mapList Excel表中的数据
      * @param clazz
      * @param fieldMapper 属性转换容器
@@ -172,6 +169,7 @@ public final class ExcelUtils {
 
     /**
      * 读取指定数量的数据，每行都拼接成一个Map<String, String>的集合.
+     * <p></p>
      * @param start 开始行
      * @param size 长度
      * @param sheet
@@ -194,6 +192,7 @@ public final class ExcelUtils {
 
     /**
      * 获取属性名.
+     * <p></p>
      * @param clazz
      * @return java.util.ArrayList<java.lang.String>
      * @author KingBoy - KingBoyWorld@163.com
@@ -209,6 +208,7 @@ public final class ExcelUtils {
 
     /**
      * 写入内容.
+     * <p></p>
      * @param list 数据内容
      * @param sheet
      * @param fieldMapper 属性转换
@@ -237,6 +237,7 @@ public final class ExcelUtils {
 
     /**
      * 写入标题.
+     * <p></p>
      * @param excelList 标题
      * @param sheet
      * @param headStyle
@@ -259,6 +260,7 @@ public final class ExcelUtils {
 
     /**
      * 设置头样式.
+     * <p></p>
      * @param workbook
      * @param headStyle
      * @return org.apache.poi.ss.usermodel.CellStyle
@@ -302,6 +304,7 @@ public final class ExcelUtils {
 
     /**
      * 设置内容样式，占用过大，并没有开启这个功能.
+     * <p></p>
      * @param workbook
      * @param contentStyle
      * @return org.apache.poi.ss.usermodel.CellStyle
@@ -345,6 +348,7 @@ public final class ExcelUtils {
 
     /**
      * 拿到一个类中属性上的Excel注解.
+     * <p></p>
      * @param clazz
      * @return java.util.List<com.kingboy.common.utils.excel.Excel>
      * @author KingBoy - KingBoyWorld@163.com
@@ -358,6 +362,7 @@ public final class ExcelUtils {
 
     /**
      * 获取带有Excel注解的属性.
+     * <p></p>
      * @param clazz
      * @return java.util.stream.Stream<java.lang.reflect.Field>
      * @author KingBoy - KingBoyWorld@163.com
@@ -374,6 +379,7 @@ public final class ExcelUtils {
 
     /**
      * 获取一个类包含Excel注解的属性的值.
+     * <p></p>
      * @param t
      * @param fieldMapper
      * @return java.util.List<java.lang.String>

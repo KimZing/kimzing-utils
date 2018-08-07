@@ -5,6 +5,8 @@ import java.util.regex.Pattern;
 
 /**
  * 正则.
+ * <p></p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -18,6 +20,7 @@ public final class RegexUtils {
 
     /**
      * 校验手机号是否正确.
+     * <p></p>
      * @param mobiles
      * @return isMobileNO
      * @author KingBoy - KingBoyWorld@163.com
@@ -30,6 +33,7 @@ public final class RegexUtils {
 
     /**
      * 校验邮箱是否正确.
+     * <p></p>
      * @param email
      * @return isEmail
      * @author KingBoy - KingBoyWorld@163.com
@@ -44,6 +48,7 @@ public final class RegexUtils {
 
     /**
      * 校验是否是整数.
+     * <p></p>
      * @param value
      * @return isInteger
      * @author KingBoy - KingBoyWorld@163.com
@@ -60,6 +65,7 @@ public final class RegexUtils {
 
     /**
      * 判断是否含有特殊字符.
+     * <p></p>
      * @param text
      * @return boolean true,通过，false，没通过
      * @author KingBoy - KingBoyWorld@163.com
@@ -78,6 +84,7 @@ public final class RegexUtils {
 
     /**
      * 判断是否正整数.
+     * <p></p>
      * @param number 数字
      * @return boolean true,通过，false，没通过
      * @author KingBoy - KingBoyWorld@163.com
@@ -93,6 +100,7 @@ public final class RegexUtils {
 
     /**
      * 判断是否是正确的IP地址.
+     * <p></p>
      * @param ip
      * @return boolean true,通过，false，没通过
      * @author KingBoy - KingBoyWorld@163.com
@@ -110,6 +118,7 @@ public final class RegexUtils {
 
     /**
      * 判断是否含有中文，仅适合中国汉字，不包括标点.
+     * <p></p>
      * @param text
      * @return boolean true,通过，false，没通过
      * @author KingBoy - KingBoyWorld@163.com

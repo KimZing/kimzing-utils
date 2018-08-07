@@ -8,6 +8,8 @@ import java.util.Objects;
 
 /**
  * 分页容器.
+ * <p></p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -33,8 +35,12 @@ public class Page {
     }
 
     /**
-     * .
-     * @param <T> 实体类型
+     * 构造函数.
+     * <p></p>
+     * @param current 当前页
+     * @param size 每页容量
+     * @param total 总页数
+     * @param data 实体数据集合
      * @author KingBoy - KingBoyWorld@163.com
      * @since 2018/8/7 02:21
      */
@@ -46,7 +52,8 @@ public class Page {
     }
 
     /**
-     * .
+     * 类型转换方法.
+     * <p></p>
      * @param clazz 要转换的类型
      * @author KingBoy - KingBoyWorld@163.com
      * @since 2018/8/7 02:21

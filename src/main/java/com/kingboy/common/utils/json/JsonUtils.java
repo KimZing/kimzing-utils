@@ -10,6 +10,8 @@ import java.util.Objects;
 
 /**
  * Json工具.
+ * <p></p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -17,6 +19,7 @@ public final class JsonUtils {
 
     /**
      * json串转换为对象.
+     * <p></p>
      * @param json
      * @param clazz
      * @return T
@@ -29,6 +32,7 @@ public final class JsonUtils {
 
     /**
      * 对象转换为json.
+     * <p></p>
      * @param object
      * @return java.lang.String
      * @author KingBoy - KingBoyWorld@163.com
@@ -40,6 +44,7 @@ public final class JsonUtils {
 
     /**
      * 对象转换为json,可以带上date的格式化.
+     * <p></p>
      * @param object
      * @param dateFormat
      * @return java.lang.String
@@ -56,6 +61,7 @@ public final class JsonUtils {
 
     /**
      * json返回List.
+     * <p></p>
      * @param arrayJson
      * @param clazz
      * @param dateFormat
@@ -75,6 +81,7 @@ public final class JsonUtils {
 
     /**
      * 反序列化Map.
+     * <p></p>
      * @param mapJson
      * @param keyType
      * @param valueType

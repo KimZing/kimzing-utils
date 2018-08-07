@@ -11,6 +11,8 @@ import java.util.Date;
 
 /**
  * java8日期工具.
+ * <p></p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -28,6 +30,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * Date转换为LocalDateTime.
+     * <p></p>
      * @param date
      * @return java.time.LocalDateTime
      * @author KingBoy - KingBoyWorld@163.com
@@ -39,6 +42,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * LocalDateTime转换为Date.
+     * <p></p>
      * @param time
      * @return java.util.Date
      * @author KingBoy - KingBoyWorld@163.com
@@ -51,6 +55,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取指定日期的毫秒.
+     * <p></p>
      * @param time
      * @return java.lang.Long
      * @author KingBoy - KingBoyWorld@163.com
@@ -62,6 +67,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取指定日期的秒.
+     * <p></p>
      * @param time
      * @return java.lang.Long
      * @author KingBoy - KingBoyWorld@163.com
@@ -73,6 +79,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取指定时间的指定格式.
+     * <p></p>
      * @param time
      * @param pattern
      * @return java.lang.String
@@ -85,6 +92,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取当前时间的指定格式.
+     * <p></p>
      * @param pattern
      * @return java.lang.String
      * @author KingBoy - KingBoyWorld@163.com
@@ -96,6 +104,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 日期加上一个数,根据field不同加不同值,field为ChronoUnit.*.
+     * <p></p>
      * @param time
      * @param number
      * @param field
@@ -109,6 +118,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 日期减去一个数,根据field不同减不同值,field参数为ChronoUnit.*.
+     * <p></p>
      * @param time
      * @param number
      * @param field
@@ -122,6 +132,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取两个日期的差  field参数为ChronoUnit.*.
+     * <p></p>
      * @param startTime
      * @param endTime
      * @param field
@@ -142,6 +153,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取一天的开始时间，2017,7,22 00:00.
+     * <p></p>
      * @param time
      * @return java.time.LocalDateTime
      * @author KingBoy - KingBoyWorld@163.com
@@ -156,6 +168,7 @@ public final class LocalDateTimeUtils {
 
     /**
      * 获取一天的结束时间，2017,7,22 23:59:59.999999999.
+     * <p></p>
      * @param time
      * @return java.time.LocalDateTime
      * @author KingBoy - KingBoyWorld@163.com

@@ -2,6 +2,8 @@ package com.kingboy.common.utils.string;
 
 /**
  * 字符串工具类.
+ * <p></p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -9,9 +11,11 @@ public class StringUtils {
 
     /**
      * 是否为空.
-     * "" => true;
-     * " " => true
-     * "a"  false
+     * <p>
+     *     "" => true;
+     *     " " => true
+     *     "a"  false
+     * </p>
      * @param cs
      * @return
      * @author KingBoy - KingBoyWorld@163.com
@@ -23,9 +27,11 @@ public class StringUtils {
 
     /**
      * 是否为空.
-     * ""    true
-     * "  "  false
-     * "a"   false
+     * <p>
+     *     ""    true
+     *     "  "  false
+     *     "a"   false
+     * </p>
      * @param cs
      * @return
      * @author KingBoy - KingBoyWorld@163.com
@@ -36,10 +42,12 @@ public class StringUtils {
     }
 
     /**
-     * 去除空格
-     * null   null
-     * "a  "  "a"
-     * "  a"  "a"
+     * 去除空格.
+     * <p>
+     *     null   null
+     *     "a  "  "a"
+     *     "  a"  "a"
+     * </p>
      * @param s
      * @return
      * @author KingBoy - KingBoyWorld@163.com

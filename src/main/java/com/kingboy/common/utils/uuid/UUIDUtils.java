@@ -7,15 +7,16 @@ import java.util.stream.Stream;
 
 /**
  * UUID生成.
+ * <p></p>
+ *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
 public final class UUIDUtils {
 
-    private UUIDUtils() { }
-
     /**
      * 获取UUID，不含有-.
+     * <p></p>
      * @return
      * @author KingBoy - KingBoyWorld@163.com
      * @since 2018/8/7 02:21
@@ -26,6 +27,7 @@ public final class UUIDUtils {
 
     /**
      * 批量获取UUID.
+     * <p></p>
      * @param size
      * @return
      * @author KingBoy - KingBoyWorld@163.com
