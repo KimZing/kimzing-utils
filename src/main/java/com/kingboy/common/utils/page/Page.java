@@ -27,8 +27,6 @@ public class Page {
     //分页数据
     private List data;
 
-    public Page() {}
-
     public Page(Integer current, Integer size) {
         this.current = current;
         this.size = size;
