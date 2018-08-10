@@ -23,22 +23,21 @@ ext {
 }
 
 dependencies {
-    //Mapper
+    // Mapper
     compile("ma.glasnost.orika:orika-core:$orikaVersion")
-    //Json
+    // FastJson
     compile("com.alibaba:fastjson:$fastJsonVersion")
-    //POI
+    // POI
     compile("org.apache.poi:poi:$poiVersion")
     compile("org.apache.poi:poi-ooxml:$poiVersion")
-    //commons-util
+    // commons-util
     compile("org.apache.commons:commons-lang3:$langVersion")
     compile("commons-collections:commons-collections:$collectsVersion")
     compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
     compile("commons-io:commons-io:$ioVersion")
-
+    // PinYin4J
     compile("com.belerweb:pinyin4j:$pinYinVersion")
-
-
+    // Java Email
     compile("com.sun.mail:javax.mail:$mailVersion")
 
 }
@@ -68,11 +67,11 @@ publishing {
     repositories {
         maven {
             //指定要上传的maven私服仓库
-            url = "http://replaceWithYourUrl.com/repository/maxrocky/"
+            url = "http://mvn.kingboyworld.com:8081/nexus/content/repositories/kingboy/"
             //认证用户和密码
             credentials {
-                username 'admin'
-                password 'admin123'
+                username 'kingboy'
+                password '123456'
             }
         }
     }
