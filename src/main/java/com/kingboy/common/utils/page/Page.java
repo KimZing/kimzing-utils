@@ -13,38 +13,38 @@ import java.util.List;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public class PageResult {
+public class Page {
 
     /**
      * 当前页
      */
-    private Integer page;
+    private Integer page = 1;
 
     /**
      * 每页容量
      */
-    private Integer size;
+    private Integer size = 10;
 
 
     /**
      * 总页数
      */
-    private Long total;
+    private Long total = 0L;
 
     /**
      * 分页数据
      */
     private List data;
 
-    public PageResult(PageParam pageParam, List data) {
+    public Page(PageParam pageParam, List data) {
         this(pageParam, 0L, data);
     }
 
-    public PageResult(PageParam pageParam, Long total, List data) {
+    public Page(PageParam pageParam, Long total, List data) {
         this(pageParam.getPage(), pageParam.getSize(), total, data);
     }
 
-    public PageResult(Integer page, Integer size, Long total, List data) {
+    public Page(Integer page, Integer size, Long total, List data) {
         this.page = page;
         this.size = size;
         this.total = total;
@@ -60,7 +60,9 @@ public class PageResult {
     }
 
     public void setPage(Integer page) {
-        this.page = page;
+        if (page > 0) {
+            this.page = page;
+        }
     }
 
     public Integer getSize() {
@@ -68,7 +70,9 @@ public class PageResult {
     }
 
     public void setSize(Integer size) {
-        this.size = size;
+        if (size > 0) {
+            this.size = size;
+        }
     }
 
     public Long getTotal() {
@@ -76,7 +80,9 @@ public class PageResult {
     }
 
     public void setTotal(Long total) {
-        this.total = total;
+        if (total > 0) {
+            this.total = total;
+        }
     }
 
     public List getData() {
