@@ -1,5 +1,5 @@
 group 'com.kingboy'
-version '1.0'
+version '1.0.0'
 
 apply plugin: 'java'
 apply plugin: 'maven-publish'
@@ -18,6 +18,8 @@ ext {
     beanUtilsVersion='1.9.3'
     ioVersion='2.6'
     poiVersion='3.16'
+    mailVersion='1.5.5'
+    pinYinVersion='2.5.0'
 }
 
 dependencies {
@@ -33,6 +35,11 @@ dependencies {
     compile("commons-collections:commons-collections:$collectsVersion")
     compile("commons-beanutils:commons-beanutils:$beanUtilsVersion")
     compile("commons-io:commons-io:$ioVersion")
+
+    compile("com.belerweb:pinyin4j:$pinYinVersion")
+
+
+    compile("com.sun.mail:javax.mail:$mailVersion")
 
 }
 

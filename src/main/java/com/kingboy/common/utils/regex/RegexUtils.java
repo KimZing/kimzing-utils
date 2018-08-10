@@ -10,24 +10,64 @@ import java.util.regex.Pattern;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public final class RegexUtils {
+public class RegexUtils {
 
-    private static Pattern mobile = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+    /**
+     * 手机号
+     */
+    private static final Pattern MOBILE = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
 
-    private static Pattern chinese = Pattern.compile("[\u4e00-\u9fa5]");
+    /**
+     * 汉字
+     */
+    private static final Pattern CHINESE = Pattern.compile("[\u4e00-\u9fa5]");
 
-    private RegexUtils() { }
+    /**
+     * 邮政编码
+     */
+    public static final Pattern  POSTALCODE = Pattern.compile("[1-9]\\d{5}(?!\\d)");
+
+    /**
+     * 邮箱
+     */
+    public static final Pattern EMAIL =
+            Pattern.compile("^([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$");
+
+    /**
+     * IP地址
+     */
+    public static final Pattern IP = Pattern.compile("((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)");
+
+    /**
+     * 校验邮编.
+     * <p></p>
+     * @param code
+     * @return boolean
+     * @author KingBoy
+     * @since 2018-08-10 16:45:19
+     *
+     */
+    public static boolean isPostalCode(String code) {
+        if (null == code || "".equals(code)) {
+            return false;
+        }
+        Matcher matcher = POSTALCODE.matcher(code);
+        return matcher.matches();
+    }
 
     /**
      * 校验手机号是否正确.
      * <p></p>
-     * @param mobiles
-     * @return isMobileNO
+     * @param mobile
+     * @return isMobile
      * @author KingBoy - KingBoyWorld@163.com
      * @since 2018/8/7 02:21
      */
-    public static boolean isMobileNO(String mobiles) {
-        Matcher m = mobile.matcher(mobiles);
+    public static boolean isMobile(String mobile) {
+        if (null == mobile || "".equals(mobile)) {
+            return false;
+        }
+        Matcher m = MOBILE.matcher(mobile);
         return m.matches();
     }
 
@@ -40,9 +80,10 @@ public final class RegexUtils {
      * @since 2018/8/7 02:21
      */
     public static boolean isEmail(String email) {
-        String str = "^([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)*@([a-zA-Z0-9]*[-_]?[a-zA-Z0-9]+)+[\\.][A-Za-z]{2,3}([\\.][A-Za-z]{2})?$";
-        Pattern p = Pattern.compile(str);
-        Matcher m = p.matcher(email);
+        if (null == email || "".equals(email)) {
+            return false;
+        }
+        Matcher m = EMAIL.matcher(email);
         return m.matches();
     }
 
@@ -110,10 +151,8 @@ public final class RegexUtils {
         if (null == ip || "".equals(ip)) {
             return false;
         }
-        String regex = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
-                + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\." + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
-                + "(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
-        return ip.matches(regex);
+        Matcher m = IP.matcher(ip);
+        return m.matches();
     }
 
     /**
@@ -128,8 +167,21 @@ public final class RegexUtils {
         if (null == text || "".equals(text)) {
             return false;
         }
-        Matcher m = chinese.matcher(text);
+        Matcher m = CHINESE.matcher(text);
         return m.find();
+    }
+
+    /**
+     * 判断字符串str是否符合正则表达式reg
+     * <p></p>
+     * @param str 需要处理的字符串
+     * @param reg 正则
+     * @return 是否匹配
+     */
+    public static boolean isMatche(String str, String reg) {
+        Pattern pattern = Pattern.compile(reg);
+        Matcher m = pattern.matcher(str);
+        return m.matches();
     }
 
 }
