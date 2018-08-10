@@ -2,6 +2,8 @@ package com.kingboy.common.utils.page;
 
 import com.kingboy.common.utils.mapper.MapperUtils;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,14 +36,14 @@ public class Page {
     /**
      * 分页数据
      */
-    private List data;
+    private List data = Collections.emptyList();
 
-    public Page(PageParam pageParam, List data) {
-        this(pageParam, 0L, data);
+    public Page() {
+        //do nothing
     }
 
-    public Page(PageParam pageParam, Long total, List data) {
-        this(pageParam.getPage(), pageParam.getSize(), total, data);
+    public Page(Integer page, Integer size) {
+        this(page, size, 0L, Collections.emptyList());
     }
 
     public Page(Integer page, Integer size, Long total, List data) {
@@ -80,7 +82,7 @@ public class Page {
     }
 
     public void setTotal(Long total) {
-        if (total > 0) {
+        if (total >= 0) {
             this.total = total;
         }
     }
@@ -90,6 +92,8 @@ public class Page {
     }
 
     public void setData(List data) {
-        this.data = data;
+        if (data != null && data.size() > 0) {
+            this.data = data;
+        }
     }
 }
