@@ -5,7 +5,6 @@ import java.util.*;
 
 /**
  * 根据条件随机生成.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -20,7 +19,7 @@ public class RandomUtil {
 
 
     /**
-     * 生成制定范围内的随机数
+     * 生成制定范围内的随机数.
      *
      * @param scopeMin
      * @param scoeMax
@@ -32,7 +31,7 @@ public class RandomUtil {
     }
 
     /**
-     * 返回固定长度的数字
+     * 返回固定长度的数字.
      *
      * @param length
      * @return
@@ -47,7 +46,7 @@ public class RandomUtil {
     }
 
     /**
-     * 返回一个定长的随机字符串(只包含大小写字母、数字)
+     * 返回一个定长的随机字符串(只包含大小写字母、数字).
      *
      * @param length 随机字符串长度
      * @return 随机字符串
@@ -62,7 +61,7 @@ public class RandomUtil {
     }
 
     /**
-     * 返回一个定长的随机纯字母字符串(只包含大小写字母)
+     * 返回一个定长的随机纯字母字符串(只包含大小写字母).
      *
      * @param length 随机字符串长度
      * @return 随机字符串
@@ -77,7 +76,7 @@ public class RandomUtil {
     }
 
     /**
-     * 返回一个定长的随机纯大写字母字符串(只包含大小写字母)
+     * 返回一个定长的随机纯大写字母字符串(只包含大小写字母).
      *
      * @param length 随机字符串长度
      * @return 随机字符串
@@ -87,7 +86,7 @@ public class RandomUtil {
     }
 
     /**
-     * 返回一个定长的随机纯小写字母字符串(只包含大小写字母)
+     * 返回一个定长的随机纯小写字母字符串(只包含大小写字母).
      *
      * @param length 随机字符串长度
      * @return 随机字符串
@@ -97,7 +96,7 @@ public class RandomUtil {
     }
 
     /**
-     * 生成一个定长的纯0字符串
+     * 生成一个定长的纯0字符串.
      *
      * @param length 字符串长度
      * @return 纯0字符串
@@ -111,7 +110,7 @@ public class RandomUtil {
     }
 
     /**
-     * 根据数字生成一个定长的字符串，长度不够前面补0
+     * 根据数字生成一个定长的字符串，长度不够前面补0.
      *
      * @param num       数字
      * @param fixdlenth 字符串长度
@@ -130,7 +129,7 @@ public class RandomUtil {
     }
 
     /**
-     * 每次生成的len位数都不相同
+     * 每次生成的len位数都不相同.
      *
      * @param param
      * @return 定长的数字
@@ -151,7 +150,13 @@ public class RandomUtil {
     }
 
     /**
-     * 从指定的数组中随机数组中的某个元素
+     * 从指定的数组中随机数组中的某个元素.
+     *
+     * @param param
+     * @return T
+     * @author KingBoy
+     * @since 2018-08-11 02:09:08
+     *
      */
     public static <T> T randomItem(T[] param) {
         int index = integer(0, param.length);
@@ -159,7 +164,8 @@ public class RandomUtil {
     }
 
     /**
-     * 实现一个简单的字符串乘法
+     * 实现一个简单的字符串乘法.
+     *
      * @param str
      * @param multiplication
      * @return
@@ -172,7 +178,7 @@ public class RandomUtil {
         return buffer.toString();
     }
     /**
-     * 返回一个UUID
+     * 返回一个UUID.
      *
      * @return 小写的UUID
      */
@@ -182,12 +188,10 @@ public class RandomUtil {
 
     /**
      * 获取两个数的中间数，包含min和max.
-     * <p></p>
+     *
      * @param min 最小
      * @param max 最大
      * @return 中间数
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static int getMidNum(int min, int max) {
         return min + new Random().nextInt(max - min + 1);

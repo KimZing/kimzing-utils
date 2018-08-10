@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 
 /**
  * 字符串工具类.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -17,15 +16,12 @@ public class StringUtils {
     /**
      * 是否为空.
      * <p>
-     * "" => true;
-     * " " => true
-     * "a"  false
+     *      "" => true;
+     *      " " => true
+     *      "a"  false
      * </p>
-     *
      * @param cs
      * @return
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isBlank(final CharSequence cs) {
         return org.apache.commons.lang3.StringUtils.isBlank(cs);
@@ -34,15 +30,12 @@ public class StringUtils {
     /**
      * 是否为空.
      * <p>
-     * ""    true
-     * "  "  false
-     * "a"   false
+     *      ""    true
+     *      "  "  false
+     *      "a"   false
      * </p>
-     *
      * @param cs
      * @return
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isEmpty(final CharSequence cs) {
         return org.apache.commons.lang3.StringUtils.isEmpty(cs);
@@ -51,22 +44,19 @@ public class StringUtils {
     /**
      * 去除空格.
      * <p>
-     * null   null
-     * "a  "  "a"
-     * "  a"  "a"
+     *      null   null
+     *      "a  "  "a"
+     *      "  a"  "a"
      * </p>
-     *
      * @param s
      * @return
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static String trim(String s) {
         return org.apache.commons.lang3.StringUtils.trim(s);
     }
 
     /**
-     * 截取字符串　超出的字符用symbol代替
+     * 截取字符串超出的字符用symbol代替.
      *
      * @param str    需要处理的字符串
      * @param len    字符串长度
@@ -82,7 +72,7 @@ public class StringUtils {
     }
 
     /**
-     * 格式化一个float
+     * 格式化一个float.
      *
      * @param format 要格式化成的格式 such as #.00, #.#
      * @return 格式化后的字符串
@@ -93,7 +83,7 @@ public class StringUtils {
     }
 
     /**
-     * 页面中去除字符串中的空格、回车、换行符、制表符
+     * 页面中去除字符串中的空格、回车、换行符、制表符.
      *
      * @param str 需要处理的字符串
      */
@@ -107,7 +97,11 @@ public class StringUtils {
     }
 
     /**
-     * 字符串相似度比较(速度较快)
+     * 字符串相似度比较(速度较快).
+     *
+     * @param str1
+     * @param str2
+     * @return double
      */
     public static double similarityRatio(String str1, String str2) {
         str1 = isEmpty(str1) ? "" : str1.replaceAll("[\\pP\\p{Punct}]", "");
@@ -121,7 +115,7 @@ public class StringUtils {
     }
 
     /**
-     * 将字符串首字母转大写
+     * 将字符串首字母转大写.
      *
      * @param str 需要处理的字符串
      */
@@ -137,7 +131,7 @@ public class StringUtils {
     }
 
     /**
-     * 将字符串首字母转小写
+     * 将字符串首字母转小写.
      *
      * @param str
      * @return
@@ -154,7 +148,7 @@ public class StringUtils {
     }
 
     /**
-     * 截取字符串左侧指定长度的字符串
+     * 截取字符串左侧指定长度的字符串.
      *
      * @param input 输入字符串
      * @param count 截取长度
@@ -169,12 +163,11 @@ public class StringUtils {
     }
 
     /**
-     * 截取字符串右侧指定长度的字符串
+     * 截取字符串右侧指定长度的字符串.
      *
      * @param input 输入字符串
      * @param count 截取长度
      * @return 截取字符串
-     * Summary 其他编码的有待测试
      */
     public static String right(String input, int count) {
         if (isEmpty(input)) {
@@ -185,7 +178,7 @@ public class StringUtils {
     }
 
     /**
-     * 判读俩个字符串右侧的length个字符串是否一样
+     * 判读俩个字符串右侧的length个字符串是否一样.
      *
      * @param str1
      * @param str2
@@ -197,7 +190,7 @@ public class StringUtils {
     }
 
     /**
-     * 判读俩个字符串左侧的length个字符串是否一样
+     * 判读俩个字符串左侧的length个字符串是否一样.
      *
      * @param str1
      * @param str2

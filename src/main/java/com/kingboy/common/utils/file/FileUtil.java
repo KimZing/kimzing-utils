@@ -20,7 +20,6 @@ import java.util.Objects;
 
 /**
  * 封装了些文件相关的操作.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -33,7 +32,8 @@ public class FileUtil {
     private static final Integer BUFFER_SIZE = 1024 * 1024 * 10;
 
     /**
-     * 获取文件的md5
+     * 获取文件的md5.
+     *
      * @param file
      * @return
      */
@@ -64,7 +64,7 @@ public class FileUtil {
         }
     }
     /**
-     * 获取文件的行数
+     * 获取文件的行数.
      *
      * @param file 统计的文件
      * @return 文件行数
@@ -86,7 +86,7 @@ public class FileUtil {
     }
 
     /**
-     * 以列表的方式获取文件的所有行
+     * 以列表的方式获取文件的所有行.
      *
      * @param file     需要处理的文件
      * @param encoding 指定读取文件的编码
@@ -98,7 +98,7 @@ public class FileUtil {
     }
 
     /**
-     * 以列表的方式获取文件的指定的行数数据
+     * 以列表的方式获取文件的指定的行数数据.
      *
      * @param file     需要处理的函数
      * @param lines    需要处理的行还俗
@@ -124,7 +124,7 @@ public class FileUtil {
     }
 
     /**
-     * 在文件末尾追加一行
+     * 在文件末尾追加一行.
      *
      * @param file     需要处理的文件
      * @param str      添加的字符串
@@ -150,13 +150,11 @@ public class FileUtil {
      */
     /**
      * 将字符串以指定的编码写入到文件中.
-     * <p></p>
+     *
      * @param file
      * @param str
      * @param encoding
      * @return boolean
-     * @author KingBoy
-     * @since 2018-08-10 18:08:35
      *
      */
     public static boolean write(File file, String str, String encoding) {
@@ -173,7 +171,7 @@ public class FileUtil {
 
     /**
      * 将字符串以追加的方式以指定的编码写入到文件中.
-     * <p></p>
+     *
      * @param file
      * @param str
      * @param encoding
@@ -194,7 +192,7 @@ public class FileUtil {
     }
 
     /**
-     * 获取文件的Mime类型
+     * 获取文件的Mime类型.
      *
      * @param file 需要处理的文件
      * @return 返回文件的mime类型
@@ -219,7 +217,7 @@ public class FileUtil {
 
 
     /**
-     * 复制文件
+     * 复制文件.
      *
      * @param resourcePath 源文件
      * @param targetPath   目标文件
@@ -231,9 +229,10 @@ public class FileUtil {
     }
 
     /**
-     * 复制文件
-     * 通过该方式复制文件文件越大速度越是明显
-     *
+     * 复制文件.
+     * <p>
+     *     通过该方式复制文件文件越大速度越是明显
+     * </p>
      * @param file       需要处理的文件
      * @param targetFile 目标文件
      * @return 是否成功
@@ -261,7 +260,7 @@ public class FileUtil {
     }
 
     /**
-     * 创建多级目录
+     * 创建多级目录.
      *
      * @param paths 需要创建的目录
      * @return 是否成功
@@ -272,7 +271,7 @@ public class FileUtil {
     }
 
     /**
-     * 创建文件支持多级目录
+     * 创建文件支持多级目录.
      *
      * @param filePath 需要创建的文件
      * @return 是否成功
@@ -293,7 +292,7 @@ public class FileUtil {
     }
 
     /**
-     * 删除一个文件
+     * 删除一个文件.
      *
      * @param file 需要处理的文件
      * @return 是否成功
@@ -303,7 +302,7 @@ public class FileUtil {
     }
 
     /**
-     * 删除一个目录
+     * 删除一个目录.
      *
      * @param file 需要处理的文件
      * @return 是否成功
@@ -323,7 +322,7 @@ public class FileUtil {
     }
 
     /**
-     * 复制目录
+     * 复制目录.
      *
      * @param filePath   需要处理的文件
      * @param targetPath 目标文件
@@ -334,7 +333,7 @@ public class FileUtil {
     }
 
     /**
-     * 复制目录
+     * 复制目录.
      *
      * @param filePath   需要处理的文件
      * @param targetPath 目标文件
@@ -358,7 +357,7 @@ public class FileUtil {
     }
 
     /**
-     * 罗列指定路径下的全部文件
+     * 罗列指定路径下的全部文件.
      *
      * @param path 需要处理的文件
      * @return 包含所有文件的的list
@@ -369,7 +368,8 @@ public class FileUtil {
     }
 
     /**
-     * 罗列指定路径下的全部文件
+     * 罗列指定路径下的全部文件.
+     *
      * @param path 需要处理的文件
      * @param child 是否罗列子文件
      * @return 包含所有文件的的list
@@ -380,7 +380,7 @@ public class FileUtil {
 
 
     /**
-     * 罗列指定路径下的全部文件
+     * 罗列指定路径下的全部文件.
      *
      * @param path 需要处理的文件
      * @return 返回文件列表
@@ -401,7 +401,8 @@ public class FileUtil {
     }
 
     /**
-     * 罗列指定路径下的全部文件
+     * 罗列指定路径下的全部文件.
+     *
      * @param path 指定的路径
      * @param child 是否罗列子目录
      * @return
@@ -422,7 +423,7 @@ public class FileUtil {
     }
 
     /**
-     * 罗列指定路径下的全部文件包括文件夹
+     * 罗列指定路径下的全部文件包括文件夹.
      *
      * @param path 需要处理的文件
      * @return 返回文件列表
@@ -442,7 +443,7 @@ public class FileUtil {
     }
 
     /**
-     * 罗列指定路径下的全部文件包括文件夹
+     * 罗列指定路径下的全部文件包括文件夹.
      *
      * @param path   需要处理的文件
      * @param filter 处理文件的filter
@@ -466,7 +467,7 @@ public class FileUtil {
     }
 
     /**
-     * 获取指定目录下的特点文件,通过后缀名过滤
+     * 获取指定目录下的特点文件,通过后缀名过滤.
      *
      * @param dirPath  需要处理的文件
      * @param postfixs 文件后缀
@@ -499,7 +500,7 @@ public class FileUtil {
     }
 
     /**
-     * 在指定的目录下搜寻文个文件
+     * 在指定的目录下搜寻文个文件.
      *
      * @param dirPath  搜索的目录
      * @param fileName 搜索的文件名
@@ -524,7 +525,7 @@ public class FileUtil {
     }
 
     /**
-     * 查找符合正则表达式reg的的文件
+     * 查找符合正则表达式reg的的文件.
      *
      * @param dirPath 搜索的目录
      * @param reg     正则表达式
@@ -550,7 +551,8 @@ public class FileUtil {
 
 
     /**
-     * 获取文件后缀名
+     * 获取文件后缀名.
+     *
      * @param file
      * @return
      */

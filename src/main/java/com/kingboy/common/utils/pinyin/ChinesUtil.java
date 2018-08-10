@@ -10,8 +10,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 
 
 /**
- * 一些中文相关的操作方法.
- * <p></p>
+ * 一些中文拼音相关的操作方法.
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -19,7 +18,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
 public class ChinesUtil {
 
     /**
-     * 将字符串中的中文转化为拼音,其他字符不变
+     * 将字符串中的中文转化为拼音,其他字符不变.
      *
      * @param inputString
      * @return
@@ -49,7 +48,7 @@ public class ChinesUtil {
     }
 
     /**
-     * 获取汉字串拼音首字母，英文字符不变
+     * 获取汉字串拼音首字母，英文字符不变.
      *
      * @param chinese 汉字串
      * @return 汉语拼音首字母
@@ -78,7 +77,7 @@ public class ChinesUtil {
     }
 
     /**
-     * 获取汉字串拼音，英文字符不变
+     * 获取汉字串拼音，英文字符不变.
      *
      * @param chinese 汉字串
      * @return 汉语拼音

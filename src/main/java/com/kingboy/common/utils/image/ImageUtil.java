@@ -12,7 +12,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 图片相关的操作类
+ * 图片相关的操作类.
+ *
+ * @author KingBoy - KingBoyWorld@163.com
+ * @since 2018-08-07 02:02
  */
 public final class ImageUtil {
 
@@ -21,8 +24,9 @@ public final class ImageUtil {
 
     /**
      * 按照给点的比例放大图像
-     * 当缩减比例小于等于0时不发生任何变化
-     *
+     * <p>
+     *     当缩减比例小于等于0时不发生任何变化
+     * </p>
      * @param originalImage 图像数据
      * @param withdRatio    宽度缩减比例
      * @param heightRatio   高度缩减比例
@@ -45,9 +49,10 @@ public final class ImageUtil {
     }
 
     /**
-     * 按照给点的比例缩小图像
-     * 当缩减比例小于等于0时不发生任何变化
-     *
+     * 按照给点的比例缩小图像.
+     * <p>
+     *     当缩减比例小于等于0时不发生任何变化
+     * </p>
      * @param originalImage 图像数据
      * @param withdRatio    宽度缩减比例
      * @param heightRatio   高度缩减比例
@@ -70,7 +75,7 @@ public final class ImageUtil {
     }
 
     /**
-     * 按倍率缩小图片
+     * 按倍率缩小图片.
      *
      * @param srcImagePath 读取图片路径
      * @param toImagePath  写入图片路径
@@ -84,7 +89,7 @@ public final class ImageUtil {
     }
 
     /**
-     * 长高等比例缩小图片
+     * 长高等比例缩小图片.
      *
      * @param srcImagePath 读取图片路径
      * @param toImagePath  写入图片路径
@@ -97,7 +102,7 @@ public final class ImageUtil {
     }
 
     /**
-     * 按倍率放大图片
+     * 按倍率放大图片.
      *
      * @param srcImagePath 读取图形路径
      * @param toImagePath  写入入行路径
@@ -112,7 +117,7 @@ public final class ImageUtil {
     }
 
     /**
-     * 长高等比例放大图片
+     * 长高等比例放大图片.
      *
      * @param srcImagePath 读取图形路径
      * @param toImagePath  写入入行路径

@@ -6,7 +6,6 @@ import java.util.Objects;
 
 /**
  * MD5工具类, 全部接收UTF编码的String.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -25,12 +24,10 @@ public final class MD5Utils {
 
     /**
      * MD5 16bit 小写.
-     * <p></p>
+     *
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static String md5Bit16Lower(String readyEncryptStr) throws Exception {
         if (Objects.nonNull(readyEncryptStr)) {
@@ -42,12 +39,10 @@ public final class MD5Utils {
 
     /**
      * MD5 16bit 大写.
-     * <p></p>
+     *
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static String md5Bit16Upper(String readyEncryptStr) throws Exception {
         return md5Bit16Lower(readyEncryptStr).toUpperCase();
@@ -55,12 +50,10 @@ public final class MD5Utils {
 
     /**
      * MD5 32bit 小写.
-     * <p></p>
+     *
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static String md5Bit32Lower(String readyEncryptStr) throws Exception {
         if (Objects.nonNull(readyEncryptStr)) {
@@ -83,12 +76,10 @@ public final class MD5Utils {
 
     /**
      * MD5 32bit 大写.
-     * <p></p>
+     *
      * @param readyEncryptStr ready encrypt string
      * @return String encrypt result string
      * @throws NoSuchAlgorithmException
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static String md5Bit32Upper(String readyEncryptStr) throws Exception {
         return md5Bit32Lower(readyEncryptStr).toUpperCase();

@@ -12,7 +12,6 @@ import java.util.Properties;
 
 /**
  * 提供一些常用的属性文件相关的方法.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -22,7 +21,7 @@ public class PropertiesUtil {
     static Logger logger = LoggerFactory.getLogger(PropertiesUtil.class);
 
     /**
-     * 从系统属性文件中获取相应的值
+     * 从系统属性文件中获取相应的值.
      *
      * @param key key
      * @return 返回value
@@ -32,7 +31,7 @@ public class PropertiesUtil {
     }
 
     /**
-     * 根据Key读取Value
+     * 根据Key读取Value.
      *
      * @param filePath 属性文件
      * @param key      需要读取的属性
@@ -49,7 +48,7 @@ public class PropertiesUtil {
     }
 
     /**
-     * 读取Properties的全部信息
+     * 读取Properties的全部信息.
      *
      * @param filePath 读取的属性文件
      * @return 返回所有的属性 key:value<>key:value

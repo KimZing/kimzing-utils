@@ -11,7 +11,6 @@ import java.util.List;
  * <p>
  *     MybatisPlus与PageHelper开源库中的分页功能已经做得很好了,可以直接使用自带的分页
  * </p>
- *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
@@ -44,12 +43,10 @@ public class Page {
 
     /**
      * 构造函数.
-     * <p></p>
+     *
      * @param page
      * @param size
      * @return null
-     * @author KingBoy
-     * @since 2018-08-10 23:23:26
      *
      */
     public Page(Long page, Long size) {
@@ -76,11 +73,8 @@ public class Page {
 
     /**
      * 获取数据库查询起始数.
-     * <p></p>
-     * @return java.lang.Integer
-     * @author KingBoy
-     * @since 2018-08-10 23:26:33
      *
+     * @return java.lang.Integer
      */
     public Long getStart() {
         return (this.page - 1) * this.size;

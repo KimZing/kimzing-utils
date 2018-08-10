@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 /**
  * 正则.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -40,11 +39,9 @@ public class RegexUtils {
 
     /**
      * 校验邮编.
-     * <p></p>
+     *
      * @param code
      * @return boolean
-     * @author KingBoy
-     * @since 2018-08-10 16:45:19
      *
      */
     public static boolean isPostalCode(String code) {
@@ -57,11 +54,9 @@ public class RegexUtils {
 
     /**
      * 校验手机号是否正确.
-     * <p></p>
+     *
      * @param mobile
      * @return isMobile
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isMobile(String mobile) {
         if (null == mobile || "".equals(mobile)) {
@@ -73,11 +68,9 @@ public class RegexUtils {
 
     /**
      * 校验邮箱是否正确.
-     * <p></p>
+     *
      * @param email
      * @return isEmail
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isEmail(String email) {
         if (null == email || "".equals(email)) {
@@ -89,11 +82,9 @@ public class RegexUtils {
 
     /**
      * 校验是否是整数.
-     * <p></p>
+     *
      * @param value
      * @return isInteger
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isInteger(String value) {
         try {
@@ -106,11 +97,9 @@ public class RegexUtils {
 
     /**
      * 判断是否含有特殊字符.
-     * <p></p>
+     *
      * @param text
      * @return boolean true,通过，false，没通过
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean hasSpecialChar(String text) {
         if (null == text || "".equals(text)) {
@@ -125,11 +114,9 @@ public class RegexUtils {
 
     /**
      * 判断是否正整数.
-     * <p></p>
+     *
      * @param number 数字
      * @return boolean true,通过，false，没通过
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isNumber(String number) {
         if (null == number || "".equals(number)) {
@@ -141,11 +128,9 @@ public class RegexUtils {
 
     /**
      * 判断是否是正确的IP地址.
-     * <p></p>
+     *
      * @param ip
      * @return boolean true,通过，false，没通过
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isIp(String ip) {
         if (null == ip || "".equals(ip)) {
@@ -157,11 +142,9 @@ public class RegexUtils {
 
     /**
      * 判断是否含有中文，仅适合中国汉字，不包括标点.
-     * <p></p>
+     *
      * @param text
      * @return boolean true,通过，false，没通过
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:21
      */
     public static boolean isChinese(String text) {
         if (null == text || "".equals(text)) {
@@ -172,8 +155,8 @@ public class RegexUtils {
     }
 
     /**
-     * 判断字符串str是否符合正则表达式reg
-     * <p></p>
+     * 判断字符串str是否符合正则表达式reg.
+     *
      * @param str 需要处理的字符串
      * @param reg 正则
      * @return 是否匹配

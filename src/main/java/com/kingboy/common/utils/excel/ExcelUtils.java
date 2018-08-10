@@ -36,15 +36,13 @@ public final class ExcelUtils {
 
     /**
      * 将List转换成Excel.
-     * <p></p>
+     *
      * @param list 数据集合
      * @param filePath java7中的文件操作  创建方式:Paths.get("文件地址");
      * @param fieldMapper
      * @param headStyle
      * @param contentStyle
      * @return void
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:08
      */
     public static <T> void listToExcel(List<T> list, Path filePath, Map<String, Map<String, String>> fieldMapper,
                                        ExcelStyle headStyle, ExcelStyle contentStyle) throws Exception {
@@ -75,8 +73,6 @@ public final class ExcelUtils {
      * @param clazz 类
      * @param fieldMapper
      * @return java.util.List<T>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:10
      */
     public static<T> List<T> excelToList(Path filePath, Class<T> clazz, Map<String, Map<String, String>> fieldMapper)
             throws Exception {
@@ -96,14 +92,12 @@ public final class ExcelUtils {
 
     /**
      * 获取list中的class类型.
-     * <p></p>
+     *
      * @param sheet 工作表
      * @param clazz
      * @param fieldList 获取类中有映射关系的属性名
      * @param fieldMapper
      * @return java.util.ArrayList<T>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:12
      */
     private static <T> ArrayList<T> getClazzArrayList(Sheet sheet, Class<T> clazz, ArrayList<String> fieldList,
                                                       Map<String, Map<String, String>> fieldMapper) {
@@ -127,13 +121,11 @@ public final class ExcelUtils {
 
     /**
      * 解析Json字符串.
-     * <p></p>
+     *
      * @param mapList Excel表中的数据
      * @param clazz
      * @param fieldMapper 属性转换容器
      * @return java.util.List<T>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:13
      */
     private static <T> List<T> getArrayListFromMap(List<Map<String, String>> mapList, Class<T> clazz,
                                                    Map<String, Map<String, String>> fieldMapper) {
@@ -169,14 +161,12 @@ public final class ExcelUtils {
 
     /**
      * 读取指定数量的数据，每行都拼接成一个Map<String, String>的集合.
-     * <p></p>
+     *
      * @param start 开始行
      * @param size 长度
      * @param sheet
      * @param fieldList 获取类中有映射关系的属性名
      * @return java.util.ArrayList<java.util.Map<java.lang.String,java.lang.String>>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:14
      */
     private static <T> ArrayList<Map<String, String>> readExcel(int start, int size, Sheet sheet, ArrayList<String> fieldList) {
         ArrayList<Map<String, String>> listMap = new ArrayList<>();
@@ -192,11 +182,9 @@ public final class ExcelUtils {
 
     /**
      * 获取属性名.
-     * <p></p>
+     *
      * @param clazz
      * @return java.util.ArrayList<java.lang.String>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:14
      */
     private static <T> ArrayList<String> getFieldNameByExcelAnno(Class<T> clazz) throws Exception {
         return getFieldWithExcel(clazz)
@@ -208,14 +196,12 @@ public final class ExcelUtils {
 
     /**
      * 写入内容.
-     * <p></p>
+     *
      * @param list 数据内容
      * @param sheet
      * @param fieldMapper 属性转换
      * @param contentStyle
      * @return void
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:15
      */
     private static <T> void setContent(List<T> list, Sheet sheet, Map<String, Map<String, String>> fieldMapper, ExcelStyle contentStyle) {
         Stream.iterate(0, item -> item + 1).limit(list.size())
@@ -237,13 +223,11 @@ public final class ExcelUtils {
 
     /**
      * 写入标题.
-     * <p></p>
+     *
      * @param excelList 标题
      * @param sheet
      * @param headStyle
      * @return void
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:15
      */
     private static void setHead(List<Excel> excelList, Sheet sheet, ExcelStyle headStyle) {
         Row row = sheet.createRow(0);
@@ -260,12 +244,10 @@ public final class ExcelUtils {
 
     /**
      * 设置头样式.
-     * <p></p>
+     *
      * @param workbook
      * @param headStyle
      * @return org.apache.poi.ss.usermodel.CellStyle
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:16
      */
     private static CellStyle getTitleStyle(Workbook workbook, ExcelStyle headStyle) {
         CellStyle cellStyle = workbook.createCellStyle();
@@ -304,12 +286,10 @@ public final class ExcelUtils {
 
     /**
      * 设置内容样式，占用过大，并没有开启这个功能.
-     * <p></p>
+     *
      * @param workbook
      * @param contentStyle
      * @return org.apache.poi.ss.usermodel.CellStyle
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:17
      */
     private static CellStyle getContentStyle(Workbook workbook, ExcelStyle contentStyle) {
         contentStyle = contentStyle == null ? new ExcelStyle() : contentStyle;
@@ -348,11 +328,9 @@ public final class ExcelUtils {
 
     /**
      * 拿到一个类中属性上的Excel注解.
-     * <p></p>
+     *
      * @param clazz
      * @return java.util.List<com.kingboy.common.utils.excel.Excel>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:17
      */
     private static <T> List<Excel> getExcelAnnoList(Class<T> clazz) throws Exception {
         return  getFieldWithExcel(clazz)
@@ -362,11 +340,9 @@ public final class ExcelUtils {
 
     /**
      * 获取带有Excel注解的属性.
-     * <p></p>
+     *
      * @param clazz
      * @return java.util.stream.Stream<java.lang.reflect.Field>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:18
      */
     private static <T> Stream<Field> getFieldWithExcel(Class<T> clazz) {
         Field[] fields = clazz.getDeclaredFields();
@@ -379,12 +355,10 @@ public final class ExcelUtils {
 
     /**
      * 获取一个类包含Excel注解的属性的值.
-     * <p></p>
+     *
      * @param t
      * @param fieldMapper
      * @return java.util.List<java.lang.String>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:18
      */
     private static  <T> List<String> getFiledValueIfIsExcel(T t, Map<String, Map<String, String>> fieldMapper) {
         return getFieldWithExcel(t.getClass()).map(field -> {

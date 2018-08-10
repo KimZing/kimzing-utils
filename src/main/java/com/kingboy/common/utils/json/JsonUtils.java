@@ -10,7 +10,6 @@ import java.util.Objects;
 
 /**
  * Json工具.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -19,12 +18,10 @@ public final class JsonUtils {
 
     /**
      * json串转换为对象.
-     * <p></p>
+     *
      * @param json
      * @param clazz
      * @return T
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:18
      */
     public static <T> T jsonToBean(String json, Class<T> clazz) {
         return JSON.parseObject(json, clazz);
@@ -32,11 +29,9 @@ public final class JsonUtils {
 
     /**
      * 对象转换为json.
-     * <p></p>
+     *
      * @param object
      * @return java.lang.String
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:20
      */
     public static String beanToJson(Object object) {
             return JSON.toJSONString(object);
@@ -44,12 +39,10 @@ public final class JsonUtils {
 
     /**
      * 对象转换为json,可以带上date的格式化.
-     * <p></p>
+     *
      * @param object
      * @param dateFormat
      * @return java.lang.String
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:20
      */
     public static String beanToJson(Object object, String dateFormat) {
         if (Objects.isNull(dateFormat) || "".equals(dateFormat)) {
@@ -61,13 +54,11 @@ public final class JsonUtils {
 
     /**
      * json返回List.
-     * <p></p>
+     *
      * @param arrayJson
      * @param clazz
      * @param dateFormat
      * @return java.util.List<T>
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:19
      */
     public static <T> List<T> jsonToList(String arrayJson, Class<T> clazz, String dateFormat) {
         String temp = JSONObject.DEFFAULT_DATE_FORMAT;
@@ -81,13 +72,11 @@ public final class JsonUtils {
 
     /**
      * 反序列化Map.
-     * <p></p>
+     *
      * @param mapJson
      * @param keyType
      * @param valueType
      * @return java.util.Map
-     * @author KingBoy - KingBoyWorld@163.com
-     * @since 2018/8/7 02:19
      */
     public static <K, V> Map jsonMap(String mapJson, Class<K> keyType, Class<V> valueType) {
         return JSON.parseObject(mapJson, new TypeReference<Map<K, V>>() { });

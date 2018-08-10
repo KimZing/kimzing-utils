@@ -16,7 +16,6 @@ import java.util.jar.JarFile;
 
 /**
  *Java Class与反射相关的一些工具类.
- * <p></p>
  *
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
@@ -35,7 +34,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取指定类的全部属性字段
+     * 获取指定类的全部属性字段.
      *
      * @param className    需要获取的类名
      * @param extendsField 是否获取接口或父类中的公共属性
@@ -62,7 +61,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取类中的公共属性
+     * 获取类中的公共属性.
      *
      * @param className    需要获取的类名
      * @param extendsField 是否获取接口或父类中的公共属性
@@ -92,7 +91,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取类中定义的protected类型的属性字段
+     * 获取类中定义的protected类型的属性字段.
      *
      * @param className 需要获取的类名
      * @return protected类型的属性字段数组
@@ -113,7 +112,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取类中定义的private类型的属性字段
+     * 获取类中定义的private类型的属性字段.
      *
      * @param className 需要获取的类名
      * @return private类型的属性字段数组
@@ -134,7 +133,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取对象的全部public类型方法
+     * 获取对象的全部public类型方法.
      *
      * @param className     需要获取的类名
      * @param extendsMethod 是否获取继承来的方法
@@ -162,7 +161,7 @@ public class ClassUtil {
 
 
     /**
-     * 获取对象的全部protected类型方法
+     * 获取对象的全部protected类型方法.
      *
      * @param className     需要获取的类名
      * @param extendsMethod 是否获取继承来的方法
@@ -189,7 +188,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取对象的全部private类型方法
+     * 获取对象的全部private类型方法.
      *
      * @param className 需要获取的类名
      * @return 方法名数组
@@ -210,7 +209,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取对象的全部方法
+     * 获取对象的全部方法.
      *
      * @param className     需要获取的类名
      * @param extendsMethod 是否获取继承来的方法
@@ -235,7 +234,7 @@ public class ClassUtil {
 
 
     /**
-     * 调用对象的setter方法
+     * 调用对象的setter方法.
      *
      * @param obj   对象
      * @param att   属性名
@@ -256,7 +255,7 @@ public class ClassUtil {
 
 
     /**
-     * 获取指定目录下所有的类名
+     * 获取指定目录下所有的类名.
      *
      * @param path         包名
      * @param childPackage 是否获取子包
@@ -272,7 +271,7 @@ public class ClassUtil {
     }
 
     /**
-     * 从项目文件获取某包下所有类
+     * 从项目文件获取某包下所有类.
      *
      * @param filePath     文件路径
      * @param childPackage 是否遍历子包
@@ -293,7 +292,7 @@ public class ClassUtil {
     }
 
     /**
-     * 从jar获取某包下所有类
+     * 从jar获取某包下所有类.
      *
      * @param jarPath jar文件路径
      * @return 类的完整名称
@@ -318,7 +317,7 @@ public class ClassUtil {
 
 
     /**
-     * 加载指定的类
+     * 加载指定的类.
      *
      * @param className 需要加载的类
      * @return 加载后的类
@@ -335,7 +334,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取一个类的父类
+     * 获取一个类的父类.
      *
      * @param className 需要获取的类
      * @return 父类的名称
@@ -347,7 +346,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取一个雷的继承链
+     * 获取一个雷的继承链.
      *
      * @param className 需要获取的类
      * @return 继承类名的数组
@@ -367,7 +366,7 @@ public class ClassUtil {
     }
 
     /**
-     * 获取一类实现的全部接口
+     * 获取一类实现的全部接口.
      *
      * @param className         需要获取的类
      * @param extendsInterfaces 话说getInterfaces能全部获取到才对，然而测试的时候父类的接口并没有
