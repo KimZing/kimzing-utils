@@ -176,17 +176,8 @@ public class RandomUtil {
      *
      * @return 小写的UUID
      */
-    public static String uuidLower() {
+    public static String uuid() {
         return UUID.randomUUID().toString().replaceAll("_", "");
-    }
-
-    /**
-     * 返回一个UUID
-     *
-     * @return 大写的UUID
-     */
-    public static String uuidUpper() {
-        return uuidLower().toUpperCase();
     }
 
     /**
