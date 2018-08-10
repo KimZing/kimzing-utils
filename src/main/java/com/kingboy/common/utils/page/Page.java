@@ -20,12 +20,12 @@ public class Page {
     /**
      * 当前页
      */
-    private Integer page = 1;
+    private Long page = 1L;
 
     /**
      * 每页容量
      */
-    private Integer size = 10;
+    private Long size = 10L;
 
 
     /**
@@ -42,11 +42,28 @@ public class Page {
         //do nothing
     }
 
-    public Page(Integer page, Integer size) {
+    /**
+     * 构造函数.
+     * <p></p>
+     * @param page
+     * @param size
+     * @return null
+     * @author KingBoy
+     * @since 2018-08-10 23:23:26
+     *
+     */
+    public Page(Long page, Long size) {
         this(page, size, 0L, Collections.emptyList());
     }
 
-    public Page(Integer page, Integer size, Long total, List data) {
+    /**
+     * 构造函数
+     * @param page
+     * @param size
+     * @param total
+     * @param data
+     */
+    public Page(Long page, Long size, Long total, List data) {
         this.page = page;
         this.size = size;
         this.total = total;
@@ -57,21 +74,33 @@ public class Page {
         this.data = MapperUtils.mapperList(this.data, clazz);
     }
 
-    public Integer getPage() {
+    /**
+     * 获取数据库查询起始数.
+     * <p></p>
+     * @return java.lang.Integer
+     * @author KingBoy
+     * @since 2018-08-10 23:26:33
+     *
+     */
+    public Long getStart() {
+        return (this.page - 1) * this.size;
+    }
+
+    public Long getPage() {
         return page;
     }
 
-    public void setPage(Integer page) {
+    public void setPage(Long page) {
         if (page > 0) {
             this.page = page;
         }
     }
 
-    public Integer getSize() {
+    public Long getSize() {
         return size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(Long size) {
         if (size > 0) {
             this.size = size;
         }
