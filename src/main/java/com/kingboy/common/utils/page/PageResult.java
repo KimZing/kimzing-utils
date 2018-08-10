@@ -51,7 +51,7 @@ public class PageResult {
         this.data = data;
     }
 
-    public void convertTyspe(Class clazz) {
+    public void convert(Class clazz) {
         this.data = MapperUtils.mapperList(this.data, clazz);
     }
 
