@@ -82,10 +82,8 @@ public class SysUtil {
 
     static {
         osmxb = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
-
         totalMemorySize = osmxb.getTotalPhysicalMemorySize() / KB;
     }
-
 
     /**
      * 已使用的物理内存

@@ -22,7 +22,7 @@ public class PageParam {
     private Integer size = 10;
 
     public PageParam() {
-        //do nothing
+        // do nothing
     }
 
     /**

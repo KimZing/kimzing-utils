@@ -117,25 +117,6 @@ public class RandomUtil {
      * @param fixdlenth 字符串长度
      * @return 定长的字符串
      */
-    public static String toFixdLengthString(long num, int fixdlenth) {
-        StringBuffer sb = new StringBuffer();
-        String strNum = String.valueOf(num);
-        if (fixdlenth - strNum.length() >= 0) {
-            sb.append(zeroString(fixdlenth - strNum.length()));
-        } else {
-            throw new RuntimeException("将数字" + num + "转化为长度为" + fixdlenth + "的字符串发生异常！");
-        }
-        sb.append(strNum);
-        return sb.toString();
-    }
-
-    /**
-     * 根据数字生成一个定长的字符串，长度不够前面补0
-     *
-     * @param num       数字
-     * @param fixdlenth 字符串长度
-     * @return 定长的字符串
-     */
     public static String toFixdLengthString(int num, int fixdlenth) {
         StringBuffer sb = new StringBuffer();
         String strNum = String.valueOf(num);

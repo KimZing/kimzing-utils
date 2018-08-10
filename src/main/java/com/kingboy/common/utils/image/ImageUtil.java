@@ -80,18 +80,7 @@ public final class ImageUtil {
      */
     public static void reduceImageByRatio(String srcImagePath, String toImagePath, int widthRatio, int heightRatio) throws IOException {
         File file = new File(srcImagePath);
-        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
-            //读入文件
-
-            String prefix = FileUtil.suffix(file);
-            // 构造Image对象
-            BufferedImage srcBuffer = ImageIO.read(file);
-            // 按比例缩减图像
-            BufferedImage imageBuffer = ImageUtil.imageShrinkRatio(srcBuffer, widthRatio, heightRatio);
-            ImageIO.write(imageBuffer, prefix, out);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        enlargement(toImagePath, widthRatio, heightRatio,  file);
     }
 
     /**
@@ -104,17 +93,7 @@ public final class ImageUtil {
      */
     public static void reduceImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
         File file = new File(srcImagePath);
-        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
-            //读入文件
-            String prefix = FileUtil.suffix(file);
-            // 构造Image对象
-            BufferedImage srcBuffer = ImageIO.read(file);
-            // 按比例缩减图像
-            BufferedImage imageBuffer = ImageUtil.imageShrinkRatio(srcBuffer, ratio, ratio);
-            ImageIO.write(imageBuffer, prefix, out);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+         enlargement(toImagePath, ratio, ratio,  file);
     }
 
     /**
@@ -129,17 +108,7 @@ public final class ImageUtil {
     public static void enlargementImageByRatio(String srcImagePath, String toImagePath,
                                                int widthRatio, int heightRatio) throws IOException {
         File file = new File(srcImagePath);
-        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
-            //读入文件
-            String prefix = FileUtil.suffix(file);
-            // 构造Image对象
-            BufferedImage srcBuffer = ImageIO.read(file);
-            // 按比例缩减图像
-            BufferedImage imageBuffer = ImageUtil.imageMagnifyRatio(srcBuffer, widthRatio, heightRatio);
-            ImageIO.write(imageBuffer, prefix, out);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        enlargement(toImagePath, widthRatio, heightRatio,  file);
     }
 
     /**
@@ -152,13 +121,17 @@ public final class ImageUtil {
      */
     public static void enlargementImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
         File file = new File(srcImagePath);
+        enlargement(toImagePath, ratio, ratio,  file);
+    }
+
+    private static void enlargement(String toImagePath, int widthRatio, int heightRatio, File file) {
         try (FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
             String prefix = FileUtil.suffix(file);
             // 构造Image对象
             BufferedImage srcBuffer = ImageIO.read(file);
             // 按比例缩减图像
-            BufferedImage imageBuffer = ImageUtil.imageMagnifyRatio(srcBuffer, ratio, ratio);
+            BufferedImage imageBuffer = ImageUtil.imageMagnifyRatio(srcBuffer, widthRatio, heightRatio);
             ImageIO.write(imageBuffer, prefix, out);
         } catch (Exception e) {
             e.printStackTrace();

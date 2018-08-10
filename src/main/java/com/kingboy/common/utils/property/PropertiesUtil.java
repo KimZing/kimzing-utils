@@ -48,23 +48,6 @@ public class PropertiesUtil {
         }
     }
 
-    public static Map<String, String> properties(InputStream in) {
-        Map<String, String> map = new HashMap<>();
-        Properties pps = new Properties();
-        try {
-            pps.load(in);
-        } catch (IOException e) {
-            logger.error("load properties error:" + e.getMessage());
-        }
-        Enumeration en = pps.propertyNames();
-        while (en.hasMoreElements()) {
-            String strKey = (String) en.nextElement();
-            String strValue = pps.getProperty(strKey);
-            map.put(strKey, strValue);
-        }
-        return map;
-    }
-
     /**
      * 读取Properties的全部信息
      *
@@ -77,6 +60,23 @@ public class PropertiesUtil {
             return properties(in);
         } catch (IOException e) {
             logger.error("load properties error");
+        }
+        return map;
+    }
+
+    private static Map<String, String> properties(InputStream in) {
+        Map<String, String> map = new HashMap<>();
+        Properties pps = new Properties();
+        try {
+            pps.load(in);
+        } catch (IOException e) {
+            logger.error("load properties error:" + e.getMessage());
+        }
+        Enumeration en = pps.propertyNames();
+        while (en.hasMoreElements()) {
+            String strKey = (String) en.nextElement();
+            String strValue = pps.getProperty(strKey);
+            map.put(strKey, strValue);
         }
         return map;
     }

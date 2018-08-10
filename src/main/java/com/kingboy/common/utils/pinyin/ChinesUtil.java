@@ -8,8 +8,6 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * 一些中文相关的操作方法.
@@ -103,50 +101,6 @@ public class ChinesUtil {
             }
         }
         return pybf.toString();
-    }
-
-    // 完整的判断中文汉字和符号
-    public static boolean isChinese(String strName) {
-        char[] ch = strName.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-            char c = ch[i];
-            if (isChinese(c)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 判断是否是中文
-     *
-     * @param c
-     * @return
-     */
-    public static boolean isChinese(char c) {
-        Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
-        if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
-                || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
-                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
-                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION
-                || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 获取一个字符串中中文字符的个数
-     */
-    public static int chineseLength(String str) {
-        Pattern p = Pattern.compile("[\u4E00-\u9FA5]+");
-        Matcher m = p.matcher(str);
-        int     i = 0;
-        while (m.find()) {
-            String temp = m.group(0);
-            i += temp.length();
-        }
-        return i;
     }
 
 }

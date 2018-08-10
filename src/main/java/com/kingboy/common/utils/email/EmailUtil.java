@@ -81,10 +81,9 @@ public final class EmailUtil {
             // 收件人
             InternetAddress to = new InternetAddress(receiveUser);
             message.setRecipient(Message.RecipientType.TO, to); //还可以有CC、BCC
-
             // 邮件主题
             message.setSubject(subject);
-
+            // 内容
             String content = sendHtml.toString();
             // 邮件内容,也可以使纯文本"text/plain"
             message.setContent(content, "text/html;charset=UTF-8");

@@ -18,13 +18,13 @@ import java.util.Date;
  */
 public final class LocalDateTimeUtils {
 
-    //获取当前时间的LocalDateTime对象
+    // 获取当前时间的LocalDateTime对象
     //LocalDateTime.now();
 
-    //根据年月日构建LocalDateTime
+    // 根据年月日构建LocalDateTime
     //LocalDateTime.of();
 
-    //比较日期先后
+    // 比较日期先后
     //LocalDateTime.now().isBefore(),
     //LocalDateTime.now().isAfter(),
 

@@ -21,7 +21,7 @@ import java.util.stream.Stream;
  * Excel工具类. 只针对单个类内的属性进行转换.
  * <p>
  *     额外说明:本工具类支持设置数据行的格式，但由于这个功能占用执行时间过多(大约十倍)，所以在205行注释掉了，有需要可以打开<br>
- *     使用说明-博客:http://blog.csdn.net/kingboyworld/article/details/76253785
+ *     使用说明-博客:http:// blog.csdn.net/kingboyworld/article/details/76253785
  * </p>
  *
  * @author KingBoy - KingBoyWorld@163.com
@@ -48,21 +48,21 @@ public final class ExcelUtils {
      */
     public static <T> void listToExcel(List<T> list, Path filePath, Map<String, Map<String, String>> fieldMapper,
                                        ExcelStyle headStyle, ExcelStyle contentStyle) throws Exception {
-        //List为null或者empty抛出异常
+        // List为null或者empty抛出异常
         Optional.ofNullable(list)
                 .filter(l -> !l.isEmpty())
                 .orElseThrow(NullPointerException::new);
 
-        //1. 获取类的字符串属性
+        // 1. 获取类的字符串属性
         List<Excel> excelList = getExcelAnnoList(list.get(0).getClass());
-        //2. 创建工件薄,工件表
+        // 2. 创建工件薄,工件表
         Workbook workbook = new SXSSFWorkbook();
         Sheet sheet = workbook.createSheet();
-        //3. 设置表头
+        // 3. 设置表头
         setHead(excelList, sheet, headStyle);
-        //4. 设置内容
+        // 4. 设置内容
         setContent(list, sheet, fieldMapper, contentStyle);
-        //5. 写文件
+        // 5. 写文件
         workbook.write(Files.newOutputStream(filePath));
     }
 
@@ -83,9 +83,9 @@ public final class ExcelUtils {
         Workbook workbook = new XSSFWorkbook(Files.newInputStream(filePath));
         Sheet sheet = workbook.getSheetAt(0);
 
-        //1. 获取类和Excel表格对应的属性，有序放入ArrayList中
+        // 1. 获取类和Excel表格对应的属性，有序放入ArrayList中
         ArrayList<String> fieldList = getFieldNameByExcelAnno(clazz);
-        //2. 获取结果
+        // 2. 获取结果
         ArrayList<T> resultList = getClazzArrayList(sheet, clazz, fieldList, fieldMapper);
         return resultList;
     }
@@ -107,11 +107,11 @@ public final class ExcelUtils {
      */
     private static <T> ArrayList<T> getClazzArrayList(Sheet sheet, Class<T> clazz, ArrayList<String> fieldList,
                                                       Map<String, Map<String, String>> fieldMapper) {
-        //数据行数
+        // 数据行数
         int rowNumber = sheet.getPhysicalNumberOfRows() - 1;
-        //读取次数
+        // 读取次数
         int times = rowNumber / size + 1;
-        //结果集
+        // 结果集
         ArrayList<T> result = new ArrayList<T>(rowNumber);
         Stream.iterate(1, i -> i + 1)
                 .limit(times - 1)
@@ -137,23 +137,23 @@ public final class ExcelUtils {
      */
     private static <T> List<T> getArrayListFromMap(List<Map<String, String>> mapList, Class<T> clazz,
                                                    Map<String, Map<String, String>> fieldMapper) {
-        //记录默认的日期格式
+        // 记录默认的日期格式
         String tempDateFormat = JSONObject.DEFFAULT_DATE_FORMAT;
-        //设置日期编码
+        // 设置日期编码
         getFieldWithExcel(clazz)
                 .filter(field -> field.getType() == Date.class || field.getType() == LocalDateTime.class)
                 .findFirst()
                 .ifPresent(field ->
                         JSONObject.DEFFAULT_DATE_FORMAT = field.getAnnotation(Excel.class).dateFormat());
 
-        //转换属性
+        // 转换属性
         if (fieldMapper != null) {
             mapList.stream().forEach(map -> {
                 map.forEach((key, value) -> {
                     if (fieldMapper.get(key) != null) {
-                        //真实的属性值
+                        // 真实的属性值
                         String realValue = fieldMapper.get(key).get(value);
-                        //如果有对应的值，就设置对应的值
+                        // 如果有对应的值，就设置对应的值
                         map.put(key, realValue == null ? value : realValue);
                     }
                 });
@@ -161,7 +161,7 @@ public final class ExcelUtils {
         }
 
         List<T> list = JSON.parseArray(JSON.toJSONString(mapList), clazz);
-        //还原默认的日期格式
+        // 还原默认的日期格式
         JSONObject.DEFFAULT_DATE_FORMAT = tempDateFormat;
 
         return list;
@@ -220,16 +220,16 @@ public final class ExcelUtils {
     private static <T> void setContent(List<T> list, Sheet sheet, Map<String, Map<String, String>> fieldMapper, ExcelStyle contentStyle) {
         Stream.iterate(0, item -> item + 1).limit(list.size())
                 .forEach(item -> {
-                    //当前行
+                    // 当前行
                     Row row = sheet.createRow(item + 1);
-                    //每个对象的属性值
+                    // 每个对象的属性值
                     List<String> fieldValue = getFiledValueIfIsExcel(list.get(item), fieldMapper);
                     Stream.iterate(0, i -> i + 1)
                             .limit(fieldValue.size())
                             .forEach(i -> {
                                 Cell cell = row.createCell(i);
                                 cell.setCellType(CellType.STRING);
-                                //cell.setCellStyle(getContentStyle(sheet.getWorkbook(), contentStyle));
+                                // cell.setCellStyle(getContentStyle(sheet.getWorkbook(), contentStyle));
                                 cell.setCellValue(fieldValue.get(i));
                             });
                 });
@@ -271,34 +271,34 @@ public final class ExcelUtils {
         CellStyle cellStyle = workbook.createCellStyle();
         headStyle = headStyle == null ? new ExcelStyle() : headStyle;
 
-        //对齐方式
+        // 对齐方式
         cellStyle.setAlignment(headStyle.getAlign() == null ? HorizontalAlignment.CENTER : headStyle.getAlign());
 
-        //设置字体
+        // 设置字体
         Font font = workbook.createFont();
         String fontName = headStyle.getFontName();
         font.setFontName(null == fontName ? "黑体" : fontName);
-        //字体大小
+        // 字体大小
         font.setFontHeightInPoints(headStyle.getSize() <= 0 ? 14 : headStyle.getSize());
         font.setBold(true);
         font.setColor(headStyle.getFontColor() <= 0 ? HSSFColor.BLACK.index : headStyle.getFontColor());
         cellStyle.setFont(font);
 
-        //背景
+        // 背景
         cellStyle.setFillForegroundColor(headStyle.getBackColor() <= 0
                 ? HSSFColor.SEA_GREEN.index
                 : headStyle.getBackColor());
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
         BorderStyle border = headStyle.getBorderStyle() == null ? BorderStyle.MEDIUM : headStyle.getBorderStyle();
-        //边框
+        // 边框
         cellStyle.setBorderLeft(border);
         cellStyle.setBorderTop(border);
         cellStyle.setBorderRight(border);
         cellStyle.setBorderBottom(border);
 
-        //自动换行
-        //cellStyle.setWrapText(true);
+        // 自动换行
+        // cellStyle.setWrapText(true);
         return cellStyle;
     }
 
@@ -315,34 +315,34 @@ public final class ExcelUtils {
         contentStyle = contentStyle == null ? new ExcelStyle() : contentStyle;
         CellStyle cellStyle = workbook.createCellStyle();
 
-        //对齐方式
+        // 对齐方式
         cellStyle.setAlignment(contentStyle.getAlign() == null ? HorizontalAlignment.LEFT : contentStyle.getAlign());
 
-        //设置字体
+        // 设置字体
         Font font = workbook.createFont();
         String fontName = contentStyle.getFontName();
         font.setFontName(null == fontName ? "黑体" : fontName);
-        //字体大小
+        // 字体大小
         font.setFontHeightInPoints(contentStyle.getSize() <= 0 ? 12 : contentStyle.getSize());
         font.setBold(contentStyle.isBold());
         font.setColor(contentStyle.getFontColor() <= 0 ? HSSFColor.BLACK.index : contentStyle.getFontColor());
         cellStyle.setFont(font);
 
-        //背景
+        // 背景
         cellStyle.setFillForegroundColor(contentStyle.getBackColor() <= 0
                 ? HSSFColor.WHITE.index
                 : contentStyle.getBackColor());
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
         BorderStyle border = contentStyle.getBorderStyle() == null ? BorderStyle.THIN : contentStyle.getBorderStyle();
-        //边框
+        // 边框
         cellStyle.setBorderLeft(border);
         cellStyle.setBorderTop(border);
         cellStyle.setBorderRight(border);
         cellStyle.setBorderBottom(border);
 
-        //自动换行
-        //cellStyle.setWrapText(true);
+        // 自动换行
+        // cellStyle.setWrapText(true);
         return cellStyle;
     }
 
@@ -396,24 +396,24 @@ public final class ExcelUtils {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
-            //如果属性值为空，返回空字符串
+            // 如果属性值为空，返回空字符串
             if (Objects.isNull(o)) {
                 o =  "";
             }
-            //如果是Date类型
+            // 如果是Date类型
             if (o instanceof Date) {
                 o =  new SimpleDateFormat(field.getAnnotation(Excel.class).dateFormat()).format((Date) o);
             }
-            //如果是LocalDateTime类型，支持Java8LocalDateTime
+            // 如果是LocalDateTime类型，支持Java8LocalDateTime
             if (o instanceof LocalDateTime) {
                 o =  ((LocalDateTime) o).format(DateTimeFormatter.ofPattern(field.getAnnotation(Excel.class).dateFormat()));
             }
-            //bool和int属性转换，感觉最常用这两个，其它的需要再扩充
+            // bool和int属性转换，感觉最常用这两个，其它的需要再扩充
             if (fieldMapper != null && (o instanceof Boolean || o instanceof Integer)) {
                 Map<String, String> map = fieldMapper.get(field.getName());
                 o =  map == null ? o : map.get(o.toString()) == null ? o : map.get(o.toString());
             }
-            //其它的返回toString
+            // 其它的返回toString
             return o.toString();
 
         }).collect(Collectors.toCollection(ArrayList::new));

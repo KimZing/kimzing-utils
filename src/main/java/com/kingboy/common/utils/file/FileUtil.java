@@ -27,6 +27,7 @@ import java.util.Objects;
  * @since 2018-08-07 02:02
  */
 public class FileUtil {
+
     /**
      * Buffer的大小
      */
@@ -74,7 +75,6 @@ public class FileUtil {
             try (
                     BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), encoding));
                     LineNumberReader lnr = new LineNumberReader(reader);
-
             ) {
                 int linenumber = 0;
                 while (lnr.readLine() != null) {
@@ -127,27 +127,6 @@ public class FileUtil {
     /**
      * 在文件末尾追加一行
      *
-     * @param file 需要处理的函数
-     * @param str  添加的子字符串
-     * @return 是否成功
-     */
-    public static boolean appendLine(File file, String str) {
-        try (
-                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
-        ) {
-            long fileLength = randomFile.length();
-            randomFile.seek(fileLength);
-            randomFile.writeBytes(SysUtil.FILE_SEPARATOR + str);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    /**
-     * 在文件末尾追加一行
-     *
      * @param file     需要处理的文件
      * @param str      添加的字符串
      * @param encoding 指定写入的编码
@@ -168,39 +147,18 @@ public class FileUtil {
     }
 
     /**
-     * 将字符串写入到文件中
+     *
      */
-    public static boolean write(File file, String str) {
-        try (
-                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
-        ) {
-            randomFile.writeBytes(str);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
     /**
-     * 将字符串以追加的方式写入到文件中
-     */
-    public static boolean writeAppend(File file, String str) {
-        try (
-                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
-        ) {
-            long fileLength = randomFile.length();
-            randomFile.seek(fileLength);
-            randomFile.writeBytes(str);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    /**
-     * 将字符串以制定的编码写入到文件中
+     * 将字符串以指定的编码写入到文件中.
+     * <p></p>
+     * @param file
+     * @param str
+     * @param encoding
+     * @return boolean
+     * @author KingBoy
+     * @since 2018-08-10 18:08:35
+     *
      */
     public static boolean write(File file, String str, String encoding) {
         try (
@@ -215,7 +173,12 @@ public class FileUtil {
     }
 
     /**
-     * 将字符串以追加的方式以制定的编码写入到文件中
+     * 将字符串以追加的方式以指定的编码写入到文件中.
+     * <p></p>
+     * @param file
+     * @param str
+     * @param encoding
+     * @return boolean
      */
     public static boolean writeAppend(File file, String str, String encoding) {
         try (

@@ -8,6 +8,7 @@ package com.kingboy.common.utils.coordinate;
  * @since 2018-08-07 02:02
  */
 public class CoordinateUtil {
+
     /**
      * 计算地球上任意两点(经纬度)距离
      *
