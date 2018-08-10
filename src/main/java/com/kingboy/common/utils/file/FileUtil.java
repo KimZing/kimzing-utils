@@ -1,7 +1,6 @@
 package com.kingboy.common.utils.file;
 
 import com.kingboy.common.utils.regex.RegexUtils;
-import com.kingboy.common.utils.system.SysUtil;
 
 import java.io.*;
 import java.math.BigInteger;
