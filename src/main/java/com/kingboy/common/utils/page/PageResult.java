@@ -16,9 +16,20 @@ import java.util.List;
 public class PageResult {
 
     /**
-     * 分页参数
+     * 当前页
      */
-    private PageParam pageParam;
+    private Integer page;
+
+    /**
+     * 每页容量
+     */
+    private Integer size;
+
+
+    /**
+     * 总页数
+     */
+    private Long total;
 
     /**
      * 分页数据
@@ -26,16 +37,46 @@ public class PageResult {
     private List data;
 
     public PageResult(PageParam pageParam, List data) {
-        this.pageParam = pageParam;
+        this(pageParam, 0L, data);
+    }
+
+    public PageResult(PageParam pageParam, Long total, List data) {
+        this(pageParam.getPage(), pageParam.getSize(), total, data);
+    }
+
+    public PageResult(Integer page, Integer size, Long total, List data) {
+        this.page = page;
+        this.size = size;
+        this.total = total;
         this.data = data;
     }
 
-    public void convertType(Class clazz) {
+    public void convertTyspe(Class clazz) {
         this.data = MapperUtils.mapperList(this.data, clazz);
     }
 
-    public PageParam getPageParam() {
-        return pageParam;
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
     }
 
     public List getData() {
