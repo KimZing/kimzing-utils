@@ -1,5 +1,6 @@
 package com.kingboy.common.utils.page;
 
+import com.kingboy.common.utils.excel.ExcelStyle;
 import com.kingboy.common.utils.mapper.MapperUtils;
 
 import java.util.Collections;
@@ -13,7 +14,7 @@ import java.util.List;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public class Page {
+public class Page<T> {
 
     /**
      * 当前页
@@ -34,7 +35,7 @@ public class Page {
     /**
      * 分页数据
      */
-    private List data = Collections.emptyList();
+    private List<T> data = Collections.emptyList();
 
     public Page() {
         //do nothing
@@ -59,7 +60,7 @@ public class Page {
      * @param total
      * @param data
      */
-    public Page(Long page, Long size, Long total, List data) {
+    public Page(Long page, Long size, Long total, List<T> data) {
         this.page = page;
         this.size = size;
         this.total = total;
@@ -113,7 +114,7 @@ public class Page {
         return data;
     }
 
-    public void setData(List data) {
+    public void setData(List<T> data) {
         if (data != null && data.size() > 0) {
             this.data = data;
         }
