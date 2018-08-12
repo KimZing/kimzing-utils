@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public class RegexUtils {
+public class RegexUtil {
 
     /**
      * 手机号
@@ -105,7 +105,8 @@ public class RegexUtils {
         if (null == text || "".equals(text)) {
             return true;
         }
-        if (text.replaceAll("[a-z]*[A-Z]*\\d*-*_*\\s*", "").length() == 0) {
+        String reg = "[a-z]*[A-Z]*\\d*-*_*\\s*";
+        if (text.replaceAll(reg, "").length() == 0) {
             // 如果不包含特殊字符
             return false;
         }

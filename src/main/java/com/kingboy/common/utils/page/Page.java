@@ -2,7 +2,6 @@ package com.kingboy.common.utils.page;
 
 import com.kingboy.common.utils.mapper.MapperUtils;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

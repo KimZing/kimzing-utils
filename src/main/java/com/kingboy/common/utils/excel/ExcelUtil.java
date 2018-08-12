@@ -27,7 +27,7 @@ import java.util.stream.Stream;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public final class ExcelUtils {
+public final class ExcelUtil {
 
     /**
      * 每次转换多少行
@@ -215,7 +215,8 @@ public final class ExcelUtils {
                             .forEach(i -> {
                                 Cell cell = row.createCell(i);
                                 cell.setCellType(CellType.STRING);
-                                // cell.setCellStyle(getContentStyle(sheet.getWorkbook(), contentStyle));
+                                // 默认关闭了样式设置
+                                //调用cell.setCellStyle(getContentStyle(sheet.getWorkbook(), contentStyle));开启样式
                                 cell.setCellValue(fieldValue.get(i));
                             });
                 });
@@ -263,12 +264,12 @@ public final class ExcelUtils {
         // 字体大小
         font.setFontHeightInPoints(headStyle.getSize() <= 0 ? 14 : headStyle.getSize());
         font.setBold(true);
-        font.setColor(headStyle.getFontColor() <= 0 ? HSSFColor.BLACK.index : headStyle.getFontColor());
+        font.setColor(headStyle.getFontColor() <= 0 ? HSSFColor.HSSFColorPredefined.BLACK.getIndex() : headStyle.getFontColor());
         cellStyle.setFont(font);
 
         // 背景
         cellStyle.setFillForegroundColor(headStyle.getBackColor() <= 0
-                ? HSSFColor.SEA_GREEN.index
+                ? HSSFColor.HSSFColorPredefined.SEA_GREEN.getIndex()
                 : headStyle.getBackColor());
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
@@ -279,8 +280,8 @@ public final class ExcelUtils {
         cellStyle.setBorderRight(border);
         cellStyle.setBorderBottom(border);
 
-        // 自动换行
-        // cellStyle.setWrapText(true);
+        // 设置自动换行
+        cellStyle.setWrapText(true);
         return cellStyle;
     }
 
@@ -305,12 +306,12 @@ public final class ExcelUtils {
         // 字体大小
         font.setFontHeightInPoints(contentStyle.getSize() <= 0 ? 12 : contentStyle.getSize());
         font.setBold(contentStyle.isBold());
-        font.setColor(contentStyle.getFontColor() <= 0 ? HSSFColor.BLACK.index : contentStyle.getFontColor());
+        font.setColor(contentStyle.getFontColor() <= 0 ? HSSFColor.HSSFColorPredefined.BLACK.getIndex() : contentStyle.getFontColor());
         cellStyle.setFont(font);
 
         // 背景
         cellStyle.setFillForegroundColor(contentStyle.getBackColor() <= 0
-                ? HSSFColor.WHITE.index
+                ? HSSFColor.HSSFColorPredefined.WHITE.getIndex()
                 : contentStyle.getBackColor());
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
@@ -322,7 +323,7 @@ public final class ExcelUtils {
         cellStyle.setBorderBottom(border);
 
         // 自动换行
-        // cellStyle.setWrapText(true);
+        cellStyle.setWrapText(true);
         return cellStyle;
     }
 
@@ -383,7 +384,8 @@ public final class ExcelUtils {
                 o =  ((LocalDateTime) o).format(DateTimeFormatter.ofPattern(field.getAnnotation(Excel.class).dateFormat()));
             }
             // bool和int属性转换，感觉最常用这两个，其它的需要再扩充
-            if (fieldMapper != null && (o instanceof Boolean || o instanceof Integer)) {
+            boolean boolAndInteger = fieldMapper != null && (o instanceof Boolean || o instanceof Integer);
+            if (boolAndInteger) {
                 Map<String, String> map = fieldMapper.get(field.getName());
                 o =  map == null ? o : map.get(o.toString()) == null ? o : map.get(o.toString());
             }

@@ -253,7 +253,6 @@ public class ClassUtil {
 
     }
 
-
     /**
      * 获取指定目录下所有的类名.
      *
@@ -262,7 +261,8 @@ public class ClassUtil {
      */
     public static List<String> getClassName(String path, boolean childPackage) {
         List<String> fileNames = new ArrayList<>();
-        if (path.endsWith(".jar")) {
+        String type = ".jar";
+        if (path.endsWith(type)) {
             fileNames.addAll(getClassNameByJar(path));
         } else {
             fileNames = getClassNameByFile(path, childPackage);
@@ -356,7 +356,8 @@ public class ClassUtil {
         List<String> list = new ArrayList<>();
         Class superclass = classz.getSuperclass();
         String superName = superclass.getName();
-        if (!"java.lang.Object".equals(superName)) {
+        String objectPackage = "java.lang.Object";
+        if (!objectPackage.equals(superName)) {
             list.add(superName);
             list.addAll(Arrays.asList(getSuperClassChian(superName)));
         } else {

@@ -15,7 +15,7 @@ import java.util.Date;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public final class LocalDateTimeUtils {
+public final class LocalDateTimeUtil {
 
     // 获取当前时间的LocalDateTime对象
     //LocalDateTime.now();

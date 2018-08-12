@@ -6,7 +6,7 @@ package com.kingboy.common.utils.result;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public abstract class ApiResult {
+public abstract class AbstractApiResult {
 
     /**
      * 状态码
@@ -19,7 +19,7 @@ public abstract class ApiResult {
      * @param data 数据
      * @return ApiResult 正常返回体
      */
-    public static ApiResult success(Object data) {
+    public static AbstractApiResult success(Object data) {
         return new SuccessApiResult(data);
     }
 
@@ -30,7 +30,7 @@ public abstract class ApiResult {
      * @param errorMessage 错误信息
      * @return ApiResult 错误返回体
      */
-    public static ApiResult error(String errorCode, String errorMessage) {
+    public static AbstractApiResult error(String errorCode, String errorMessage) {
         return new ErrorApiResult(errorCode, errorMessage);
     }
 

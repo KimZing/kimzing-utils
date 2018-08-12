@@ -19,7 +19,8 @@ public class CoordinateUtil {
      */
     public static double distance(double long1, double lat1, double long2, double lat2) {
         double a, b, r;
-        r = 6378137; // 地球半径
+        // 地球半径
+        r = 6378137;
         lat1 = lat1 * Math.PI / 180.0;
         lat2 = lat2 * Math.PI / 180.0;
         a = lat1 - lat2;

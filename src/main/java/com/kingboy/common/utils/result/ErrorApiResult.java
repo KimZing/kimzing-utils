@@ -6,7 +6,7 @@ package com.kingboy.common.utils.result;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public class ErrorApiResult extends ApiResult {
+public class ErrorApiResult extends AbstractApiResult {
 
     /**
      * 错误信息

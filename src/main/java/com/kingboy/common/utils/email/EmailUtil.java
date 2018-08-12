@@ -40,9 +40,6 @@ public final class EmailUtil {
     private String username = "";
     private String password = "";
 
-    /*
-     * 初始化方法
-     */
     public EmailUtil(String host, Integer port, Boolean needAuth, String username, String password, boolean debug) {
 
         this.mailHost = host;
@@ -58,7 +55,8 @@ public final class EmailUtil {
         properties.put("mail.sender.password", password);
 
         session = Session.getInstance(properties);
-        session.setDebug(debug); //开启后有调试信息
+        //开启后有调试信息
+        session.setDebug(debug);
         message = new MimeMessage(session);
     }
 
@@ -71,15 +69,14 @@ public final class EmailUtil {
      */
     public void doSendHtmlEmail(String subject, String sendHtml, String receiveUser) {
         try {
-            // 发件人
-            InternetAddress from = new InternetAddress(username);
             // 下面这个是设置发送人的Nick name
-            //InternetAddress from = new InternetAddress(MimeUtility.encodeWord("幻影") + " <" + sender_username + ">");
+            InternetAddress from = new InternetAddress(MimeUtility.encodeWord("幻影") + " <" + username + ">");
             message.setFrom(from);
 
             // 收件人
             InternetAddress to = new InternetAddress(receiveUser);
-            message.setRecipient(Message.RecipientType.TO, to); //还可以有CC、BCC
+            //还可以有CC、BCC
+            message.setRecipient(Message.RecipientType.TO, to);
             // 邮件主题
             message.setSubject(subject);
             // 内容

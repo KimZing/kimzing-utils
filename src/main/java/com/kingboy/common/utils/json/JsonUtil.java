@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public final class JsonUtils {
+public final class JsonUtil {
 
     /**
      * json串转换为对象.

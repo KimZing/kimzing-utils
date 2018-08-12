@@ -1,6 +1,6 @@
 package com.kingboy.common.utils.file;
 
-import com.kingboy.common.utils.regex.RegexUtils;
+import com.kingboy.common.utils.regex.RegexUtil;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -474,14 +474,6 @@ public class FileUtil {
      * @return 返回文件列表
      */
     public static List<File> listFileFilter(File dirPath, final String postfixs) {
-        /*
-        如果在当前目录中使用Filter讲只罗列当前目录下的文件不会罗列孙子目录下的文件
-        FilenameFilter filefilter = new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.endsWith(postfixs);
-            }
-        };
-        */
         List<File> list = new ArrayList<File>();
         File[] files = dirPath.listFiles();
         if (Objects.nonNull(files) && files.length > 0) {
@@ -540,7 +532,7 @@ public class FileUtil {
                     list.addAll(searchFile(file, reg));
                 } else {
                     String name = file.getName();
-                    if (RegexUtils.isMatche(name, reg)) {
+                    if (RegexUtil.isMatche(name, reg)) {
                         list.add(file);
                     }
                 }

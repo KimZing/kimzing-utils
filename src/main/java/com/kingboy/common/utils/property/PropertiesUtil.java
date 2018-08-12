@@ -54,7 +54,7 @@ public class PropertiesUtil {
      * @return 返回所有的属性 key:value<>key:value
      */
     public static Map<String, String> getAllProperties(String filePath) throws IOException {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(0);
         try (InputStream in = new BufferedInputStream(new FileInputStream(filePath))) {
             return properties(in);
         } catch (IOException e) {
@@ -64,7 +64,7 @@ public class PropertiesUtil {
     }
 
     private static Map<String, String> properties(InputStream in) {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(5);
         Properties pps = new Properties();
         try {
             pps.load(in);

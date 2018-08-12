@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @author KingBoy - KingBoyWorld@163.com
  * @since 2018-08-07 02:02
  */
-public class StringUtils {
+public class StringUtil {
 
     /**
      * 是否为空.
@@ -82,6 +82,8 @@ public class StringUtils {
         return df.format(f);
     }
 
+    private static Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+
     /**
      * 页面中去除字符串中的空格、回车、换行符、制表符.
      *
@@ -89,7 +91,6 @@ public class StringUtils {
      */
     public static String replaceBlank(String str) {
         if (str != null) {
-            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
             Matcher m = p.matcher(str);
             str = m.replaceAll("");
         }
@@ -124,7 +125,9 @@ public class StringUtils {
             return "";
         }
         char[] cs = str.toCharArray();
-        if ((cs[0] >= 'a') && (cs[0] <= 'z')) {
+        Character start = 'a';
+        Character end = 'z';
+        if ((cs[0] >= start) && (cs[0] <= end)) {
             cs[0] -= (char) 0x20;
         }
         return String.valueOf(cs);
@@ -141,7 +144,9 @@ public class StringUtils {
             return "";
         }
         char[] cs = str.toCharArray();
-        if ((cs[0] >= 'A') && (cs[0] <= 'Z')) {
+        Character start = 'A';
+        Character end = 'Z';
+        if ((cs[0] >= start) && (cs[0] <= end)) {
             cs[0] += (char) 0x20;
         }
         return String.valueOf(cs);
@@ -217,15 +222,17 @@ public class StringUtils {
             return n;
         }
         d = new int[n + 1][m + 1];
-        for (i = 0; i <= n; i++) { // 初始化第一列
+        // 初始化第一列
+        for (i = 0; i <= n; i++) {
             d[i][0] = i;
         }
 
-        for (j = 0; j <= m; j++) { // 初始化第一行
+        // 初始化第一行
+        for (j = 0; j <= m; j++) {
             d[0][j] = j;
         }
-
-        for (i = 1; i <= n; i++) { // 遍历str
+        // 遍历str
+        for (i = 1; i <= n; i++) {
             ch1 = str.charAt(i - 1);
             // 去匹配target
             for (j = 1; j <= m; j++) {
