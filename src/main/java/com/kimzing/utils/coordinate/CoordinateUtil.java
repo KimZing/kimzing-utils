@@ -6,7 +6,11 @@ package com.kimzing.utils.coordinate;
  * @author KimZing - kimzing@163.com
  * @since 2018-08-07 02:02
  */
-public class CoordinateUtil {
+public final class CoordinateUtil {
+
+    private CoordinateUtil() {
+
+    }
 
     /**
      * 计算地球上任意两点(经纬度)距离
@@ -18,18 +22,14 @@ public class CoordinateUtil {
      * @return 返回距离 单位：米
      */
     public static double distance(double long1, double lat1, double long2, double lat2) {
-        double a, b, r;
         // 地球半径
-        r = 6378137;
+        double r = 6378137;
         lat1 = lat1 * Math.PI / 180.0;
         lat2 = lat2 * Math.PI / 180.0;
-        a = lat1 - lat2;
-        b = (long1 - long2) * Math.PI / 180.0;
-        double d;
-        double sa2, sb2;
-        sa2 = Math.sin(a / 2.0);
-        sb2 = Math.sin(b / 2.0);
-        d = 2 * r * Math.asin(Math.sqrt(sa2 * sa2 + Math.cos(lat1) * Math.cos(lat2) * sb2 * sb2));
-        return d;
+        double a = lat1 - lat2;
+        double b = (long1 - long2) * Math.PI / 180.0;
+        double sa2 = Math.sin(a / 2.0);
+        double sb2 = Math.sin(b / 2.0);
+        return 2 * r * Math.asin(Math.sqrt(sa2 * sa2 + Math.cos(lat1) * Math.cos(lat2) * sb2 * sb2));
     }
 }

@@ -17,15 +17,19 @@ import java.util.Date;
  */
 public final class LocalDateTimeUtil {
 
-    // 获取当前时间的LocalDateTime对象
-    //LocalDateTime.now();
+    private LocalDateTimeUtil() {
 
-    // 根据年月日构建LocalDateTime
-    //LocalDateTime.of();
+    }
+
+    // 获取当前时间的LocalDateTime对象
+    // LocalDateTime.now()
+
+    // 根据年月日构建
+    // LocalDateTime.of()
 
     // 比较日期先后
-    //LocalDateTime.now().isBefore(),
-    //LocalDateTime.now().isAfter(),
+    // LocalDateTime.now().isBefore()
+    // LocalDateTime.now().isAfter()
 
     /**
      * Date转换为LocalDateTime.
@@ -127,7 +131,7 @@ public final class LocalDateTimeUtil {
             return period.getYears();
         }
         if (field == ChronoUnit.MONTHS) {
-            return period.getYears() * 12 + period.getMonths();
+            return period.getYears() * 12L + period.getMonths();
         }
         return field.between(startTime, endTime);
     }

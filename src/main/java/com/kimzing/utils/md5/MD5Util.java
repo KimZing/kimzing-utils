@@ -29,13 +29,13 @@ public class MD5Util {
         try {
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             bytes = md5.digest(str.getBytes("UTF-8"));
+            return HexUtil.bytes2Hex(bytes);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return HexUtil.bytes2Hex(bytes);
-
+        return null;
     }
 
 
