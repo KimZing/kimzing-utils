@@ -77,7 +77,10 @@ public class Page<T> {
      * @return java.lang.Integer
      */
     public Long getStart() {
-        return (this.page - 1) * this.size;
+        if (page > 0 && size > 0) {
+            return (this.page - 1L) * this.size;
+        }
+        return 0L;
     }
 
     public Long getPage() {
