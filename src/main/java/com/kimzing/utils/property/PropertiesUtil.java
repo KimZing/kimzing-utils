@@ -1,4 +1,4 @@
-package com.kimzing.utils.property;
+package com.pateo.common.utils;
 
 
 import org.slf4j.Logger;
@@ -53,17 +53,18 @@ public class PropertiesUtil {
      * @param filePath 读取的属性文件
      * @return 返回所有的属性 key:value<>key:value
      */
-    public static Map<String, String> getAllProperties(String filePath) throws IOException {
+    public static Map<String, String> getAllProperties(String filePath) {
         Map<String, String> map = new HashMap<>(0);
         try (InputStream in = new BufferedInputStream(new FileInputStream(filePath))) {
-            return properties(in);
+            BufferedReader bf = new BufferedReader(new InputStreamReader(in));
+            return properties(bf);
         } catch (IOException e) {
             logger.error("load properties error");
         }
         return map;
     }
 
-    private static Map<String, String> properties(InputStream in) {
+    private static Map<String, String> properties(Reader in) {
         Map<String, String> map = new HashMap<>(5);
         Properties pps = new Properties();
         try {
