@@ -20,8 +20,8 @@ import java.util.stream.Stream;
 /**
  * Excel工具类. 只针对单个类内的属性进行转换.
  * <p>
- *     额外说明:本工具类支持设置数据行的格式，但由于这个功能占用执行时间过多(大约十倍)，所以在205行注释掉了，有需要可以打开<br>
- *     使用说明-博客:http:// blog.csdn.net/kingboyworld/article/details/76253785
+ * 额外说明:本工具类支持设置数据行的格式，但由于这个功能占用执行时间过多(大约十倍)，所以在205行注释掉了，有需要可以打开<br>
+ * 使用说明-博客:http:// blog.csdn.net/kingboyworld/article/details/76253785
  * </p>
  *
  * @author KimZing - kimzing@163.com
@@ -37,8 +37,8 @@ public final class ExcelUtil {
     /**
      * 将List转换成Excel.
      *
-     * @param list 数据集合
-     * @param filePath java7中的文件操作  创建方式:Paths.get("文件地址");
+     * @param list         数据集合
+     * @param filePath     java7中的文件操作  创建方式:Paths.get("文件地址");
      * @param fieldMapper
      * @param headStyle
      * @param contentStyle
@@ -67,14 +67,15 @@ public final class ExcelUtil {
     /**
      * excel转换为List,基本思路是拼接成Json,然后用Json工具转换为List.
      * <p>
-     *     必需保证类里面的带有Excel注解属性的顺序和Excel文件中标题的顺序相对应
+     * 必需保证类里面的带有Excel注解属性的顺序和Excel文件中标题的顺序相对应
      * </p>
-     * @param filePath 文件路径,创建方式:Paths.get("文件地址");
-     * @param clazz 类
+     *
+     * @param filePath    文件路径,创建方式:Paths.get("文件地址");
+     * @param clazz       类
      * @param fieldMapper
      * @return java.util.List<T>
      */
-    public static<T> List<T> excelToList(Path filePath, Class<T> clazz, Map<String, Map<String, String>> fieldMapper)
+    public static <T> List<T> excelToList(Path filePath, Class<T> clazz, Map<String, Map<String, String>> fieldMapper)
             throws Exception {
         Workbook workbook = new XSSFWorkbook(Files.newInputStream(filePath));
         Sheet sheet = workbook.getSheetAt(0);
@@ -93,9 +94,9 @@ public final class ExcelUtil {
     /**
      * 获取list中的class类型.
      *
-     * @param sheet 工作表
+     * @param sheet       工作表
      * @param clazz
-     * @param fieldList 获取类中有映射关系的属性名
+     * @param fieldList   获取类中有映射关系的属性名
      * @param fieldMapper
      * @return java.util.ArrayList<T>
      */
@@ -122,7 +123,7 @@ public final class ExcelUtil {
     /**
      * 解析Json字符串.
      *
-     * @param mapList Excel表中的数据
+     * @param mapList     Excel表中的数据
      * @param clazz
      * @param fieldMapper 属性转换容器
      * @return java.util.List<T>
@@ -162,11 +163,11 @@ public final class ExcelUtil {
     /**
      * 读取指定数量的数据，每行都拼接成一个Map<String, String>的集合.
      *
-     * @param start 开始行
-     * @param size 长度
+     * @param start     开始行
+     * @param size      长度
      * @param sheet
      * @param fieldList 获取类中有映射关系的属性名
-     * @return java.util.ArrayList<java.util.Map<java.lang.String,java.lang.String>>
+     * @return java.util.ArrayList<java.util.Map < java.lang.String, java.lang.String>>
      */
     private static <T> ArrayList<Map<String, String>> readExcel(int start, int size, Sheet sheet, ArrayList<String> fieldList) {
         ArrayList<Map<String, String>> listMap = new ArrayList<>();
@@ -197,9 +198,9 @@ public final class ExcelUtil {
     /**
      * 写入内容.
      *
-     * @param list 数据内容
+     * @param list         数据内容
      * @param sheet
-     * @param fieldMapper 属性转换
+     * @param fieldMapper  属性转换
      * @param contentStyle
      * @return void
      */
@@ -334,7 +335,7 @@ public final class ExcelUtil {
      * @return java.util.List<Excel>
      */
     private static <T> List<Excel> getExcelAnnoList(Class<T> clazz) throws Exception {
-        return  getFieldWithExcel(clazz)
+        return getFieldWithExcel(clazz)
                 .map(field -> field.getAnnotation(Excel.class))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
@@ -361,7 +362,7 @@ public final class ExcelUtil {
      * @param fieldMapper
      * @return java.util.List<java.lang.String>
      */
-    private static  <T> List<String> getFiledValueIfIsExcel(T t, Map<String, Map<String, String>> fieldMapper) {
+    private static <T> List<String> getFiledValueIfIsExcel(T t, Map<String, Map<String, String>> fieldMapper) {
         return getFieldWithExcel(t.getClass()).map(field -> {
             field.setAccessible(true);
             Object o = null;
@@ -373,21 +374,21 @@ public final class ExcelUtil {
             }
             // 如果属性值为空，返回空字符串
             if (Objects.isNull(o)) {
-                o =  "";
+                o = "";
             }
             // 如果是Date类型
             if (o instanceof Date) {
-                o =  new SimpleDateFormat(field.getAnnotation(Excel.class).dateFormat()).format((Date) o);
+                o = new SimpleDateFormat(field.getAnnotation(Excel.class).dateFormat()).format((Date) o);
             }
             // 如果是LocalDateTime类型，支持Java8LocalDateTime
             if (o instanceof LocalDateTime) {
-                o =  ((LocalDateTime) o).format(DateTimeFormatter.ofPattern(field.getAnnotation(Excel.class).dateFormat()));
+                o = ((LocalDateTime) o).format(DateTimeFormatter.ofPattern(field.getAnnotation(Excel.class).dateFormat()));
             }
             // bool和int属性转换，感觉最常用这两个，其它的需要再扩充
             boolean boolAndInteger = fieldMapper != null && (o instanceof Boolean || o instanceof Integer);
             if (boolAndInteger) {
                 Map<String, String> map = fieldMapper.get(field.getName());
-                o =  map == null ? o : map.get(o.toString()) == null ? o : map.get(o.toString());
+                o = map == null ? o : map.get(o.toString()) == null ? o : map.get(o.toString());
             }
             // 其它的返回toString
             return o.toString();

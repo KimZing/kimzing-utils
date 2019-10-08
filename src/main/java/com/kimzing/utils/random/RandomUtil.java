@@ -1,7 +1,8 @@
 package com.kimzing.utils.random;
 
 
-import java.util.*;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * 根据条件随机生成.
@@ -174,6 +175,7 @@ public class RandomUtil {
         }
         return buffer.toString();
     }
+
     /**
      * 返回一个UUID.
      *

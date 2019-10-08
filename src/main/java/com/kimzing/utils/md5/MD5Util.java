@@ -2,14 +2,14 @@ package com.kimzing.utils.md5;
 
 import com.kimzing.utils.hex.HexUtil;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5工具类, 全部接收UTF编码的String.
@@ -37,7 +37,6 @@ public class MD5Util {
         }
         return null;
     }
-
 
 
     /**

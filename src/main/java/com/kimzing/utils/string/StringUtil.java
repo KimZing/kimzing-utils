@@ -16,10 +16,11 @@ public class StringUtil {
     /**
      * 是否为空.
      * <p>
-     *      "" => true;
-     *      " " => true
-     *      "a"  false
+     * "" => true;
+     * " " => true
+     * "a"  false
      * </p>
+     *
      * @param cs
      * @return
      */
@@ -30,10 +31,11 @@ public class StringUtil {
     /**
      * 是否为空.
      * <p>
-     *      ""    true
-     *      "  "  false
-     *      "a"   false
+     * ""    true
+     * "  "  false
+     * "a"   false
      * </p>
+     *
      * @param cs
      * @return
      */
@@ -44,10 +46,11 @@ public class StringUtil {
     /**
      * 去除空格.
      * <p>
-     *      null   null
-     *      "a  "  "a"
-     *      "  a"  "a"
+     * null   null
+     * "a  "  "a"
+     * "  a"  "a"
      * </p>
+     *
      * @param s
      * @return
      */

@@ -77,7 +77,7 @@ public class SysUtil {
      */
     private static long totalMemorySize;
     private static OperatingSystemMXBean osmxb;
-    private static final  int KB = 1024;
+    private static final int KB = 1024;
 
     static {
         osmxb = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();

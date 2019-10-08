@@ -24,7 +24,7 @@ public class RegexUtil {
     /**
      * 邮政编码
      */
-    public static final Pattern  POSTALCODE = Pattern.compile("[1-9]\\d{5}(?!\\d)");
+    public static final Pattern POSTALCODE = Pattern.compile("[1-9]\\d{5}(?!\\d)");
 
     /**
      * 邮箱
@@ -42,7 +42,6 @@ public class RegexUtil {
      *
      * @param code
      * @return boolean
-     *
      */
     public static boolean isPostalCode(String code) {
         if (null == code || "".equals(code)) {

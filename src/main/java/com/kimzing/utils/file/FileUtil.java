@@ -63,6 +63,7 @@ public class FileUtil {
             }
         }
     }
+
     /**
      * 获取文件的行数.
      *
@@ -155,7 +156,6 @@ public class FileUtil {
      * @param str
      * @param encoding
      * @return boolean
-     *
      */
     public static boolean write(File file, String str, String encoding) {
         try (
@@ -214,8 +214,6 @@ public class FileUtil {
     }
 
 
-
-
     /**
      * 复制文件.
      *
@@ -231,8 +229,9 @@ public class FileUtil {
     /**
      * 复制文件.
      * <p>
-     *     通过该方式复制文件文件越大速度越是明显
+     * 通过该方式复制文件文件越大速度越是明显
      * </p>
+     *
      * @param file       需要处理的文件
      * @param targetFile 目标文件
      * @return 是否成功
@@ -370,7 +369,7 @@ public class FileUtil {
     /**
      * 罗列指定路径下的全部文件.
      *
-     * @param path 需要处理的文件
+     * @param path  需要处理的文件
      * @param child 是否罗列子文件
      * @return 包含所有文件的的list
      */
@@ -403,7 +402,7 @@ public class FileUtil {
     /**
      * 罗列指定路径下的全部文件.
      *
-     * @param path 指定的路径
+     * @param path  指定的路径
      * @param child 是否罗列子目录
      * @return
      */

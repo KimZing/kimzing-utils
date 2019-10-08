@@ -24,11 +24,11 @@ public final class MapperUtils {
     /**
      * 将s属性映射到R的具体实例上.
      *
-     * @param s 已有的Bean,源Bean
+     * @param s      已有的Bean,源Bean
      * @param rClass
-     * @param <S>  sourceBean
-     * @param <R>  ReturnBean
-     * @return    R的实例
+     * @param <S>    sourceBean
+     * @param <R>    ReturnBean
+     * @return R的实例
      */
     public static <S, R> R mapperBean(S s, Class<R> rClass) {
         return MAPPER_FACTORY.getMapperFacade().map(s, rClass);
@@ -37,11 +37,11 @@ public final class MapperUtils {
     /**
      * 将s属性映射到R的具体实例上,如果转换的属性名不一样，可以传入Map进行说明.
      *
-     * @param s 已有的Bean,源Bean
+     * @param s      已有的Bean,源Bean
      * @param rClass
-     * @param <S>  sourceBean
-     * @param <R>  ReturnBean
-     * @return    R的实例
+     * @param <S>    sourceBean
+     * @param <R>    ReturnBean
+     * @return R的实例
      */
     public static <S, R> R mapperBean(S s, Class<R> rClass, Map<String, String> diffFieldMap) {
         ClassMapBuilder<?, R> classMap = MAPPER_FACTORY.classMap(s.getClass(), rClass);
@@ -54,11 +54,11 @@ public final class MapperUtils {
     /**
      * 将s的集合射成R的集合.
      *
-     * @param sList 已有的Bean的集合
+     * @param sList  已有的Bean的集合
      * @param rClass 要转换的类型
-     * @param <S>  sourceBean
-     * @param <R>  ReturnBean
-     * @return    R的实例
+     * @param <S>    sourceBean
+     * @param <R>    ReturnBean
+     * @return R的实例
      */
     public static <S, R> List<R> mapperList(List<S> sList, Class<R> rClass) {
         return MAPPER_FACTORY.getMapperFacade().mapAsList(sList, rClass);
@@ -67,11 +67,11 @@ public final class MapperUtils {
     /**
      * 将s的集合射成R的集合,不同的属性通过Map<String, String> 传入.
      *
-     * @param sList 已有的Bean的集合
+     * @param sList  已有的Bean的集合
      * @param rClass 要转换的类型
-     * @param <S>  sourceBean
-     * @param <R>  ReturnBean
-     * @return    R的实例
+     * @param <S>    sourceBean
+     * @param <R>    ReturnBean
+     * @return R的实例
      */
     public static <S, R> List<R> mapperList(List<S> sList, Class<R> rClass, Map<String, String> diffFieldMap) {
         if (sList.isEmpty()) {

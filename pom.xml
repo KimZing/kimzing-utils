@@ -6,78 +6,78 @@
 
     <groupId>com.kimzing</groupId>
     <artifactId>utils</artifactId>
-    <name>utils</name>
     <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <orika.version>1.5.2</orika.version>
-        <fastjson.version>1.2.41</fastjson.version>
-        <poi.version>3.16</poi.version>
-        <lang3.version>3.7</lang3.version>
-        <collections.version>3.2.2</collections.version>
-        <beanutils.version>1.9.3</beanutils.version>
-        <io.version>2.6</io.version>
-        <pinyin4j.version>2.5.0</pinyin4j.version>
-        <mail.version>1.5.5</mail.version>
-    </properties>
 
     <dependencies>
         <!--Mapper-->
         <dependency>
             <groupId>ma.glasnost.orika</groupId>
             <artifactId>orika-core</artifactId>
-            <version>${orika.version}</version>
+            <version>1.5.2</version>
         </dependency>
         <!--FastJson-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
+            <version>1.2.41</version>
         </dependency>
         <!--POI-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
+            <version>3.16</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
+            <version>3.16</version>
         </dependency>
         <!--common-util-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>${lang3.version}</version>
+            <version>3.7</version>
         </dependency>
         <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
-            <version>${collections.version}</version>
+            <version>3.2.2</version>
         </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>${beanutils.version}</version>
+            <version>1.9.3</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>${io.version}</version>
+            <version>2.6</version>
         </dependency>
         <!--PinYin4J-->
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>pinyin4j</artifactId>
-            <version>${pinyin4j.version}</version>
+            <version>2.5.0</version>
         </dependency>
         <!--Java Email-->
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
-            <version>${mail.version}</version>
+            <version>1.5.5</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

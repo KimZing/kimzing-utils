@@ -29,7 +29,7 @@ public class ChinesUtil {
         format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
         format.setVCharType(HanyuPinyinVCharType.WITH_V);
 
-        char[] input  = inputString.trim().toCharArray();
+        char[] input = inputString.trim().toCharArray();
         StringBuffer output = new StringBuffer();
 
         try {
@@ -54,8 +54,8 @@ public class ChinesUtil {
      * @return 汉语拼音首字母
      */
     public static String getFirstSpell(String chinese) {
-        StringBuffer            pybf          = new StringBuffer();
-        char[]                  arr           = chinese.toCharArray();
+        StringBuffer pybf = new StringBuffer();
+        char[] arr = chinese.toCharArray();
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
         defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
         defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
@@ -83,8 +83,8 @@ public class ChinesUtil {
      * @return 汉语拼音
      */
     public static String getFullSpell(String chinese) {
-        StringBuffer            pybf          = new StringBuffer();
-        char[]                  arr           = chinese.toCharArray();
+        StringBuffer pybf = new StringBuffer();
+        char[] arr = chinese.toCharArray();
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
         defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
         defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);

@@ -13,6 +13,7 @@ public class NumberUtil {
 
     /**
      * 将short转换为byte[]
+     *
      * @param s
      * @param asc
      * @return
@@ -35,6 +36,7 @@ public class NumberUtil {
 
     /**
      * 将int转换为byte[]
+     *
      * @param s
      * @param asc
      * @return
@@ -58,6 +60,7 @@ public class NumberUtil {
 
     /**
      * 将byte[]转换为short
+     *
      * @param buf
      * @param asc
      * @return
@@ -86,6 +89,7 @@ public class NumberUtil {
 
     /**
      * 将byte[] 转换为int
+     *
      * @param buf
      * @param asc
      * @return

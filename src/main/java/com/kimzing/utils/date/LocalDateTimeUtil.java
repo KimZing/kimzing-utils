@@ -90,7 +90,7 @@ public final class LocalDateTimeUtil {
      * @return java.lang.String
      */
     public static String formatNow(String pattern) {
-        return  formatTime(LocalDateTime.now(), pattern);
+        return formatTime(LocalDateTime.now(), pattern);
     }
 
     /**

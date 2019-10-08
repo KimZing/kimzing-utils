@@ -8,8 +8,9 @@ import java.util.List;
 /**
  * 分页结果.
  * <p>
- *     MybatisPlus与PageHelper开源库中的分页功能已经做得很好了,可以直接使用自带的分页
+ * MybatisPlus与PageHelper开源库中的分页功能已经做得很好了,可以直接使用自带的分页
  * </p>
+ *
  * @param <T>
  * @author KimZing - kimzing@163.com
  * @since 2018-08-07 02:02
@@ -47,7 +48,6 @@ public class Page<T> {
      * @param page
      * @param size
      * @return null
-     *
      */
     public Page(Long page, Long size) {
         this(page, size, 0L, Collections.emptyList());
@@ -55,6 +55,7 @@ public class Page<T> {
 
     /**
      * 构造函数
+     *
      * @param page
      * @param size
      * @param total

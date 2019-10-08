@@ -11,7 +11,8 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
  */
 public class ExcelStyle {
 
-    public ExcelStyle() { }
+    public ExcelStyle() {
+    }
 
     /**
      * 对齐方式
@@ -47,7 +48,6 @@ public class ExcelStyle {
      * 背景颜色
      */
     private short backColor;
-
 
 
     public ExcelStyle setAlign(HorizontalAlignment align) {

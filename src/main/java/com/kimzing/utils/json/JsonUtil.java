@@ -34,7 +34,7 @@ public final class JsonUtil {
      * @return java.lang.String
      */
     public static String beanToJson(Object object) {
-            return JSON.toJSONString(object);
+        return JSON.toJSONString(object);
     }
 
     /**
@@ -79,6 +79,7 @@ public final class JsonUtil {
      * @return java.util.Map
      */
     public static <K, V> Map jsonMap(String mapJson, Class<K> keyType, Class<V> valueType) {
-        return JSON.parseObject(mapJson, new TypeReference<Map<K, V>>() { });
+        return JSON.parseObject(mapJson, new TypeReference<Map<K, V>>() {
+        });
     }
 }

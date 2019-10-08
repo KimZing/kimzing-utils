@@ -26,7 +26,7 @@ public abstract class AbstractApiResult {
     /**
      * 错误返回.
      *
-     * @param errorCode 错误码
+     * @param errorCode    错误码
      * @param errorMessage 错误信息
      * @return ApiResult 错误返回体
      */

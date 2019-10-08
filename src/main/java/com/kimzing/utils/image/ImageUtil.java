@@ -25,8 +25,9 @@ public final class ImageUtil {
     /**
      * 按照给点的比例放大图像
      * <p>
-     *     当缩减比例小于等于0时不发生任何变化
+     * 当缩减比例小于等于0时不发生任何变化
      * </p>
+     *
      * @param originalImage 图像数据
      * @param withdRatio    宽度缩减比例
      * @param heightRatio   高度缩减比例
@@ -51,8 +52,9 @@ public final class ImageUtil {
     /**
      * 按照给点的比例缩小图像.
      * <p>
-     *     当缩减比例小于等于0时不发生任何变化
+     * 当缩减比例小于等于0时不发生任何变化
      * </p>
+     *
      * @param originalImage 图像数据
      * @param withdRatio    宽度缩减比例
      * @param heightRatio   高度缩减比例
@@ -85,7 +87,7 @@ public final class ImageUtil {
      */
     public static void reduceImageByRatio(String srcImagePath, String toImagePath, int widthRatio, int heightRatio) throws IOException {
         File file = new File(srcImagePath);
-        enlargement(toImagePath, widthRatio, heightRatio,  file);
+        enlargement(toImagePath, widthRatio, heightRatio, file);
     }
 
     /**
@@ -98,7 +100,7 @@ public final class ImageUtil {
      */
     public static void reduceImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
         File file = new File(srcImagePath);
-         enlargement(toImagePath, ratio, ratio,  file);
+        enlargement(toImagePath, ratio, ratio, file);
     }
 
     /**
@@ -113,7 +115,7 @@ public final class ImageUtil {
     public static void enlargementImageByRatio(String srcImagePath, String toImagePath,
                                                int widthRatio, int heightRatio) throws IOException {
         File file = new File(srcImagePath);
-        enlargement(toImagePath, widthRatio, heightRatio,  file);
+        enlargement(toImagePath, widthRatio, heightRatio, file);
     }
 
     /**
@@ -126,7 +128,7 @@ public final class ImageUtil {
      */
     public static void enlargementImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
         File file = new File(srcImagePath);
-        enlargement(toImagePath, ratio, ratio,  file);
+        enlargement(toImagePath, ratio, ratio, file);
     }
 
     private static void enlargement(String toImagePath, int widthRatio, int heightRatio, File file) {
