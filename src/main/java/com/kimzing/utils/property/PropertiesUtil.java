@@ -1,4 +1,4 @@
-package com.pateo.common.utils;
+package com.kimzing.utils.property;
 
 
 import org.slf4j.Logger;
