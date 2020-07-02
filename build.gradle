@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'java-library'
+    id 'maven-publish'
 }
 group 'com.kimzing'
 version '0.0.1-SNAPSHOT'
@@ -12,20 +14,62 @@ repositories {
 
 
 dependencies {
-    //Mapper
-    implementation 'ma.glasnost.orika:orika-core:1.5.2'
-    //FastJson
-    implementation 'com.alibaba:fastjson:1.2.41'
-    //POI
-    implementation 'org.apache.poi:poi:3.16'
-    implementation 'org.apache.poi:poi-ooxml:3.16'
-    //common-util
-    implementation 'org.apache.commons:commons-lang3:3.7'
-    implementation 'commons-collections:commons-collections:3.2.2'
-    implementation 'commons-beanutils:commons-beanutils:1.9.3'
-    implementation 'commons-io:commons-io:2.6'
-    //PinYin4J
-    implementation 'com.belerweb:pinyin4j:2.5.0'
-    //Java Email
-    implementation 'com.sun.mail:javax.mail:1.5.5'
+    implementation 'ch.qos.logback:logback-core:1.2.3'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    compileOnly 'jakarta.validation:jakarta.validation-api:2.0.2'
+    compileOnly 'org.springframework:spring-context:5.2.6.RELEASE'
+    compileOnly 'org.springframework:spring-beans:5.2.7.RELEASE'
+
+    api 'ma.glasnost.orika:orika-core:1.5.4'
+    api 'org.apache.commons:commons-lang3:3.10'
+    api 'org.apache.commons:commons-configuration2:2.7'
+    api 'org.apache.commons:commons-collections4:4.4'
+    api 'org.apache.poi:poi:4.1.2'
+    api 'org.apache.poi:poi-ooxml:4.1.2'
+    api 'commons-codec:commons-codec:1.13'
+    api 'commons-fileupload:commons-fileupload:1.4'
+    api 'commons-beanutils:commons-beanutils:1.9.4'
+    api 'commons-io:commons-io:2.7'
+    api 'com.google.guava:guava:28.1-jre'
+    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.belerweb:pinyin4j:2.5.1'
+    api 'com.sun.mail:javax.mail:1.6.2'
+
+    testImplementation 'junit:junit:4.13'
+}
+
+//打包源码
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            //指定group/artifact/version信息，可以不填。默认使用项目group/name/version作为groupId/artifactId/version
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+            //如果是war包填写components.web，如果是jar包填写components.java
+            from components.java
+
+            //配置上传源码
+            artifact sourceJar {
+                classifier "src"
+            }
+
+        }
+    }
+    repositories {
+        maven {
+            //指定要上传的maven私服仓库
+            url = "http://mvn.kimzing.com/nexus/content/repositories/snapshots/"
+            //认证用户和密码
+            credentials {
+                username = 'admin'
+                password = 'KimZing123456!'
+            }
+        }
+    }
 }

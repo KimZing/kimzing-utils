@@ -1,9 +1,14 @@
 package com.kimzing.utils.json;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
+import com.google.gson.*;
+import org.apache.commons.lang3.StringUtils;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -16,6 +21,10 @@ import java.util.Objects;
  */
 public final class JsonUtil {
 
+    private static GsonBuilder gsonBuilder = new GsonBuilder().serializeNulls();
+
+    private static Gson gson = gsonBuilder.create();
+
     /**
      * json串转换为对象.
      *
@@ -24,7 +33,23 @@ public final class JsonUtil {
      * @return T
      */
     public static <T> T jsonToBean(String json, Class<T> clazz) {
-        return JSON.parseObject(json, clazz);
+        return gson.fromJson(json, clazz);
+    }
+
+    /**
+     * json串转换为对象.
+     *
+     * @param json
+     * @param clazz
+     * @return T
+     */
+    public static <T> T jsonToBean(String json, Class<T> clazz, String dateTimeFormat) {
+        if (Objects.isNull(dateTimeFormat) || "".equals(dateTimeFormat)) {
+            return jsonToBean(json, clazz);
+        }
+        Gson gson = gsonBuilder.setDateFormat(dateTimeFormat)
+                .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeSerializerAdapter(dateTimeFormat)).create();
+        return gson.fromJson(json, clazz);
     }
 
     /**
@@ -34,52 +59,160 @@ public final class JsonUtil {
      * @return java.lang.String
      */
     public static String beanToJson(Object object) {
-        return JSON.toJSONString(object);
+        return gson.toJson(object);
     }
 
     /**
      * 对象转换为json,可以带上date的格式化.
      *
      * @param object
-     * @param dateFormat
+     * @param dateTimeFormat
      * @return java.lang.String
      */
-    public static String beanToJson(Object object, String dateFormat) {
-        if (Objects.isNull(dateFormat) || "".equals(dateFormat)) {
-            return JSON.toJSONString(object);
+    public static String beanToJson(Object object, String dateTimeFormat) {
+        if (Objects.isNull(dateTimeFormat) || "".equals(dateTimeFormat)) {
+            return beanToJson(object);
         }
-        return JSON.toJSONStringWithDateFormat(object, dateFormat);
+        return gsonBuilder.setDateFormat(dateTimeFormat)
+                .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializerAdapter(dateTimeFormat))
+                .create()
+                .toJson(object);
 
     }
 
     /**
      * json返回List.
      *
-     * @param arrayJson
+     * @param jsonList
      * @param clazz
-     * @param dateFormat
      * @return java.util.List<T>
      */
-    public static <T> List<T> jsonToList(String arrayJson, Class<T> clazz, String dateFormat) {
-        String temp = JSONObject.DEFFAULT_DATE_FORMAT;
-        if (!"".equals(dateFormat) && dateFormat != null) {
-            JSONObject.DEFFAULT_DATE_FORMAT = dateFormat;
+    public static <T> List<T> jsonToList(String jsonList, Class<T> clazz) {
+        return gson.fromJson(jsonList, getListType(clazz));
+    }
+
+    /**
+     * json返回List.
+     *
+     * @param jsonList
+     * @param clazz
+     * @param dateTimeFormat
+     * @return java.util.List<T>
+     */
+    public static <T> List<T> jsonToList(String jsonList, Class<T> clazz, String dateTimeFormat) {
+        if (StringUtils.isBlank(dateTimeFormat)) {
+            return jsonToList(jsonList, clazz);
         }
-        List<T> list = JSON.parseArray(arrayJson, clazz);
-        JSONObject.DEFFAULT_DATE_FORMAT = temp;
-        return list;
+        Gson gson = gsonBuilder
+                .setDateFormat(dateTimeFormat)
+                .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeSerializerAdapter(dateTimeFormat)).create();
+        return gson.fromJson(jsonList, getListType(clazz));
     }
 
     /**
      * 反序列化Map.
      *
-     * @param mapJson
+     * @param jsonMap
      * @param keyType
      * @param valueType
      * @return java.util.Map
      */
-    public static <K, V> Map jsonMap(String mapJson, Class<K> keyType, Class<V> valueType) {
-        return JSON.parseObject(mapJson, new TypeReference<Map<K, V>>() {
-        });
+    public static <K, V> Map<K, V> jsonToMap(String jsonMap, Class<K> keyType, Class<V> valueType) {
+        return gson.fromJson(jsonMap, getMapType(keyType, valueType));
+    }
+
+    /**
+     * 反序列化Map.
+     *
+     * @param jsonMap
+     * @param keyType
+     * @param valueType
+     * @return java.util.Map
+     */
+    public static <K, V> Map<K, V> jsonToMap(String jsonMap, Class<K> keyType, Class<V> valueType, String dateTimeFormat) {
+        if (StringUtils.isBlank(dateTimeFormat)) {
+            return jsonToMap(jsonMap, keyType, valueType);
+        }
+        Gson gson = gsonBuilder
+                .setDateFormat(dateTimeFormat)
+                .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeSerializerAdapter(dateTimeFormat)).create();
+        return gson.fromJson(jsonMap, getMapType(keyType, valueType));
+    }
+
+    private static Type getMapType(Class key, Class value) {
+        return new ParameterizedType() {
+            @Override
+            public Type getRawType() {
+                return Map.class;
+            }
+            @Override
+            public Type[] getActualTypeArguments() {
+                return new Type[]{key, value};
+            }
+            @Override
+            public Type getOwnerType() {
+                return null;
+            }
+        };
+    }
+
+    private static <T> Type getListType(Class<T> clazz) {
+        return new ParameterizedType() {
+            @Override
+            public Type getRawType() {
+                return List.class;
+            }
+            @Override
+            public Type[] getActualTypeArguments() {
+                return new Type[]{clazz};
+            }
+            @Override
+            public Type getOwnerType() {
+                return null;
+            }
+        };
+    }
+
+}
+
+/**
+ * LocalDateTime序列化
+ */
+class LocalDateTimeSerializerAdapter implements JsonSerializer<LocalDateTime> {
+
+    private String dateTimePattern;
+
+    public LocalDateTimeSerializerAdapter(String dateTimePattern) {
+        this.dateTimePattern = dateTimePattern;
+    }
+
+    @Override
+    public JsonElement serialize(LocalDateTime localDateTime, Type type, JsonSerializationContext jsonSerializationContext) {
+        return new JsonPrimitive(localDateTime.format(DateTimeFormatter.ofPattern(dateTimePattern)));
+    }
+
+}
+
+/**
+ * LocalDateTime反序列化
+ */
+class LocalDateTimeDeSerializerAdapter implements JsonDeserializer<LocalDateTime> {
+
+    private String dateTimePattern;
+
+    public LocalDateTimeDeSerializerAdapter(String dateTimePattern) {
+        this.dateTimePattern = dateTimePattern;
+    }
+
+    @Override
+    public LocalDateTime deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendPattern(dateTimePattern)
+                .parseDefaulting(ChronoField.HOUR_OF_DAY, 0)
+                .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0)
+                .parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
+                .parseDefaulting(ChronoField.MILLI_OF_SECOND, 0)
+                .toFormatter();
+        return LocalDateTime.parse(json.getAsString(), formatter);
     }
 }

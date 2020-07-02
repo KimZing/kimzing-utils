@@ -1,28 +1,28 @@
 package com.kimzing.utils.result;
 
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
- * 错误返回体.
+ * 成功返回体.
  *
  * @author KimZing - kimzing@163.com
- * @since 2018-08-07 02:02
+ * @since 2019/12/4 17:19
  */
-public class ErrorApiResult extends AbstractApiResult {
+public final class ErrorApiResult extends ApiResult {
 
-    /**
-     * 错误信息
-     */
-    private String message;
+    public ErrorApiResult(String... codes) {
+        this.ts = System.currentTimeMillis();
+        List<String> codeList = Arrays.asList(codes);
+        this.code = codeList.stream().collect(Collectors.joining(","));
+        this.message = codeList.stream().map(c -> getMessageByCode(c)).collect(Collectors.joining(","));
+    }
 
-    ErrorApiResult(String code, String message) {
+    public ErrorApiResult(String code, String message) {
+        this.ts = System.currentTimeMillis();
         this.code = code;
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
         this.message = message;
     }
 }

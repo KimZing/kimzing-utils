@@ -1,28 +1,31 @@
 package com.kimzing.utils.result;
 
 /**
- * 正确返回体.
+ * 成功返回体.
  *
  * @author KimZing - kimzing@163.com
- * @since 2018-08-07 02:02
+ * @since 2019/12/4 17:19
  */
-public class SuccessApiResult extends AbstractApiResult {
+public final class SuccessApiResult<T> extends ApiResult {
 
-    /**
-     * 响应数据
-     */
-    private Object data;
+    public SuccessApiResult() {
+        this(null);
+    }
 
-    SuccessApiResult(Object data) {
+    public SuccessApiResult(T data) {
+        this.ts = System.currentTimeMillis();
         this.code = "0";
+        this.message = "SUCCESS";
         this.data = data;
     }
 
-    public Object getData() {
+    private T data;
+
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

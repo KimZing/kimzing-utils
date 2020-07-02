@@ -1,9 +1,6 @@
 package com.kimzing.utils.date;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
@@ -15,9 +12,9 @@ import java.util.Date;
  * @author KimZing - kimzing@163.com
  * @since 2018-08-07 02:02
  */
-public final class LocalDateTimeUtil {
+public final class DateUtil {
 
-    private LocalDateTimeUtil() {
+    private DateUtil() {
 
     }
 
@@ -39,6 +36,18 @@ public final class LocalDateTimeUtil {
      */
     public static LocalDateTime convertDateToLDT(Date date) {
         return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+    }
+
+    /**
+     * 格式化Unix to LocalDateTime
+     *
+     * @param unixTimeInMilliSecond
+     * @param pattern
+     * @return
+     */
+    public static String formatUnixTimeToLocalDateTime(long unixTimeInMilliSecond, String pattern) {
+        LocalDateTime time = LocalDateTime.ofInstant(Instant.ofEpochMilli(unixTimeInMilliSecond), ZoneOffset.ofHours(8));
+        return time.format(DateTimeFormatter.ofPattern(pattern));
     }
 
     /**

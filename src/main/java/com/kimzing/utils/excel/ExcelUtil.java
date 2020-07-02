@@ -1,7 +1,6 @@
 package com.kimzing.utils.excel;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.kimzing.utils.json.JsonUtil;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
@@ -33,6 +32,10 @@ public final class ExcelUtil {
      * 每次转换多少行
      */
     private static Integer size = 1_000;
+
+    private static final String DEFAULT_DATE_FORMATE = "yyyy-MM-dd HH:mm:ss";
+
+    private static String currentDateFormate;
 
     /**
      * 将List转换成Excel.
@@ -130,14 +133,12 @@ public final class ExcelUtil {
      */
     private static <T> List<T> getArrayListFromMap(List<Map<String, String>> mapList, Class<T> clazz,
                                                    Map<String, Map<String, String>> fieldMapper) {
-        // 记录默认的日期格式
-        String tempDateFormat = JSONObject.DEFFAULT_DATE_FORMAT;
         // 设置日期编码
         getFieldWithExcel(clazz)
                 .filter(field -> field.getType() == Date.class || field.getType() == LocalDateTime.class)
                 .findFirst()
                 .ifPresent(field ->
-                        JSONObject.DEFFAULT_DATE_FORMAT = field.getAnnotation(Excel.class).dateFormat());
+                        currentDateFormate = field.getAnnotation(Excel.class).dateFormat());
 
         // 转换属性
         if (fieldMapper != null) {
@@ -153,9 +154,9 @@ public final class ExcelUtil {
             });
         }
 
-        List<T> list = JSON.parseArray(JSON.toJSONString(mapList), clazz);
+        List<T> list = JsonUtil.jsonToList(JsonUtil.beanToJson(mapList, currentDateFormate), clazz, currentDateFormate);
         // 还原默认的日期格式
-        JSONObject.DEFFAULT_DATE_FORMAT = tempDateFormat;
+        currentDateFormate = DEFAULT_DATE_FORMATE;
 
         return list;
     }

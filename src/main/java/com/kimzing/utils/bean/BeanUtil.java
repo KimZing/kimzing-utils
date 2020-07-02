@@ -1,4 +1,4 @@
-package com.kimzing.utils.mapper;
+package com.kimzing.utils.bean;
 
 import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
@@ -14,7 +14,7 @@ import java.util.Map;
  * @author KimZing - kimzing@163.com
  * @since 2018-08-07 02:02
  */
-public final class MapperUtils {
+public final class BeanUtil {
 
     /**
      * 构建一个Mapper工厂
