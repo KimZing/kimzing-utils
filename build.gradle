@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 group 'com.kimzing'
-version '0.0.1-SNAPSHOT'
+version '1.0.0'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -64,7 +64,7 @@ publishing {
     repositories {
         maven {
             //指定要上传的maven私服仓库
-            url = "http://mvn.kimzing.com/nexus/content/repositories/snapshots/"
+            url = "http://mvn.kimzing.com/nexus/content/repositories/releases/"
             //认证用户和密码
             credentials {
                 username = 'USER'
