@@ -12,7 +12,7 @@ public abstract class AbstractPO {
 
     protected  Integer id;
 
-    protected String creater;
+    protected String creator;
 
     protected String modifier;
 
@@ -28,12 +28,12 @@ public abstract class AbstractPO {
         this.id = id;
     }
 
-    public String getCreater() {
-        return creater;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setCreater(String creater) {
-        this.creater = creater;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public String getModifier() {

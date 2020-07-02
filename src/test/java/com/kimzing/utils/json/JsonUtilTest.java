@@ -1,7 +1,5 @@
-package com.kimzing.utils;
+package com.kimzing.utils.json;
 
-import com.kimzing.utils.json.JsonUtil;
-import com.kimzing.utils.json.User;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

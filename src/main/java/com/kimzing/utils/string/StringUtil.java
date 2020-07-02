@@ -101,24 +101,6 @@ public class StringUtil {
     }
 
     /**
-     * 字符串相似度比较(速度较快).
-     *
-     * @param str1
-     * @param str2
-     * @return double
-     */
-    public static double similarityRatio(String str1, String str2) {
-        str1 = isEmpty(str1) ? "" : str1.replaceAll("[\\pP\\p{Punct}]", "");
-        str2 = isEmpty(str2) ? "" : str2.replaceAll("[\\pP\\p{Punct}]", "");
-        if (str1.length() > str2.length()) {
-            return similarityRatio(str1, str2);
-        } else {
-            return similarityRatio(str2, str1);
-        }
-
-    }
-
-    /**
      * 将字符串首字母转大写.
      *
      * @param str 需要处理的字符串
