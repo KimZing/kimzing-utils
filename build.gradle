@@ -67,8 +67,8 @@ publishing {
             url = "http://mvn.kimzing.com/nexus/content/repositories/snapshots/"
             //认证用户和密码
             credentials {
-                username = 'admin'
-                password = 'KimZing123456!'
+                username = 'USER'
+                password = 'PASSWORD'
             }
         }
     }
