@@ -26,6 +26,23 @@ public final class JsonUtil {
     private static Gson gson = gsonBuilder.create();
 
     /**
+     * 判断字符串是否是有效的json
+     * @param json
+     * @return
+     */
+    public static boolean isValid(String json) {
+        if (StringUtils.isBlank(json)) {
+            return false;
+        }
+        try {
+            JsonParser.parseString(json);
+            return true;
+        } catch (JsonParseException e) {
+            return false;
+        }
+    }
+
+    /**
      * json串转换为对象.
      *
      * @param json
