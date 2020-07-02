@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+group 'com.kimzing'
+version '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+    mavenCentral()
+}
+
+
+dependencies {
+    //Mapper
+    implementation 'ma.glasnost.orika:orika-core:1.5.2'
+    //FastJson
+    implementation 'com.alibaba:fastjson:1.2.41'
+    //POI
+    implementation 'org.apache.poi:poi:3.16'
+    implementation 'org.apache.poi:poi-ooxml:3.16'
+    //common-util
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'commons-collections:commons-collections:3.2.2'
+    implementation 'commons-beanutils:commons-beanutils:1.9.3'
+    implementation 'commons-io:commons-io:2.6'
+    //PinYin4J
+    implementation 'com.belerweb:pinyin4j:2.5.0'
+    //Java Email
+    implementation 'com.sun.mail:javax.mail:1.5.5'
+}
