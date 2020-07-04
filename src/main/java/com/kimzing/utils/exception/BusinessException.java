@@ -8,8 +8,8 @@ package com.kimzing.utils.exception;
  */
 public class BusinessException extends RuntimeException {
 
-    public BusinessException(String code) {
-        super(code);
+    public BusinessException(String message) {
+        super(message);
     }
 
 }
