@@ -1,12 +1,14 @@
 package com.kimzing.utils.page;
 
+import java.io.Serializable;
+
 /**
  * 分页查询对象.
  *
  * @author KimZing - kimzing@163.com
  * @since 2020/7/2 00:38
  */
-public class PageParam {
+public class PageParam implements Serializable {
 
     /**
      * 当前页数

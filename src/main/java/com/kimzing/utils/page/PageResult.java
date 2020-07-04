@@ -1,5 +1,6 @@
 package com.kimzing.utils.page;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * @author KimZing - kimzing@163.com
  * @since 2019/12/5 15:33
  */
-public class PageResult<T> {
+public class PageResult<T> implements Serializable {
 
     private PageResult(Long total, PageParam pageParam, List<T> data) {
         this(total, pageParam.getPageNum(), pageParam.getPageSize(), data);
