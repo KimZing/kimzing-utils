@@ -12,7 +12,7 @@ public abstract class AbstractPO {
 
     protected  Integer id;
 
-    protected DeleteEnum deleted;
+    protected Integer delete;
 
     protected String creator;
 
@@ -30,12 +30,12 @@ public abstract class AbstractPO {
         this.id = id;
     }
 
-    public DeleteEnum getDeleted() {
-        return deleted;
+    public Integer getDelete() {
+        return delete;
     }
 
-    public void setDeleted(DeleteEnum deleted) {
-        this.deleted = deleted;
+    public void setDelete(Integer delete) {
+        this.delete = delete;
     }
 
     public String getCreator() {
