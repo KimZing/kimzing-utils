@@ -13,12 +13,12 @@ public class PageParam implements Serializable {
     /**
      * 当前页数
      */
-    private Integer pageNum;
+    private Integer pageNum = 1;
 
     /**
      * 分页大小
      */
-    private Integer pageSize;
+    private Integer pageSize = 10;
 
     public Integer getPageNum() {
         return pageNum;

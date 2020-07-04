@@ -11,11 +11,13 @@ import java.util.List;
  */
 public class PageResult<T> implements Serializable {
 
-    private PageResult(Long total, PageParam pageParam, List<T> data) {
+    public PageResult() { }
+
+    public PageResult(Long total, PageParam pageParam, List<T> data) {
         this(total, pageParam.getPageNum(), pageParam.getPageSize(), data);
     }
 
-    private PageResult(Long total, Integer pageNum, Integer pageSize, List<T> data) {
+    public PageResult(Long total, Integer pageNum, Integer pageSize, List<T> data) {
         this.total = total;
         this.pageNum = pageNum;
         this.pageSize = pageSize;
@@ -41,14 +43,6 @@ public class PageResult<T> implements Serializable {
      * 分页数据
      */
     private List<T> data;
-
-    public static <E> PageResult create(Long total, PageParam pageParam, List<E> data) {
-        return create(total, pageParam.getPageNum(), pageParam.getPageSize(), data);
-    }
-
-    public static <E> PageResult create(Long total, Integer pageNum, Integer pageSize, List<E> data) {
-        return new PageResult<E>(total, pageNum, pageSize, data);
-    }
 
     public Long getTotal() {
         return total;
