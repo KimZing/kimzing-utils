@@ -12,7 +12,7 @@ public abstract class AbstractPO {
 
     protected  Integer id;
 
-    protected Integer delete;
+    protected Integer deleted;
 
     protected String creator;
 
@@ -30,12 +30,12 @@ public abstract class AbstractPO {
         this.id = id;
     }
 
-    public Integer getDelete() {
-        return delete;
+    public Integer getDeleted() {
+        return deleted;
     }
 
-    public void setDelete(Integer delete) {
-        this.delete = delete;
+    public void setDeleted(Integer deleted) {
+        this.deleted = deleted;
     }
 
     public String getCreator() {
