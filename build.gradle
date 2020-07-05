@@ -20,6 +20,7 @@ dependencies {
     compileOnly 'jakarta.validation:jakarta.validation-api:2.0.2'
     compileOnly 'org.springframework:spring-context:5.2.6.RELEASE'
     compileOnly 'org.springframework:spring-beans:5.2.7.RELEASE'
+    compileOnly 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
 
     api 'ma.glasnost.orika:orika-core:1.5.4'
     api 'org.apache.commons:commons-lang3:3.10'
@@ -67,8 +68,8 @@ publishing {
             url = "http://mvn.kimzing.com/nexus/content/repositories/releases/"
             //认证用户和密码
             credentials {
-                username = 'USER'
-                password = 'PASSWORD'
+                username = 'admin'
+                password = 'KimZing123456!'
             }
         }
     }
