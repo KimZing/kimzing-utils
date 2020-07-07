@@ -10,8 +10,10 @@ import java.util.List;
  */
 public class BusinessException extends RuntimeException {
 
-    public BusinessException(String code) {
+    public BusinessException(String code, String message) {
+        this.timestamp = System.currentTimeMillis();
         this.code = code;
+        this.message = message;
     }
 
     /**
@@ -20,7 +22,7 @@ public class BusinessException extends RuntimeException {
     private Long timestamp;
 
     /**
-     * 异常Code码
+     * 异常code码
      */
     private String code;
 
@@ -30,7 +32,7 @@ public class BusinessException extends RuntimeException {
     private String message;
 
     /**
-     * 服务调用链
+     * 服务调用链信息
      */
     private List<ServiceInfo> services;
 
