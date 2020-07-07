@@ -1,5 +1,6 @@
 package com.kimzing.utils.exception;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,9 @@ import java.util.List;
  * @author KimZing - kimzing@163.com
  * @since 2019/12/24 14:17
  */
-public class CustomException extends RuntimeException {
+public class CustomException extends RuntimeException implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     public CustomException(String code, String message) {
         this.timestamp = System.currentTimeMillis();

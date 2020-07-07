@@ -1,13 +1,17 @@
 package com.kimzing.utils.result;
 
 
+import java.io.Serializable;
+
 /**
  * 通用返回体.
  *
  * @author KimZing - kimzing@163.com
  * @since 2019/12/4 15:04
  */
-public abstract class ApiResult {
+public abstract class ApiResult implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 当前时间戳
