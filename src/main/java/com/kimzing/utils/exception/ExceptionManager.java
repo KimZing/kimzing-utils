@@ -11,13 +11,13 @@ public class ExceptionManager {
     private ExceptionManager() {}
 
     /**
-     * 创建自定义异常
+     * 创建业务异常
      *
-     * @param message
+     * @param code
      * @return
      */
-    public static BusinessException create(String message) {
-        return new BusinessException(message);
+    public static BusinessException create(String code) {
+        return new BusinessException(code);
     }
 
 }
