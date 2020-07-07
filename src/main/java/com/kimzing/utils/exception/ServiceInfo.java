@@ -19,6 +19,11 @@ public class ServiceInfo implements Serializable {
     private String appName;
 
     /**
+     * 接口名称
+     */
+    private String interName;
+
+    /**
      * 方法名称
      */
     private String methodName;
@@ -39,6 +44,14 @@ public class ServiceInfo implements Serializable {
 
     public void setAppName(String appName) {
         this.appName = appName;
+    }
+
+    public String getInterName() {
+        return interName;
+    }
+
+    public void setInterName(String interName) {
+        this.interName = interName;
     }
 
     public String getMethodName() {
