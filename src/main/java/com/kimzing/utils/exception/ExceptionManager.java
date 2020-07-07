@@ -16,15 +16,15 @@ public class ExceptionManager {
      * @param code
      * @return
      */
-    public static BusinessException createByCode(String code) {
-        return new BusinessException(code, null);
+    public static CustomException createByCode(String code) {
+        return new CustomException(code, null);
     }
 
-    public static BusinessException createByMessage(String message) {
-        return new BusinessException(null, message);
+    public static CustomException createByMessage(String message) {
+        return new CustomException(null, message);
     }
 
-    public static BusinessException createByCodeAndMessage(String code, String message) {
-        return new BusinessException(code, message);
+    public static CustomException createByCodeAndMessage(String code, String message) {
+        return new CustomException(code, message);
     }
 }

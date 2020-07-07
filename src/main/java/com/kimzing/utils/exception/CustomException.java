@@ -8,9 +8,9 @@ import java.util.List;
  * @author KimZing - kimzing@163.com
  * @since 2019/12/24 14:17
  */
-public class BusinessException extends RuntimeException {
+public class CustomException extends RuntimeException {
 
-    public BusinessException(String code, String message) {
+    public CustomException(String code, String message) {
         this.timestamp = System.currentTimeMillis();
         this.code = code;
         this.message = message;
