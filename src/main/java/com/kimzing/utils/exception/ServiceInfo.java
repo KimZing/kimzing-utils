@@ -1,6 +1,7 @@
 package com.kimzing.utils.exception;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * 服务信息.
@@ -15,26 +16,52 @@ public class ServiceInfo implements Serializable {
     /**
      * 服务名称
      */
-    private String name;
+    private String appName;
+
+    /**
+     * 方法名称
+     */
+    private String methodName;
 
     /**
      * 服务地址
      */
-    private String host;
+    private String address;
 
-    public String getName() {
-        return name;
+    /**
+     * 附加信息
+     */
+    private Map<String, Object> attach;
+
+    public String getAppName() {
+        return appName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
-    public String getHost() {
-        return host;
+    public String getMethodName() {
+        return methodName;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Map<String, Object> getAttach() {
+        return attach;
+    }
+
+    public void setAttach(Map<String, Object> attach) {
+        this.attach = attach;
     }
 }

@@ -1,7 +1,7 @@
 package com.kimzing.utils.exception;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * 自定义业务异常类.
@@ -37,7 +37,7 @@ public class CustomException extends RuntimeException implements Serializable {
     /**
      * 服务调用链信息
      */
-    private List<ServiceInfo> services;
+    private ArrayList<ServiceInfo> services;
 
     public Long getTimestamp() {
         return timestamp;
@@ -64,11 +64,11 @@ public class CustomException extends RuntimeException implements Serializable {
         this.message = message;
     }
 
-    public List<ServiceInfo> getServices() {
+    public ArrayList<ServiceInfo> getServices() {
         return services;
     }
 
-    public void setServices(List<ServiceInfo> services) {
+    public void setServices(ArrayList<ServiceInfo> services) {
         this.services = services;
     }
 }
