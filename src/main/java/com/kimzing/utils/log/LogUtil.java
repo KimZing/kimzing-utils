@@ -15,7 +15,7 @@ import java.util.Objects;
  */
 public final class LogUtil {
 
-    private static Map<Class, Logger> loggerCacher = new HashMap<>();
+    private static Map<String, Logger> loggerCacher = new HashMap<>();
 
     /**
      * Debug级别日志
@@ -78,7 +78,7 @@ public final class LogUtil {
      * @return
      */
     private static Logger getLogger() {
-        Class classNameOfCaller = getClassNameOfCaller();
+        String classNameOfCaller = getClassNameOfCaller();
         Logger logger = loggerCacher.get(classNameOfCaller);
         if (Objects.nonNull(logger)) {
             return logger;
@@ -88,15 +88,15 @@ public final class LogUtil {
         return logger;
     }
 
-    private static Class getClassNameOfCaller() {
+    private static String getClassNameOfCaller() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         for (StackTraceElement stackTraceElement : stackTrace) {
             String className = stackTraceElement.getClassName();
             if (!className.startsWith("java.lang.Thread") && !className.startsWith("com.kimzing.utils.log.LogUtil")) {
-                return stackTraceElement.getClass();
+                return stackTraceElement.getClassName();
             }
         }
-        return LogUtil.class;
+        return LogUtil.class.getName();
     }
 
 }
