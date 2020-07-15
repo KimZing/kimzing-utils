@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author KimZing - kimzing@163.com
  * @since 2018-08-07 02:02
  */
-public class SysUtil {
+public class SystemUtil {
 
     /**
      * JVM的版本
