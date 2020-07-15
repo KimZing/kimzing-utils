@@ -1,12 +1,11 @@
 package com.kimzing.utils.log;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 日志打印工具.
@@ -16,10 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class LogUtil {
 
-    private static Cache<String, Logger> loggerCacher = CacheBuilder.newBuilder()
-            .maximumSize(1000)
-            .expireAfterAccess(10, TimeUnit.MINUTES)
-            .build();
+    private static Map<String, Logger> loggerCacher = new HashMap<>();
 
     /**
      * Debug级别日志
@@ -83,7 +79,7 @@ public final class LogUtil {
      */
     private static Logger getLogger() {
         String classNameOfCaller = getClassNameOfCaller();
-        Logger logger = loggerCacher.getIfPresent(classNameOfCaller);
+        Logger logger = loggerCacher.get(classNameOfCaller);
         if (Objects.nonNull(logger)) {
             return logger;
         }

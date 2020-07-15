@@ -1,7 +1,7 @@
 package com.kimzing.utils.json;
 
 import com.google.gson.*;
-import org.apache.commons.lang3.StringUtils;
+import com.kimzing.utils.string.StringUtil;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -31,7 +31,7 @@ public final class JsonUtil {
      * @return
      */
     public static boolean isValid(String json) {
-        if (StringUtils.isBlank(json)) {
+        if (StringUtil.isBlank(json)) {
             return false;
         }
         try {
@@ -117,7 +117,7 @@ public final class JsonUtil {
      * @return java.util.List<T>
      */
     public static <T> List<T> jsonToList(String jsonList, Class<T> clazz, String dateTimeFormat) {
-        if (StringUtils.isBlank(dateTimeFormat)) {
+        if (StringUtil.isBlank(dateTimeFormat)) {
             return jsonToList(jsonList, clazz);
         }
         Gson gson = gsonBuilder
@@ -147,7 +147,7 @@ public final class JsonUtil {
      * @return java.util.Map
      */
     public static <K, V> Map<K, V> jsonToMap(String jsonMap, Class<K> keyType, Class<V> valueType, String dateTimeFormat) {
-        if (StringUtils.isBlank(dateTimeFormat)) {
+        if (StringUtil.isBlank(dateTimeFormat)) {
             return jsonToMap(jsonMap, keyType, valueType);
         }
         Gson gson = gsonBuilder

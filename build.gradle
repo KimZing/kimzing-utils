@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'java-library'
     id 'maven-publish'
 }
 group 'com.kimzing'
@@ -14,8 +13,11 @@ repositories {
 
 
 dependencies {
-    implementation 'ch.qos.logback:logback-core:1.2.3'
-    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'ma.glasnost.orika:orika-core:1.5.4'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.belerweb:pinyin4j:2.5.1'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
 
     compileOnly 'jakarta.validation:jakarta.validation-api:2.0.2'
     compileOnly 'org.springframework:spring-context:5.2.6.RELEASE'
@@ -23,15 +25,6 @@ dependencies {
     compileOnly 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
     compileOnly 'org.apache.poi:poi:4.1.2'
     compileOnly 'org.apache.poi:poi-ooxml:4.1.2'
-
-    api 'ma.glasnost.orika:orika-core:1.5.4'
-    api 'org.apache.commons:commons-lang3:3.10'
-    api 'commons-codec:commons-codec:1.13'
-    api 'commons-io:commons-io:2.7'
-    api 'com.google.guava:guava:28.1-jre'
-    api 'com.google.code.gson:gson:2.8.6'
-    api 'com.belerweb:pinyin4j:2.5.1'
-    api 'com.sun.mail:javax.mail:1.6.2'
 
     testImplementation 'junit:junit:4.13'
 }
