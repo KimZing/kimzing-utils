@@ -18,6 +18,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.belerweb:pinyin4j:2.5.1'
     implementation 'com.sun.mail:javax.mail:1.6.2'
+    // 用作日期格式化注解
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.11.1'
 
     compileOnly 'jakarta.validation:jakarta.validation-api:2.0.2'
     compileOnly 'org.springframework:spring-context:5.2.6.RELEASE'
@@ -25,6 +27,8 @@ dependencies {
     compileOnly 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
     compileOnly 'org.apache.poi:poi:4.1.2'
     compileOnly 'org.apache.poi:poi-ooxml:4.1.2'
+
+
 
     testImplementation 'junit:junit:4.13'
 }
