@@ -24,6 +24,8 @@ LocalDateTime工具类，对日期进行相关操作，包含与Date的转换，
 Json字符串与对象的相互转换，基于Gson封装
 - **LogUtil**
 日志打印工具，项目中统一使用该工具进行日志打印，方便日后进行统一调整更改
+- BigDecimalUtil
+提供各种类型和BigDecimal的转换，以及加减乘除运算（可指定精度）
 - NumberUtil
 大小端字节转换，int、short与byte数组的相互转换
 - **MPPageUtil**
