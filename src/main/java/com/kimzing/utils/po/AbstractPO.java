@@ -26,47 +26,53 @@ public abstract class AbstractPO {
         return id;
     }
 
-    public void setId(Integer id) {
+    public AbstractPO setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public Integer getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Integer deleted) {
+    public AbstractPO setDeleted(Integer deleted) {
         this.deleted = deleted;
+        return this;
     }
 
     public String getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public AbstractPO setCreator(String creator) {
         this.creator = creator;
+        return this;
     }
 
     public String getModifier() {
         return modifier;
     }
 
-    public void setModifier(String modifier) {
+    public AbstractPO setModifier(String modifier) {
         this.modifier = modifier;
+        return this;
     }
 
     public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDateTime createTime) {
+    public AbstractPO setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
+        return this;
     }
 
     public LocalDateTime getModifyTime() {
         return modifyTime;
     }
 
-    public void setModifyTime(LocalDateTime modifyTime) {
+    public AbstractPO setModifyTime(LocalDateTime modifyTime) {
         this.modifyTime = modifyTime;
+        return this;
     }
 }
