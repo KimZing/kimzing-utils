@@ -50,6 +50,9 @@ public final class JsonUtil {
      * @return T
      */
     public static <T> T jsonToBean(String json, Class<T> clazz) {
+        if (StringUtil.isBlank(json)) {
+            return null;
+        }
         return gson.fromJson(json, clazz);
     }
 
@@ -61,6 +64,9 @@ public final class JsonUtil {
      * @return T
      */
     public static <T> T jsonToBean(String json, Class<T> clazz, String dateTimeFormat) {
+        if (StringUtil.isBlank(json)) {
+            return null;
+        }
         if (Objects.isNull(dateTimeFormat) || "".equals(dateTimeFormat)) {
             return jsonToBean(json, clazz);
         }
@@ -76,6 +82,9 @@ public final class JsonUtil {
      * @return java.lang.String
      */
     public static String beanToJson(Object object) {
+        if (Objects.isNull(object)) {
+            return null;
+        }
         return gson.toJson(object);
     }
 
@@ -87,6 +96,9 @@ public final class JsonUtil {
      * @return java.lang.String
      */
     public static String beanToJson(Object object, String dateTimeFormat) {
+        if (Objects.isNull(object)) {
+            return null;
+        }
         if (Objects.isNull(dateTimeFormat) || "".equals(dateTimeFormat)) {
             return beanToJson(object);
         }
@@ -105,6 +117,9 @@ public final class JsonUtil {
      * @return java.util.List<T>
      */
     public static <T> List<T> jsonToList(String jsonList, Class<T> clazz) {
+        if (StringUtil.isBlank(jsonList)) {
+            return null;
+        }
         return gson.fromJson(jsonList, getListType(clazz));
     }
 
@@ -117,6 +132,9 @@ public final class JsonUtil {
      * @return java.util.List<T>
      */
     public static <T> List<T> jsonToList(String jsonList, Class<T> clazz, String dateTimeFormat) {
+        if (StringUtil.isBlank(jsonList)) {
+            return null;
+        }
         if (StringUtil.isBlank(dateTimeFormat)) {
             return jsonToList(jsonList, clazz);
         }
@@ -135,6 +153,9 @@ public final class JsonUtil {
      * @return java.util.Map
      */
     public static <K, V> Map<K, V> jsonToMap(String jsonMap, Class<K> keyType, Class<V> valueType) {
+        if (StringUtil.isBlank(jsonMap)) {
+            return null;
+        }
         return gson.fromJson(jsonMap, getMapType(keyType, valueType));
     }
 
@@ -147,6 +168,9 @@ public final class JsonUtil {
      * @return java.util.Map
      */
     public static <K, V> Map<K, V> jsonToMap(String jsonMap, Class<K> keyType, Class<V> valueType, String dateTimeFormat) {
+        if (StringUtil.isBlank(jsonMap)) {
+            return null;
+        }
         if (StringUtil.isBlank(dateTimeFormat)) {
             return jsonToMap(jsonMap, keyType, valueType);
         }
