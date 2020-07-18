@@ -14,8 +14,6 @@ public abstract class AbstractBO {
 
     protected  Integer id;
 
-    protected Integer deleted;
-
     protected String creator;
 
     protected String modifier;
@@ -32,15 +30,6 @@ public abstract class AbstractBO {
 
     public AbstractBO setId(Integer id) {
         this.id = id;
-        return this;
-    }
-
-    public Integer getDeleted() {
-        return deleted;
-    }
-
-    public AbstractBO setDeleted(Integer deleted) {
-        this.deleted = deleted;
         return this;
     }
 
