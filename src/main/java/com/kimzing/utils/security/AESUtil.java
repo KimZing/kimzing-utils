@@ -1,6 +1,4 @@
-package com.kimzing.utils.aes;
-
-import com.kimzing.utils.base64.Base64Util;
+package com.kimzing.utils.security;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -41,7 +39,7 @@ public class AESUtil {
             // 加密
             byte[] result = cipher.doFinal(byteContent);
             //通过Base64转码返回
-            return Base64Util.encodeToString(result);
+            return BASE64Util.encodeToString(result);
         } catch (Exception ex) {
             Logger.getLogger(AESUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,7 +64,7 @@ public class AESUtil {
             cipher.init(Cipher.DECRYPT_MODE, getSecretKey(password));
 
             //执行操作
-            byte[] result = cipher.doFinal(Base64Util.decodeFromString(content));
+            byte[] result = cipher.doFinal(BASE64Util.decodeFromString(content));
             String s = new String(result, "utf-8");
             return s;
         } catch (Exception ex) {

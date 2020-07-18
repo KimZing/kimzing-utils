@@ -1,4 +1,4 @@
-package com.kimzing.utils.aes;
+package com.kimzing.utils.security;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.kimzing.utils.base64;
+package com.kimzing.utils.security;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -10,7 +10,7 @@ import java.util.Base64;
  * @author KimZing - kimzing@163.com
  * @since 2020年07月15日23:55:51
  */
-public abstract class Base64Util {
+public abstract class BASE64Util {
 
     private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
@@ -39,6 +39,34 @@ public abstract class Base64Util {
             return src;
         }
         return Base64.getDecoder().decode(src);
+    }
+
+    /**
+     * 编码给定的字符串
+     *
+     * @param src the original byte array
+     * @return the encoded byte array
+     */
+    public static String encode(String src) {
+        if (src == null) {
+            return null;
+        }
+        byte[] encode = encode(src.getBytes(DEFAULT_CHARSET));
+        return new String(encode, DEFAULT_CHARSET);
+    }
+
+    /**
+     * 解码给定的字节数组
+     *
+     * @param src the encoded byte array
+     * @return the original byte array
+     */
+    public static String decode(String src) {
+        if (src == null) {
+            return null;
+        }
+        byte[] decode = decode(src.getBytes(DEFAULT_CHARSET));
+        return new String(decode, DEFAULT_CHARSET);
     }
 
     /**

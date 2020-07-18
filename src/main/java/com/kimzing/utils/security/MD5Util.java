@@ -1,4 +1,4 @@
-package com.kimzing.utils.md5;
+package com.kimzing.utils.security;
 
 import com.kimzing.utils.hex.HexUtil;
 
