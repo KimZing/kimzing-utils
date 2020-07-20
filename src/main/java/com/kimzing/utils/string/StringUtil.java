@@ -13,6 +13,8 @@ import java.util.regex.Pattern;
  */
 public class StringUtil {
 
+    private static final char SEPARATOR = '_';
+
     /**
      * 是否为空.
      * <p>
@@ -191,48 +193,72 @@ public class StringUtil {
         return left(str1, length).equals(left(str2, length));
     }
 
-    private static int compare(String str, String target) {
-        int[][] d; // 矩阵
-        int n = str.length();
-        int m = target.length();
-        int i; // 遍历str的
-        int j; // 遍历target的
-        char ch1; // str的
-        char ch2; // target的
-        int temp; // 记录相同字符,在某个矩阵位置值的增量,不是0就是1
-        if (n == 0) {
-            return m;
-        }
-        if (m == 0) {
-            return n;
-        }
-        d = new int[n + 1][m + 1];
-        // 初始化第一列
-        for (i = 0; i <= n; i++) {
-            d[i][0] = i;
+
+    /**
+     * 字符串转下划线
+     */
+    public static String toUnderlineName(String s) {
+        if (s == null) {
+            return null;
         }
 
-        // 初始化第一行
-        for (j = 0; j <= m; j++) {
-            d[0][j] = j;
-        }
-        // 遍历str
-        for (i = 1; i <= n; i++) {
-            ch1 = str.charAt(i - 1);
-            // 去匹配target
-            for (j = 1; j <= m; j++) {
-                ch2 = target.charAt(j - 1);
-                if (ch1 == ch2) {
-                    temp = 0;
-                } else {
-                    temp = 1;
+        StringBuilder sb = new StringBuilder();
+        boolean upperCase = false;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            boolean nextUpperCase = true;
+
+            if (i < (s.length() - 1)) {
+                nextUpperCase = Character.isUpperCase(s.charAt(i + 1));
+            }
+
+            if ((i >= 0) && Character.isUpperCase(c)) {
+                if (!upperCase || !nextUpperCase) {
+                    if (i > 0) sb.append(SEPARATOR);
                 }
+                upperCase = true;
+            } else {
+                upperCase = false;
+            }
 
-                // 左边+1,上边+1, 左上角+temp取最小
-                d[i][j] = min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + temp);
+            sb.append(Character.toLowerCase(c));
+        }
+        return sb.toString();
+    }
+
+    /**
+     * 下划线转驼峰
+     */
+    public static String toCamelCase(String s) {
+        if (s == null) {
+            return null;
+        }
+        s = s.toLowerCase();
+        StringBuilder sb = new StringBuilder(s.length());
+        boolean upperCase = false;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == SEPARATOR) {
+                upperCase = true;
+            } else if (upperCase) {
+                sb.append(Character.toUpperCase(c));
+                upperCase = false;
+            } else {
+                sb.append(c);
             }
         }
-        return d[n][m];
+        return sb.toString();
+    }
+
+    /**
+     * 下划线转大写驼峰
+     */
+    public static String toCapitalizeCamelCase(String s) {
+        if (s == null) {
+            return null;
+        }
+        s = toCamelCase(s);
+        return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
 
     private static int min(int one, int two, int three) {
