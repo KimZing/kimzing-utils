@@ -13,15 +13,15 @@ public class PageResult<T> implements Serializable {
 
     public PageResult() { }
 
-    public PageResult(Long total, PageParam pageParam, List<T> data) {
-        this(total, pageParam.getPageNum(), pageParam.getPageSize(), data);
+    public PageResult(Long total, PageParam pageParam, List<T> list) {
+        this(total, pageParam.getPageNum(), pageParam.getPageSize(), list);
     }
 
-    public PageResult(Long total, Integer pageNum, Integer pageSize, List<T> data) {
+    public PageResult(Long total, Integer pageNum, Integer pageSize, List<T> list) {
         this.total = total;
         this.pageNum = pageNum;
         this.pageSize = pageSize;
-        this.data = data;
+        this.list = list;
     }
 
     /**
@@ -42,7 +42,7 @@ public class PageResult<T> implements Serializable {
     /**
      * 分页数据
      */
-    private List<T> data;
+    private List<T> list;
 
     public Long getTotal() {
         return total;
@@ -68,11 +68,11 @@ public class PageResult<T> implements Serializable {
         this.pageSize = pageSize;
     }
 
-    public List<T> getData() {
-        return data;
+    public List<T> getList() {
+        return list;
     }
 
-    public void setData(List<T> data) {
-        this.data = data;
+    public void setList(List<T> list) {
+        this.list = list;
     }
 }
