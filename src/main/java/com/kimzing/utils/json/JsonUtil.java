@@ -34,12 +34,19 @@ public final class JsonUtil {
         if (StringUtil.isBlank(json)) {
             return false;
         }
+        JsonElement jsonElement;
         try {
-            JsonParser.parseString(json);
-            return true;
-        } catch (JsonParseException e) {
+            jsonElement = JsonParser.parseString(json);
+        } catch (Exception e) {
             return false;
         }
+        if (jsonElement == null) {
+            return false;
+        }
+        if (!jsonElement.isJsonObject()) {
+            return false;
+        }
+        return true;
     }
 
     /**

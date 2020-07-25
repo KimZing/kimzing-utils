@@ -1,5 +1,7 @@
 package com.kimzing.utils.json;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +49,12 @@ public class JsonUtilTest {
         json = "[{\"name\":\"KimZing\",\"age\":18}]";
         List<User> list = JsonUtil.jsonToList(json, User.class, "yyyy-MM-dd");
         logger.info("反序列化list对象: {}", list);
+    }
+
+    @Test
+    public void testIsValid() {
+        String json = "aa";
+        JsonElement jsonElement = JsonParser.parseString(json);
     }
 
 
