@@ -64,6 +64,20 @@ public final class JsonUtil {
     }
 
     /**
+     * json串转换为对应类型的对象，通常用于泛型.
+     *
+     * @param json
+     * @param type
+     * @return T
+     */
+    public static <T> T jsonToBeanByType(String json, Type type) {
+        if (StringUtil.isBlank(json)) {
+            return null;
+        }
+        return gson.fromJson(json, type);
+    }
+
+    /**
      * json串转换为对象.
      *
      * @param json
