@@ -56,10 +56,10 @@ publishing {
     repositories {
         maven {
             //指定要上传的maven私服仓库
-            url = "http://mvn.kimzing.com/nexus/content/repositories/releases/"
+            url = "http://mvn.kimzing.com/repository/maven-releases/"
             //认证用户和密码
             credentials {
-                username = 'admin'
+                username = 'kimzing'
                 password = 'KimZing123456!'
             }
         }
