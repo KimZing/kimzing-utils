@@ -13,6 +13,7 @@ repositories {
 
 
 dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'ma.glasnost.orika:orika-core:1.5.4'
     implementation 'org.apache.commons:commons-lang3:3.10'
     api 'com.google.code.gson:gson:2.8.6'
