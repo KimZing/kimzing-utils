@@ -1,6 +1,7 @@
 package com.kimzing.utils.json;
 
 import com.google.gson.*;
+import com.kimzing.utils.log.LogUtil;
 import com.kimzing.utils.string.StringUtil;
 
 import java.lang.reflect.ParameterizedType;
@@ -47,6 +48,19 @@ public final class JsonUtil {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 返回Json元素
+     * @param json
+     * @return
+     */
+    public static JsonElement fromJson(String json) {
+        if (JsonUtil.isValid(json)) {
+            return JsonParser.parseString(json);
+        }
+        LogUtil.warn("请检查Json格式: [{}]", json);
+        return null;
     }
 
     /**
